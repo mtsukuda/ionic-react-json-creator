@@ -43,8 +43,8 @@
         </div>
       </div>
 
-      <div v-if="!item.root && index + 1 === value.length">
-        <b-nav-item-dropdown text="追加 [+]">
+      <div v-if="!item.root && index + 1 === value.length" class="small">
+        <b-nav-item-dropdown text="タグ追加 [+]">
           <b-dropdown-item
             v-for="tag in ionTags"
             v-on:click="addTag(tag.tag, item)"
