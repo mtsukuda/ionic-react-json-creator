@@ -11,6 +11,7 @@
               >{{ tag.label }}</b-dropdown-item
             >
           </b-nav-item-dropdown>
+          <div v-if="item.content" class="small ml-3 mb-1">{{item.content}}</div>
           <button
             v-on:click="addChildTag(item)"
             class="btn btn-outline-primary property-btn btn-sm m-1"
