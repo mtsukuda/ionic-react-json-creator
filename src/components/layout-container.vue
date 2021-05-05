@@ -1,0 +1,136 @@
+<template>
+  <div class="container border rounded layout-container-div p-1">
+    <div v-for="(item, index) in value" :key="index">
+      <div>
+        <div>
+          <b-nav-item-dropdown :text="item.tag" class="tag">
+            <b-dropdown-item
+              v-for="tag in ionTags"
+              v-on:click="changeTag(tag.tag, item)"
+              class="dropdown-mine"
+              >{{ tag.label }}</b-dropdown-item
+            >
+          </b-nav-item-dropdown>
+          <button
+            v-on:click="addChildTag(item)"
+            class="btn btn-outline-primary property-btn btn-sm m-1"
+            v-bind:disabled="hasChild(item)"
+          >
+            👶
+          </button>
+          <button
+            v-on:click="showModal(index)"
+            class="btn btn-outline-info property-btn btn-sm m-1"
+          >
+            プロパティ
+          </button>
+          <button
+            v-on:click="deleteTag(index)"
+            class="btn btn-danger property-btn btn-sm m-1"
+          >
+            削除
+          </button>
+
+          <layout-property-modal ref="propertyModal" v-model="value[index]" />
+
+          <layout-container
+            v-if="item.child && item.child.tags"
+            v-model="item.child.tags"
+          ></layout-container>
+        </div>
+      </div>
+
+      <div v-if="!item.root && index + 1 === value.length">
+        <b-nav-item-dropdown text="追加 [+]">
+          <b-dropdown-item
+            v-for="tag in ionTags"
+            v-on:click="addTag(tag.tag, item)"
+            class="dropdown-mine"
+            >{{ tag.label }}</b-dropdown-item
+          >
+        </b-nav-item-dropdown>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import layoutPropertyModal from "./layout-property-modal";
+export default {
+  name: "layout-container",
+  components: {
+    layoutPropertyModal,
+  },
+  props: {
+    value: {},
+  },
+  mounted() {
+    console.log(this.value);
+  },
+  data() {
+    return {
+      ionTags: [
+        { tag: "div", label: "div" },
+        { tag: "IonContent", label: "IonContent" },
+        { tag: "IonCard", label: "IonCard" },
+        { tag: "IonCardHeader", label: "IonCardHeader" },
+        { tag: "IonCardTitle", label: "IonCardTitle" },
+        { tag: "IonCardSubtitle", label: "IonCardSubtitle" },
+        { tag: "IonCardContent", label: "IonCardContent" },
+        { tag: "IonItem", label: "IonItem" },
+        { tag: "IonIcon", label: "IonIcon" },
+        { tag: "IonLabel", label: "IonLabel" },
+        { tag: "IonButton", label: "IonButton" },
+      ],
+    };
+  },
+  methods: {
+    changeTag: function (newTag, item) {
+      item.tag = newTag;
+    },
+    hasChild: function (item) {
+      console.log(item.tag);
+      console.log(item.child);
+      if (!item.child) return false;
+      return !(item.child && item.child.tags && item.child.tags.length === 0);
+    },
+    addChildTag: function (item) {
+      let child = { tag: "div", props: [] };
+      item["child"] = { tags: [] };
+      item.child.tags.push(child);
+      this.$forceUpdate();
+    },
+    addTag: function (newTag) {
+      let item = {};
+      item["tag"] = newTag;
+      item["props"] = [];
+      this.value.push(item);
+      this.$forceUpdate();
+    },
+    deleteTag: function (index) {
+      this.value.splice(index, 1);
+    },
+    showModal: function (index) {
+      console.log(this.$refs);
+      this.$refs.propertyModal[index].show();
+    },
+  },
+};
+</script>
+
+<style scoped>
+.layout-container-div {
+  border-color: grey;
+}
+.nav-item {
+  list-style: none;
+}
+.tag {
+  font-size: large;
+  font-weight: bold;
+  padding-right: 0.5em;
+}
+.property-btn {
+  font-size: small;
+}
+</style>
