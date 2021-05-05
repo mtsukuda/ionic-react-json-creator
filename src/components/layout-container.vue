@@ -6,7 +6,7 @@
           <b-nav-item-dropdown :text="item.tag" class="tag">
             <b-dropdown-item
               v-for="tag in ionTags"
-              v-on:click="changeTag(tag.tag, item)"
+              v-on:click="changeTag(tag, item)"
               class="dropdown-mine"
               >{{ tag.label }}</b-dropdown-item
             >
@@ -74,8 +74,8 @@ export default {
         { tag: "IonContent", label: "IonContent" },
         { tag: "IonCard", label: "IonCard" },
         { tag: "IonCardHeader", label: "IonCardHeader" },
-        { tag: "IonCardTitle", label: "IonCardTitle" },
-        { tag: "IonCardSubtitle", label: "IonCardSubtitle" },
+        { tag: "IonCardTitle", label: "IonCardTitle", noCR: "yes" },
+        { tag: "IonCardSubtitle", label: "IonCardSubtitle", noCR: "yes" },
         { tag: "IonCardContent", label: "IonCardContent" },
         { tag: "IonItem", label: "IonItem" },
         { tag: "IonIcon", label: "IonIcon" },
@@ -86,7 +86,13 @@ export default {
   },
   methods: {
     changeTag: function (newTag, item) {
-      item.tag = newTag;
+      item.tag = newTag.tag;
+      if (item.noCR) {
+        delete item.noCR;
+      }
+      if (newTag.noCR) {
+        item['noCR'] = newTag.noCR;
+      }
     },
     hasChild: function (item) {
       console.log(item.tag);
