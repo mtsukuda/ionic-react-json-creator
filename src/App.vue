@@ -24,7 +24,6 @@
 
 <script>
 import layoutContainer from "./components/layout-container.vue";
-import layoutPanel from "./components/layout-panel.vue";
 import componentName from "./components/component-name";
 import lawViewSelection from "./components/law-view-selection";
 import "bootstrap/dist/css/bootstrap.css";
@@ -33,7 +32,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 export default {
   components: {
     layoutContainer,
-    layoutPanel,
     componentName,
     lawViewSelection,
   },
