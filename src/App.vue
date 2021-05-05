@@ -100,10 +100,12 @@ export default {
                           tags: [
                             {
                               tag: "IonCardTitle",
+                              content: "カードタイトルだよぉ",
                               props: [],
                             },
                             {
                               tag: "IonCardSubtitle",
+                              content: "サブタイトル 2021",
                               props: [],
                             },
                           ],
@@ -111,6 +113,7 @@ export default {
                       },
                       {
                         tag: "IonCardContent",
+                        content: "おぎやはぎの矢作兼が５日、ＴＢＳ系「水曜日のダウンタウン」に出演。過去の「やらせ体験」を明かした。",
                         props: [],
                       },
                     ],
