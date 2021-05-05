@@ -72,6 +72,7 @@ export default {
     return {
       ionTags: [
         { tag: "div", label: "div" },
+        { tag: "p", label: "p" },
         { tag: "IonContent", label: "IonContent" },
         { tag: "IonCard", label: "IonCard" },
         { tag: "IonCardHeader", label: "IonCardHeader" },
