@@ -59,8 +59,10 @@
 
 <script>
 import layoutPropertyModal from "./layout-property-modal";
+import ion from "../mixin/ion"
 export default {
   name: "layout-container",
+  mixins: [ion],
   components: {
     layoutPropertyModal,
   },
@@ -69,24 +71,6 @@ export default {
   },
   mounted() {
     console.log(this.value);
-  },
-  data() {
-    return {
-      ionTags: [
-        { tag: "div", label: "div" },
-        { tag: "p", label: "p" },
-        { tag: "IonContent", label: "IonContent" },
-        { tag: "IonCard", label: "IonCard" },
-        { tag: "IonCardHeader", label: "IonCardHeader" },
-        { tag: "IonCardTitle", label: "IonCardTitle", noCR: "yes" },
-        { tag: "IonCardSubtitle", label: "IonCardSubtitle", noCR: "yes" },
-        { tag: "IonCardContent", label: "IonCardContent" },
-        { tag: "IonItem", label: "IonItem" },
-        { tag: "IonIcon", label: "IonIcon" },
-        { tag: "IonLabel", label: "IonLabel" },
-        { tag: "IonButton", label: "IonButton" },
-      ],
-    };
   },
   methods: {
     changeTag: function (newTag, item) {
