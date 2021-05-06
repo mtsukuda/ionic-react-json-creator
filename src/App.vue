@@ -7,9 +7,7 @@
     <div class="row">
       <div class="col-6">
         <div class="mt-3">
-          <layout-container
-            v-model="configJson.tags[0].child.tags"
-          ></layout-container>
+          <layout-container v-model="configJson.tags"></layout-container>
         </div>
       </div>
       <div class="col-6">
@@ -101,11 +99,13 @@ export default {
                             {
                               tag: "IonCardTitle",
                               content: "カードタイトルだよぉ",
+                              noCR: "yes",
                               props: [],
                             },
                             {
                               tag: "IonCardSubtitle",
                               content: "サブタイトル 2021",
+                              noCR: "yes",
                               props: [],
                             },
                           ],

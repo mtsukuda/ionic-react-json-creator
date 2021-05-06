@@ -59,7 +59,7 @@
 
 <script>
 import layoutPropertyModal from "./layout-property-modal";
-import ion from "../mixin/ion"
+import ion from "../mixin/ion";
 export default {
   name: "layout-container",
   mixins: [ion],
