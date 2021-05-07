@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-1">
+  <div class="container pl-1 pr-1">
     <div
       v-for="(item, index) in value"
       :key="index"
