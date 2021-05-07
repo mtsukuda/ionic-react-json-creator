@@ -12,9 +12,7 @@
       </div>
       <div class="col-6">
         <law-view-selection v-model="viewConfig"></law-view-selection>
-        <div class="bg-light p-3 mt-1 small">
-          <pre>{{ raw }}</pre>
-        </div>
+        <law-view-json v-model="configJson"></law-view-json>
       </div>
     </div>
   </div>
@@ -24,6 +22,7 @@
 import layoutContainer from "./components/layout-container.vue";
 import componentName from "./components/component-name";
 import lawViewSelection from "./components/law-view-selection";
+import lawViewJson from "./components/law-view-json";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -32,45 +31,10 @@ export default {
     layoutContainer,
     componentName,
     lawViewSelection,
+    lawViewJson,
   },
   mounted() {
     console.log(this.configJson.tags[0].child.tags);
-  },
-  computed: {
-    raw() {
-      let importList = [];
-      this.compressImport(this.configJson.tags, importList);
-      this.configJson.import = importList;
-      let configShowJson = { ...this.configJson };
-      if (!this.viewConfig.tags) delete configShowJson.tags;
-      if (!this.viewConfig.imports) delete configShowJson.import;
-      if (!this.viewConfig.fetch) delete configShowJson.fetch;
-      return JSON.stringify(configShowJson, null, 2);
-    },
-  },
-  methods: {
-    compressImport(tags, importList) {
-      tags.forEach((tag) => {
-        if (this.isIon(tag.tag)) {
-          if (!importList.find((value) => value.name === tag.tag))
-            importList.push(this.ionImport(tag.tag));
-        }
-        if (tag.child && tag.child.tags) {
-          this.compressImport(tag.child.tags, importList);
-        }
-      });
-    },
-    isIon(tag) {
-      return !tag.indexOf("Ion");
-    },
-    ionImport(tag) {
-      return {
-        name: tag,
-        from: "@ionic/react",
-        type: "package",
-        props: [],
-      };
-    },
   },
   data() {
     return {
