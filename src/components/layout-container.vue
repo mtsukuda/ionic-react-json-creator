@@ -85,10 +85,9 @@ export default {
       if (newTag.noCR) {
         item["noCR"] = newTag.noCR;
       }
+      this.$forceUpdate();
     },
     hasChild: function (item) {
-      console.log(item.tag);
-      console.log(item.child);
       if (!item.child) return false;
       return !(item.child && item.child.tags && item.child.tags.length === 0);
     },
@@ -107,6 +106,7 @@ export default {
     },
     deleteTag: function (index) {
       this.value.splice(index, 1);
+      this.$forceUpdate();
     },
     showModal: function (index) {
       console.log(this.$refs);
