@@ -9,6 +9,7 @@ export default {
   name: "law-view-json",
   props: {
     value: {},
+    viewConfig: {}
   },
   computed: {
     raw() {
@@ -16,9 +17,9 @@ export default {
       this.compressImport(this.value.tags, importList);
       this.value.import = importList;
       let configShowJson = {...this.value};
-      if (!this.value.tags) delete configShowJson.tags;
-      if (!this.value.imports) delete configShowJson.import;
-      if (!this.value.fetch) delete configShowJson.fetch;
+      if (!this.viewConfig.tags) delete configShowJson.tags;
+      if (!this.viewConfig.imports) delete configShowJson.import;
+      if (!this.viewConfig.fetch) delete configShowJson.fetch;
       return JSON.stringify(configShowJson, null, 2);
     },
   },
