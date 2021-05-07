@@ -1,49 +1,49 @@
 <template>
   <div class="container pl-1 pr-1">
-    <div
-      v-for="(item, index) in value"
-      :key="index"
-      class="border rounded layout-container-div mb-1"
-    >
-      <div>
+    <div v-for="(item, index) in value" :key="index">
+      <div class="border rounded layout-container-div mb-1">
         <div>
-          <b-nav-item-dropdown :text="item.tag" class="tag">
-            <b-dropdown-item
-              v-for="tag in ionTags"
-              v-on:click="changeTag(tag, item)"
-              class="dropdown-mine small"
-              >{{ tag.label }}</b-dropdown-item
-            >
-          </b-nav-item-dropdown>
-          <div v-if="item.content" class="small ml-3 mb-1">
-            {{ item.content }}
+          <div>
+            <b-nav-item-dropdown :text="item.tag" class="tag">
+              <b-dropdown-item
+                v-for="tag in ionTags"
+                v-on:click="changeTag(tag, item)"
+                class="dropdown-mine small"
+                >{{ tag.label }}</b-dropdown-item
+              >
+            </b-nav-item-dropdown>
+            <div v-if="item.content" class="small ml-3 mb-1">
+              {{ item.content }}
+            </div>
+            <div class="ml-1 mb-2">
+              <button
+                v-on:click="addChildTag(item)"
+                class="btn btn-outline-primary property-btn btn-sm m-1"
+                v-bind:disabled="hasChild(item)"
+              >
+                👶
+              </button>
+              <button
+                v-on:click="showModal(index)"
+                class="btn btn-outline-info property-btn btn-sm m-1"
+              >
+                プロパティ
+              </button>
+              <button
+                v-on:click="deleteTag(index)"
+                class="btn btn-danger property-btn btn-sm m-1"
+              >
+                削除
+              </button>
+            </div>
+
+            <layout-property-modal ref="propertyModal" v-model="value[index]" />
+
+            <layout-container
+              v-if="item.child && item.child.tags"
+              v-model="item.child.tags"
+            ></layout-container>
           </div>
-          <button
-            v-on:click="addChildTag(item)"
-            class="btn btn-outline-primary property-btn btn-sm m-1"
-            v-bind:disabled="hasChild(item)"
-          >
-            👶
-          </button>
-          <button
-            v-on:click="showModal(index)"
-            class="btn btn-outline-info property-btn btn-sm m-1"
-          >
-            プロパティ
-          </button>
-          <button
-            v-on:click="deleteTag(index)"
-            class="btn btn-danger property-btn btn-sm m-1"
-          >
-            削除
-          </button>
-
-          <layout-property-modal ref="propertyModal" v-model="value[index]" />
-
-          <layout-container
-            v-if="item.child && item.child.tags"
-            v-model="item.child.tags"
-          ></layout-container>
         </div>
       </div>
 
