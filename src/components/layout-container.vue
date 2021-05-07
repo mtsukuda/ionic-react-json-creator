@@ -1,6 +1,10 @@
 <template>
-  <div class="container border rounded layout-container-div p-1">
-    <div v-for="(item, index) in value" :key="index">
+  <div class="container p-1">
+    <div
+      v-for="(item, index) in value"
+      :key="index"
+      class="border rounded layout-container-div mb-1"
+    >
       <div>
         <div>
           <b-nav-item-dropdown :text="item.tag" class="tag">
