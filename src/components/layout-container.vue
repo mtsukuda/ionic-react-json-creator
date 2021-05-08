@@ -52,7 +52,7 @@
           <b-dropdown-item
             v-for="tag in ionTags"
             v-on:click="addTag(tag.tag, item)"
-            class="dropdown-mine"
+            class="dropdown-mine small"
             >{{ tag.label }}</b-dropdown-item
           >
         </b-nav-item-dropdown>
