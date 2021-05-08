@@ -12,7 +12,10 @@
       </div>
       <div class="col-6">
         <law-view-selection v-model="viewConfig"></law-view-selection>
-        <law-view-json v-model="configJson" v-bind:view-config="viewConfig"></law-view-json>
+        <law-view-json
+          v-model="configJson"
+          v-bind:view-config="viewConfig"
+        ></law-view-json>
       </div>
     </div>
   </div>

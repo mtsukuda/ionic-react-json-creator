@@ -9,14 +9,14 @@ export default {
   name: "law-view-json",
   props: {
     value: {},
-    viewConfig: {}
+    viewConfig: {},
   },
   computed: {
     raw() {
       let importList = [];
       this.compressImport(this.value.tags, importList);
       this.value.import = importList;
-      let configShowJson = {...this.value};
+      let configShowJson = { ...this.value };
       if (!this.viewConfig.tags) delete configShowJson.tags;
       if (!this.viewConfig.imports) delete configShowJson.import;
       if (!this.viewConfig.fetch) delete configShowJson.fetch;
@@ -24,32 +24,30 @@ export default {
     },
   },
   methods: {
-      compressImport(tags, importList) {
-        tags.forEach((tag) => {
-          if (this.isIon(tag.tag)) {
-            if (!importList.find((value) => value.name === tag.tag))
-              importList.push(this.ionImport(tag.tag));
-          }
-          if (tag.child && tag.child.tags) {
-            this.compressImport(tag.child.tags, importList);
-          }
-        });
-      },
-      isIon(tag) {
-        return !tag.indexOf("Ion");
-      },
-      ionImport(tag) {
-        return {
-          name: tag,
-          from: "@ionic/react",
-          type: "package",
-          props: [],
-        };
-      },
-  }
-}
+    compressImport(tags, importList) {
+      tags.forEach((tag) => {
+        if (this.isIon(tag.tag)) {
+          if (!importList.find((value) => value.name === tag.tag))
+            importList.push(this.ionImport(tag.tag));
+        }
+        if (tag.child && tag.child.tags) {
+          this.compressImport(tag.child.tags, importList);
+        }
+      });
+    },
+    isIon(tag) {
+      return !tag.indexOf("Ion");
+    },
+    ionImport(tag) {
+      return {
+        name: tag,
+        from: "@ionic/react",
+        type: "package",
+        props: [],
+      };
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
