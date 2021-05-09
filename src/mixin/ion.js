@@ -14,6 +14,7 @@ export default {
         { tag: "IonIcon", label: "IonIcon" },
         { tag: "IonLabel", label: "IonLabel" },
         { tag: "IonButton", label: "IonButton" },
+        { tag: "IonImg", label: "IonImg" },
       ],
     };
   },
