@@ -51,7 +51,7 @@
         <b-nav-item-dropdown text="タグ追加 [+]">
           <b-dropdown-item
             v-for="tag in ionTags"
-            v-on:click="addTag(tag.tag, item)"
+            v-on:click="addTag(tag)"
             class="dropdown-mine small"
             >{{ tag.label }}</b-dropdown-item
           >
@@ -79,12 +79,7 @@ export default {
   methods: {
     changeTag: function (newTag, item) {
       item.tag = newTag.tag;
-      if (item.noCR) {
-        delete item.noCR;
-      }
-      if (newTag.noCR) {
-        item["noCR"] = newTag.noCR;
-      }
+      this.ionAttributeArrangement(item, newTag);
       this.$forceUpdate();
     },
     hasChild: function (item) {
@@ -99,8 +94,9 @@ export default {
     },
     addTag: function (newTag) {
       let item = {};
-      item["tag"] = newTag;
+      item["tag"] = newTag.tag;
       item["props"] = [];
+      this.ionAttributeArrangement(item, newTag);
       this.value.push(item);
       this.$forceUpdate();
     },
