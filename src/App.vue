@@ -10,6 +10,7 @@
       <div class="col-2 d-flex align-items-center">
         <button
           v-on:click="jsonDownload()"
+          v-bind:disabled="existComponentName()"
           class="btn btn-outline-info property-btn btn-sm m-1"
         >
           <b-icon-download></b-icon-download>
@@ -116,11 +117,14 @@ export default {
     };
   },
   methods: {
+    existComponentName: function () {
+      return this.configJson.name.length <= 3;
+    },
     jsonDownload() {
       const blob = new Blob([JSON.stringify(this.configJson, null, 2)], {
         type: "application/json",
       });
-      saveAs(blob, "answer_log.json");
+      saveAs(blob, `${this.configJson.name}.json`);
     },
   },
 };
