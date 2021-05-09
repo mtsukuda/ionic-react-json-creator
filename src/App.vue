@@ -3,7 +3,20 @@
     <div class="p-1">
       <h1>Ionic JSON Layout Manager</h1>
     </div>
-    <component-name v-model="configJson"></component-name>
+    <div class="row">
+      <div class="col-10">
+        <component-name v-model="configJson"></component-name>
+      </div>
+      <div class="col-2 d-flex align-items-center">
+        <button
+          v-on:click="jsonDownload()"
+          class="btn btn-outline-info property-btn btn-sm m-1"
+        >
+          <b-icon-download></b-icon-download>
+          JSON出力
+        </button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-6">
         <div class="mt-3">
@@ -26,8 +39,10 @@ import layoutContainer from "./components/layout-container.vue";
 import componentName from "./components/component-name";
 import lawViewSelection from "./components/law-view-selection";
 import lawViewJson from "./components/law-view-json";
+import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import "bootstrap-vue/dist/bootstrap-vue-icons.css";
 
 export default {
   components: {
@@ -35,6 +50,7 @@ export default {
     componentName,
     lawViewSelection,
     lawViewJson,
+    saveAs,
   },
   mounted() {
     console.log(this.configJson.tags[0].child.tags);
@@ -98,6 +114,14 @@ export default {
         fetch: "",
       },
     };
+  },
+  methods: {
+    jsonDownload() {
+      const blob = new Blob([JSON.stringify(this.configJson, null, 2)], {
+        type: "application/json",
+      });
+      saveAs(blob, "answer_log.json");
+    },
   },
 };
 </script>
