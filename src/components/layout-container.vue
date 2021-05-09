@@ -4,7 +4,10 @@
       <div class="border rounded layout-container-div mb-1">
         <div>
           <div>
-            <b-nav-item-dropdown :text="item.tag" class="tag">
+            <div v-if="item.root" class="h5 m-3 mt-2 mb-1">
+              {{ item.tag }}
+            </div>
+            <b-nav-item-dropdown v-else :text="item.tag" class="tag">
               <b-dropdown-item
                 v-for="tag in ionTags"
                 v-on:click="changeTag(tag, item)"
@@ -15,7 +18,7 @@
             <div v-if="item.content" class="small ml-3 mb-1">
               {{ item.content }}
             </div>
-            <div class="ml-1 mb-2">
+            <div v-if="!item.root" class="ml-1 mb-2">
               <button
                 v-on:click="addChildTag(item)"
                 class="btn btn-outline-primary property-btn btn-sm m-1"
