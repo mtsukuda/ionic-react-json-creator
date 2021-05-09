@@ -18,8 +18,13 @@ export default {
     };
   },
   methods: {
-    something: function () {
-      console.log("do something.");
+    ionAttributeArrangement: function (targetIonTag, newIonTag) {
+      if (targetIonTag.noCR) {
+        delete targetIonTag.noCR;
+      }
+      if (newIonTag.noCR) {
+        targetIonTag["noCR"] = newIonTag.noCR;
+      }
     },
   },
 };
