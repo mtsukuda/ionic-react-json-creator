@@ -26,7 +26,7 @@ export default {
     },
   },
   methods: {
-    compressImport(tags, importList) {
+    compressImport: function (tags, importList) {
       tags.forEach((tag) => {
         if (this.isIon(tag.tag)) {
           if (!importList.find((value) => value.name === tag.tag))
@@ -37,7 +37,7 @@ export default {
         }
       });
     },
-    deleteRawProps(tags) {
+    deleteRawProps: function (tags) {
       tags.forEach((tag) => {
         if (tag.rawProps !== undefined) {
           delete tag.rawProps;
@@ -47,10 +47,10 @@ export default {
         }
       });
     },
-    isIon(tag) {
+    isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
-    ionImport(tag) {
+    ionImport: function (tag) {
       return {
         name: tag,
         from: "@ionic/react",
