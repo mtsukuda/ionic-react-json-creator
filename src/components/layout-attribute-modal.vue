@@ -92,7 +92,7 @@ export default {
   },
   computed: {
     modalId() {
-      return `modal-property-${this.id}`;
+      return `modal-attribute-${this.id}`;
     },
   },
   methods: {

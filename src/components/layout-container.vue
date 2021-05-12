@@ -40,7 +40,10 @@
               </button>
             </div>
 
-            <layout-property-modal ref="propertyModal" v-model="value[index]" />
+            <layout-attribute-modal
+              ref="attributeModal"
+              v-model="value[index]"
+            />
 
             <layout-container
               v-if="item.child && item.child.tags"
@@ -110,7 +113,7 @@ export default {
     },
     showModal: function (index) {
       console.log(this.$refs);
-      this.$refs.propertyModal[index].show();
+      this.$refs.attributeModal[index].show();
     },
   },
 };
