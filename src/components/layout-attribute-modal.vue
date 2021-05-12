@@ -55,6 +55,9 @@
       <div v-else>
         <p>プロパティはありません</p>
       </div>
+      <layout-attribute-modal-property
+        v-model="input"
+      ></layout-attribute-modal-property>
       <div class="mt-3 mx-auto text-center">
         <button
           v-on:click="hide"
@@ -74,8 +77,12 @@
 </template>
 
 <script>
+import layoutAttributeModalProperty from "./layout-attribute-modal-property";
 export default {
   name: "layout-attribute-modal",
+  components: {
+    layoutAttributeModalProperty,
+  },
   props: {
     value: {},
   },
@@ -84,6 +91,7 @@ export default {
       id: null,
       input: {
         content: "",
+        property: "",
       },
     };
   },
@@ -98,10 +106,12 @@ export default {
   methods: {
     show: function () {
       if (this.value.content) this.input.content = this.value.content;
+      if (this.value.rawProps) this.input.property = this.value.rawProps;
       this.$modal.show(this.modalId);
     },
     commit: function () {
       this.value["content"] = this.input.content;
+      this.value["rawProps"] = this.input.property;
       this.$modal.hide(this.modalId);
     },
     hide: function () {
