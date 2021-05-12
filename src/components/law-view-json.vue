@@ -5,6 +5,7 @@
 </template>
 
 <script>
+const clone = require("clone");
 export default {
   name: "law-view-json",
   props: {
@@ -16,7 +17,7 @@ export default {
       let importList = [];
       this.compressImport(this.value.tags, importList);
       this.value.import = importList;
-      let configShowJson = { ...this.value };
+      let configShowJson = clone(this.value);
       if (!this.viewConfig.tags) delete configShowJson.tags;
       if (!this.viewConfig.imports) delete configShowJson.import;
       if (!this.viewConfig.fetch) delete configShowJson.fetch;
