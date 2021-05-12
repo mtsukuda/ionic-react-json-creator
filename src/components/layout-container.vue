@@ -90,7 +90,7 @@ export default {
       return !(item.child && item.child.tags && item.child.tags.length === 0);
     },
     addChildTag: function (item) {
-      let child = { tag: "div", props: [] };
+      let child = { tag: "div", props: [], rawProps: "" };
       item["child"] = { tags: [] };
       item.child.tags.push(child);
       this.$forceUpdate();
@@ -99,6 +99,7 @@ export default {
       let item = {};
       item["tag"] = newTag.tag;
       item["props"] = [];
+      item["rawProps"] = "";
       this.ionAttributeArrangement(item, newTag);
       this.value.push(item);
       this.$forceUpdate();
