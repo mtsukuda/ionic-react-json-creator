@@ -65,13 +65,13 @@
 </template>
 
 <script>
-import layoutPropertyModal from "./layout-property-modal";
+import layoutAttributeModal from "./layout-attribute-modal";
 import ion from "../mixin/ion";
 export default {
   name: "layout-container",
   mixins: [ion],
   components: {
-    layoutPropertyModal,
+    layoutAttributeModal,
   },
   props: {
     value: {},

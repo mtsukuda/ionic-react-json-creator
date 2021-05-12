@@ -75,7 +75,7 @@
 
 <script>
 export default {
-  name: "layout-property-modal",
+  name: "layout-attribute-modal",
   props: {
     value: {},
   },
