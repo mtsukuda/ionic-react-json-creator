@@ -113,6 +113,7 @@ export default {
         tags: "tags",
         imports: "",
         fetch: "",
+        debug: "",
       },
     };
   },

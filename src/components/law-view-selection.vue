@@ -23,7 +23,7 @@
         type="checkbox"
         id="debug"
         value="debug"
-        v-model="value.fetch"
+        v-model="value.debug"
         class="ml-2"
       />
       <label for="debug" class="p-1 text-danger">debug</label>
