@@ -20,6 +20,7 @@ export default {
       if (!this.viewConfig.tags) delete configShowJson.tags;
       if (!this.viewConfig.imports) delete configShowJson.import;
       if (!this.viewConfig.fetch) delete configShowJson.fetch;
+      if (!this.viewConfig.debug) this.deleteRawProps(configShowJson.tags);
       return JSON.stringify(configShowJson, null, 2);
     },
   },
@@ -32,6 +33,16 @@ export default {
         }
         if (tag.child && tag.child.tags) {
           this.compressImport(tag.child.tags, importList);
+        }
+      });
+    },
+    deleteRawProps(tags) {
+      tags.forEach((tag) => {
+        if (tag.rawProps !== undefined) {
+          delete tag.rawProps;
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteRawProps(tag.child.tags);
         }
       });
     },
