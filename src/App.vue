@@ -7,16 +7,7 @@
       <div class="col-10">
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
-      <div class="col-2 d-flex align-items-center">
-        <button
-          v-on:click="jsonDownload()"
-          v-bind:disabled="existComponentName()"
-          class="btn btn-outline-info property-btn btn-sm m-1"
-        >
-          <b-icon-download></b-icon-download>
-          JSON出力
-        </button>
-      </div>
+      <layout-json-download v-model="configJson"></layout-json-download>
     </div>
     <div class="row">
       <div class="col-6">
@@ -40,15 +31,18 @@
 <script>
 import layoutContainer from "./components/layout-container.vue";
 import layoutComponentName from "./components/layout-component-name";
+import layoutJsonDownload from "./components/layout-json-download";
 import jsonViewDisplaySwitch from "./components/json-view-display-switch";
 import jsonViewRawjson from "./components/json-view-rawjson";
 import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
+import LayoutJsonDownload from "./components/layout-json-download";
 
 export default {
   components: {
+    LayoutJsonDownload,
     layoutContainer,
     layoutComponentName,
     jsonViewDisplaySwitch,
