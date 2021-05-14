@@ -25,7 +25,9 @@
         </div>
       </div>
       <div class="col-6">
-        <law-view-selection v-model="viewConfig"></law-view-selection>
+        <json-view-display-switch
+          v-model="viewConfig"
+        ></json-view-display-switch>
         <json-view-rawjson
           v-model="configJson"
           v-bind:view-config="viewConfig"
@@ -38,7 +40,7 @@
 <script>
 import layoutContainer from "./components/layout-container.vue";
 import componentName from "./components/component-name";
-import lawViewSelection from "./components/law-view-selection";
+import jsonViewDisplaySwitch from "./components/json-view-display-switch";
 import jsonViewRawjson from "./components/json-view-rawjson";
 import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
@@ -49,7 +51,7 @@ export default {
   components: {
     layoutContainer,
     componentName,
-    lawViewSelection,
+    jsonViewDisplaySwitch,
     jsonViewRawjson,
     saveAs,
   },

@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: "law-view-selection",
+  name: "json-view-display-switch",
   props: {
     value: {},
   },
