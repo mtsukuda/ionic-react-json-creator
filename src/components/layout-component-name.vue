@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "component-name",
+  name: "layout-component-name",
   props: {
     value: {},
   },

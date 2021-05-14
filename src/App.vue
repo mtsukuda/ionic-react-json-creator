@@ -5,7 +5,7 @@
     </div>
     <div class="row">
       <div class="col-10">
-        <component-name v-model="configJson"></component-name>
+        <layout-component-name v-model="configJson"></layout-component-name>
       </div>
       <div class="col-2 d-flex align-items-center">
         <button
@@ -39,7 +39,7 @@
 
 <script>
 import layoutContainer from "./components/layout-container.vue";
-import componentName from "./components/component-name";
+import layoutComponentName from "./components/layout-component-name";
 import jsonViewDisplaySwitch from "./components/json-view-display-switch";
 import jsonViewRawjson from "./components/json-view-rawjson";
 import saveAs from "file-saver";
@@ -50,7 +50,7 @@ import "bootstrap-vue/dist/bootstrap-vue-icons.css";
 export default {
   components: {
     layoutContainer,
-    componentName,
+    layoutComponentName,
     jsonViewDisplaySwitch,
     jsonViewRawjson,
     saveAs,
