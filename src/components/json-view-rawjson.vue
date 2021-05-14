@@ -7,7 +7,7 @@
 <script>
 const clone = require("clone");
 export default {
-  name: "law-view-json",
+  name: "json-view-rawjson",
   props: {
     value: {},
     viewConfig: {},

@@ -26,10 +26,10 @@
       </div>
       <div class="col-6">
         <law-view-selection v-model="viewConfig"></law-view-selection>
-        <law-view-json
+        <json-view-rawjson
           v-model="configJson"
           v-bind:view-config="viewConfig"
-        ></law-view-json>
+        ></json-view-rawjson>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@
 import layoutContainer from "./components/layout-container.vue";
 import componentName from "./components/component-name";
 import lawViewSelection from "./components/law-view-selection";
-import lawViewJson from "./components/law-view-json";
+import jsonViewRawjson from "./components/json-view-rawjson";
 import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -50,7 +50,7 @@ export default {
     layoutContainer,
     componentName,
     lawViewSelection,
-    lawViewJson,
+    jsonViewRawjson,
     saveAs,
   },
   mounted() {
