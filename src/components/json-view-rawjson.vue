@@ -20,10 +20,7 @@ export default {
       this.compressImport(this.value.tags, importList);
       this.value.import = importList;
       let configShowJson = clone(this.value);
-      if (!this.viewConfig.tags) delete configShowJson.tags;
-      if (!this.viewConfig.imports) delete configShowJson.import;
-      if (!this.viewConfig.fetch) delete configShowJson.fetch;
-      if (!this.viewConfig.debug) this.deleteRawProps(configShowJson.tags);
+      this.formattedJson(configShowJson, this.viewConfig);
       return JSON.stringify(configShowJson, null, 2);
     },
   },

@@ -32,5 +32,11 @@ export default {
         props: [],
       };
     },
+    formattedJson: function (configShowJson, showSwitch) {
+      if (!showSwitch.tags) delete configShowJson.tags;
+      if (!showSwitch.imports) delete configShowJson.import;
+      if (!showSwitch.fetch) delete configShowJson.fetch;
+      if (!showSwitch.debug) this.deleteRawProps(configShowJson.tags);
+    },
   },
 };
