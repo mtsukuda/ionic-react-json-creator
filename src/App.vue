@@ -5,7 +5,6 @@
     </div>
     <div class="row">
       <div class="col-10">
-        <fetch-container v-model="configJson"></fetch-container>
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
       <div class="col-2 d-flex align-items-center">
@@ -15,6 +14,7 @@
     <div class="row">
       <div class="col-6">
         <div class="mt-3">
+          <fetch-container v-model="configJson.fetch"></fetch-container>
           <layout-container v-model="configJson.tags"></layout-container>
         </div>
       </div>
