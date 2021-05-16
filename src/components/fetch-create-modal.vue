@@ -10,14 +10,44 @@
       <h2>fetch create</h2>
     </div>
     <div class="modal-body">
-      <div class="m-1">
+      <div class="m-2">Select fetch type.</div>
+      <div
+        class="btn-group m-1 pr-2"
+        role="group"
+        aria-label="Basic example"
+        style="width: 100%"
+      >
         <button
           v-on:click="showFetchCreateApiGetModal"
-          class="btn btn-outline-info property-btn btn-sm m-1"
+          class="btn btn-outline-info property-btn"
+          style="width: 25%"
         >
-          既存API
+          GET
         </button>
         <fetch-create-api-get-modal></fetch-create-api-get-modal>
+        <button
+          v-on:click="showFetchCreateApiGetModal"
+          class="btn btn-outline-info property-btn"
+          style="width: 25%"
+        >
+          POST
+        </button>
+        <button
+          disabled
+          v-on:click="showNoImplement"
+          class="btn btn-outline-info property-btn"
+          style="width: 25%"
+        >
+          PUT
+        </button>
+        <button
+          disabled
+          v-on:click="showNoImplement"
+          class="btn btn-outline-info property-btn"
+          style="width: 25%"
+        >
+          DELETE
+        </button>
       </div>
     </div>
     <div class="modal-footer">
@@ -45,6 +75,9 @@ export default {
     },
     showFetchCreateApiGetModal: function () {
       this.$modal.show("fetch-create-api-get-modal");
+    },
+    showNoImplement: function () {
+      console.log("Sorry, we are out of service...");
     },
   },
 };
