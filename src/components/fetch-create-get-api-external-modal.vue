@@ -18,6 +18,26 @@
             v-model="input.uri"
           />
         </div>
+        <label for="inputApiResponseTypeName">Response type name</label>
+        <div class="col-sm">
+          <input
+            class="form-control"
+            id="inputApiResponseTypeName"
+            type="text"
+            placeholder="ResponseTypeName"
+            v-model="input.responseTypeName"
+          />
+        </div>
+        <label for="inputResponseType">Response type</label>
+        <div class="col-sm">
+          <input
+            class="form-control"
+            id="inputResponseType"
+            type="text"
+            placeholder="res1: string"
+            v-model="input.responseType"
+          />
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -47,6 +67,8 @@ export default {
     return {
       input: {
         uri: "",
+        responseTypeName: "",
+        responseType: "",
       },
     };
   },
