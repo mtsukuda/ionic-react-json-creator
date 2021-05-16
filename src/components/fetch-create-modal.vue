@@ -4,7 +4,15 @@
       <h2>fetch create</h2>
     </div>
     <div class="modal-body">
-      <div>Fetch Create Modal💪</div>
+      <div class="m-1">
+        <button
+          v-on:click="showFetchExistApiModal"
+          class="btn btn-outline-info property-btn btn-sm m-1"
+        >
+          既存API
+        </button>
+        <fetch-exist-api-modal></fetch-exist-api-modal>
+      </div>
     </div>
     <div class="modal-footer">
       <button
@@ -18,12 +26,19 @@
 </template>
 
 <script>
+import fetchExistApiModal from "./fetch-exist-api-modal";
 export default {
   name: "fetch-create-modal",
+  components: {
+    fetchExistApiModal,
+  },
   methods: {
     show: function () {},
     hide: function () {
       this.$modal.hide("fetch-create-modal");
+    },
+    showFetchExistApiModal: function () {
+      this.$modal.show("fetch-exist-api-modal");
     },
   },
 };
