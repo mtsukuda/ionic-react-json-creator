@@ -24,7 +24,7 @@
         >
           GET
         </button>
-        <fetch-create-api-get-modal></fetch-create-api-get-modal>
+        <fetch-create-get-modal></fetch-create-get-modal>
         <button
           v-on:click="showFetchCreateApiGetModal"
           class="btn btn-outline-info property-btn"
@@ -62,11 +62,11 @@
 </template>
 
 <script>
-import fetchCreateApiGetModal from "./fetch-create-api-get-modal";
+import fetchCreateGetModal from "./fetch-create-get-modal";
 export default {
   name: "fetch-create-modal",
   components: {
-    fetchCreateApiGetModal,
+    fetchCreateGetModal,
   },
   methods: {
     show: function () {},
@@ -74,7 +74,7 @@ export default {
       this.$modal.hide("fetch-create-modal");
     },
     showFetchCreateApiGetModal: function () {
-      this.$modal.show("fetch-create-api-get-modal");
+      this.$modal.show("fetch-create-get-modal");
     },
     showNoImplement: function () {
       console.log("Sorry, we are out of service...");

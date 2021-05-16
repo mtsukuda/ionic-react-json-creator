@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-create-api-get-modal"
+    name="fetch-create-get-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: "fetch-create-api-get-modal",
+  name: "fetch-create-get-modal",
   props: {
     value: {},
   },
@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     hide: function () {
-      this.$modal.hide("fetch-create-api-get-modal");
+      this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
       console.log(apiType);
