@@ -23,7 +23,7 @@
             class="form-control"
             id="inputFetchName"
             type="text"
-            placeholder="hoge"
+            placeholder="Fetch Name"
             v-model="input.name"
           />
         </div>
@@ -54,7 +54,6 @@ export default {
   },
   data() {
     return {
-      id: null,
       input: {
         name: "",
         method: "",
@@ -70,8 +69,10 @@ export default {
       },
     };
   },
+  mounted() {
+    this.input.name = "12345";
+  },
   methods: {
-    show: function () {},
     hide: function () {
       this.$modal.hide("fetch-exist-api-modal");
     },
