@@ -32,6 +32,7 @@
               >{{ api.label }}</b-dropdown-item
             >
           </b-nav-item-dropdown>
+          <fetch-create-get-api-external-modal></fetch-create-get-api-external-modal>
         </div>
       </div>
     </div>
@@ -53,8 +54,10 @@
 </template>
 
 <script>
+import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
 export default {
   name: "fetch-create-get-modal",
+  components: { FetchCreateGetApiExternalModal },
   props: {
     value: {},
   },
@@ -79,6 +82,9 @@ export default {
       this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
+      if (apiType === "external") {
+        this.$modal.show("fetch-create-get-api-external-modal");
+      }
       console.log(apiType);
     },
     commit: function () {
