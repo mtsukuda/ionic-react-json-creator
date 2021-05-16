@@ -1,0 +1,64 @@
+<template>
+  <modal
+    name="fetch-create-get-api-external-modal"
+    :draggable="true"
+    :resizable="true"
+    :scrollable="true"
+    height="auto"
+  >
+    <div class="modal-body">
+      <div>
+        <label for="inputApiUri">URI</label>
+        <div class="col-sm">
+          <input
+            class="form-control"
+            id="inputApiUri"
+            type="text"
+            placeholder="URI"
+            v-model="input.uri"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        v-on:click="hide"
+        class="btn btn-outline-secondary property-btn btn-sm m-1"
+      >
+        閉じる
+      </button>
+      <button
+        v-on:click="commit"
+        class="btn btn-outline-primary property-btn btn-sm m-1"
+      >
+        作成
+      </button>
+    </div>
+  </modal>
+</template>
+
+<script>
+export default {
+  name: "fetch-create-get-api-external-modal",
+  props: {
+    value: {},
+  },
+  data() {
+    return {
+      input: {
+        uri: "",
+      },
+    };
+  },
+  methods: {
+    hide: function () {
+      this.$modal.hide("fetch-create-get-api-external-modal");
+    },
+    commit: function () {
+      this.hide();
+    },
+  },
+};
+</script>
+
+<style scoped></style>
