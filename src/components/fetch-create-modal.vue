@@ -14,7 +14,7 @@
       <div
         class="btn-group m-1 pr-2"
         role="group"
-        aria-label="Basic example"
+        aria-label="fetch type"
         style="width: 100%"
       >
         <button
