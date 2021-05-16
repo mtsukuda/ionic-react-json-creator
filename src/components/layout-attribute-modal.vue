@@ -64,20 +64,20 @@
       <layout-attribute-modal-property
         v-model="input"
       ></layout-attribute-modal-property>
-      <div class="mt-3 mx-auto text-center">
-        <button
-          v-on:click="hide"
-          class="btn btn-outline-secondary property-btn btn-sm m-1"
-        >
-          閉じる
-        </button>
-        <button
-          v-on:click="commit"
-          class="btn btn-outline-primary property-btn btn-sm m-1"
-        >
-          OK
-        </button>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        v-on:click="hide"
+        class="btn btn-outline-secondary property-btn btn-sm m-1"
+      >
+        閉じる
+      </button>
+      <button
+        v-on:click="commit"
+        class="btn btn-outline-primary property-btn btn-sm m-1"
+      >
+        OK
+      </button>
     </div>
   </modal>
 </template>

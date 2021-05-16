@@ -5,14 +5,14 @@
     </div>
     <div class="modal-body">
       <div>Fetch Create Modal💪</div>
-      <div class="mt-3 mx-auto text-center">
-        <button
-          v-on:click="hide"
-          class="btn btn-outline-secondary property-btn btn-sm m-1"
-        >
-          閉じる
-        </button>
-      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        v-on:click="hide"
+        class="btn btn-outline-secondary property-btn btn-sm m-1"
+      >
+        閉じる
+      </button>
     </div>
   </modal>
 </template>
