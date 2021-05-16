@@ -122,17 +122,6 @@ export default {
       },
     };
   },
-  methods: {
-    existComponentName: function () {
-      return this.configJson.name.length <= 3;
-    },
-    jsonDownload() {
-      const blob = new Blob([JSON.stringify(this.configJson, null, 2)], {
-        type: "application/json",
-      });
-      saveAs(blob, `${this.configJson.name}.json`);
-    },
-  },
 };
 </script>
 
