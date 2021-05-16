@@ -11,7 +11,7 @@
         <div>Fetch method type</div>
         <div class="m-2 font-weight-bold">GET</div>
         <label for="inputFetchName">Fetch function name</label>
-        <div class="col-sm">
+        <div class="col-sm input-sm">
           <input
             class="form-control"
             id="inputFetchName"
@@ -32,8 +32,8 @@
               >{{ api.label }}</b-dropdown-item
             >
           </b-nav-item-dropdown>
-          <fetch-create-get-api-external-modal></fetch-create-get-api-external-modal>
         </div>
+        <fetch-create-get-api-external-modal></fetch-create-get-api-external-modal>
       </div>
     </div>
     <div class="modal-footer">

@@ -9,9 +9,9 @@
     <div class="modal-body">
       <div>
         <label for="inputApiUri">URI</label>
-        <div class="col-sm">
+        <div class="col-sm mb-2">
           <input
-            class="form-control"
+            class="form-control input-sm"
             id="inputApiUri"
             type="text"
             placeholder="URI"
@@ -19,9 +19,9 @@
           />
         </div>
         <label for="inputApiResponseTypeName">Response type name</label>
-        <div class="col-sm">
+        <div class="col-sm mb-2">
           <input
-            class="form-control"
+            class="form-control input-sm"
             id="inputApiResponseTypeName"
             type="text"
             placeholder="ResponseTypeName"
@@ -29,9 +29,9 @@
           />
         </div>
         <label for="inputResponseType">Response type</label>
-        <div class="col-sm">
+        <div class="col-sm mb-2">
           <input
-            class="form-control"
+            class="form-control input-sm"
             id="inputResponseType"
             type="text"
             placeholder="res1: string"
