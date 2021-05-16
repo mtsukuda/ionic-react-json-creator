@@ -12,12 +12,12 @@
     <div class="modal-body">
       <div class="m-1">
         <button
-          v-on:click="showFetchExistApiModal"
+          v-on:click="showFetchCreateApiGetModal"
           class="btn btn-outline-info property-btn btn-sm m-1"
         >
           既存API
         </button>
-        <fetch-exist-api-modal></fetch-exist-api-modal>
+        <fetch-create-api-get-modal></fetch-create-api-get-modal>
       </div>
     </div>
     <div class="modal-footer">
@@ -32,19 +32,19 @@
 </template>
 
 <script>
-import fetchExistApiModal from "./fetch-exist-api-modal";
+import fetchCreateApiGetModal from "./fetch-create-api-get-modal";
 export default {
   name: "fetch-create-modal",
   components: {
-    fetchExistApiModal,
+    fetchCreateApiGetModal,
   },
   methods: {
     show: function () {},
     hide: function () {
       this.$modal.hide("fetch-create-modal");
     },
-    showFetchExistApiModal: function () {
-      this.$modal.show("fetch-exist-api-modal");
+    showFetchCreateApiGetModal: function () {
+      this.$modal.show("fetch-create-api-get-modal");
     },
   },
 };

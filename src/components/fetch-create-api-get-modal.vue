@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-exist-api-modal"
+    name="fetch-create-api-get-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -31,10 +31,10 @@
       <div class="small mb-2">
         <b-nav-item-dropdown text="👶 [+]">
           <b-dropdown-item
-              v-for="api in apiSelect"
-              v-on:click="addApi(api.type)"
-              class="dropdown-mine small"
-          >{{ api.label }}</b-dropdown-item
+            v-for="api in apiSelect"
+            v-on:click="addApi(api.type)"
+            class="dropdown-mine small"
+            >{{ api.label }}</b-dropdown-item
           >
         </b-nav-item-dropdown>
       </div>
@@ -58,7 +58,7 @@
 
 <script>
 export default {
-  name: "fetch-exist-api-modal",
+  name: "fetch-create-api-get-modal",
   props: {
     value: {},
   },
@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     hide: function () {
-      this.$modal.hide("fetch-exist-api-modal");
+      this.$modal.hide("fetch-create-api-get-modal");
     },
     addApi: function (apiType) {
       console.log(apiType);
