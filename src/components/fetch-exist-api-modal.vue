@@ -27,16 +27,6 @@
             v-model="input.name"
           />
         </div>
-        <label for="inputFetchUri">URI</label>
-        <div class="col-sm">
-          <input
-            class="form-control"
-            id="inputFetchUri"
-            type="text"
-            placeholder="https://api.github.com/search/users?q=edeng23"
-            v-model="input.uri"
-          />
-        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -67,7 +57,7 @@ export default {
       id: null,
       input: {
         name: "",
-        uri: "",
+        method: "",
       },
       method: {
         selected: "get",
@@ -86,7 +76,6 @@ export default {
       this.$modal.hide("fetch-exist-api-modal");
     },
     commit: function () {
-      this.value["uri"] = this.input.uri;
       this.hide();
     },
   },

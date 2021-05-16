@@ -1,5 +1,11 @@
 <template>
-  <modal name="fetch-create-modal" :draggable="true" :resizable="true">
+  <modal
+    name="fetch-create-modal"
+    :draggable="true"
+    :resizable="true"
+    :scrollable="true"
+    height="auto"
+  >
     <div class="modal-header">
       <h2>fetch create</h2>
     </div>
