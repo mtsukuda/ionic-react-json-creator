@@ -33,7 +33,10 @@
             >
           </b-nav-item-dropdown>
         </div>
-        <fetch-create-get-api-external-modal></fetch-create-get-api-external-modal>
+        <fetch-create-get-api-external-modal
+          @close="closeModal"
+          @commit="commitModal"
+        ></fetch-create-get-api-external-modal>
       </div>
     </div>
     <div class="modal-footer">
@@ -86,6 +89,12 @@ export default {
         this.$modal.show("fetch-create-get-api-external-modal");
       }
       console.log(apiType);
+    },
+    closeModal: function () {
+      console.log("close");
+    },
+    commitModal: function () {
+      console.log("commit");
     },
     commit: function () {
       this.hide();

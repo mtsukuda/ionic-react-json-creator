@@ -43,12 +43,14 @@
     <div class="modal-footer">
       <button
         v-on:click="hide"
+        @click="$emit('close')"
         class="btn btn-outline-secondary property-btn btn-sm m-1"
       >
         閉じる
       </button>
       <button
         v-on:click="commit"
+        @click="$emit('commit')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
       >
         作成
