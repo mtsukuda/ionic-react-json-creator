@@ -7,7 +7,9 @@
       <div class="col-10">
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
-      <layout-json-download v-model="configJson"></layout-json-download>
+      <div class="col-2 d-flex align-items-center">
+        <layout-json-download v-model="configJson"></layout-json-download>
+      </div>
     </div>
     <div class="row">
       <div class="col-6">

@@ -1,5 +1,5 @@
 <template>
-  <div class="col-2 d-flex align-items-center">
+  <div class="pt-4">
     <button
       v-on:click="jsonDownload()"
       v-bind:disabled="existComponentName()"
