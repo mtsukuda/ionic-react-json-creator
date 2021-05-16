@@ -99,10 +99,7 @@ export default {
       this.$forceUpdate();
     },
     addTag: function (newTag) {
-      let item = {};
-      item["tag"] = newTag.tag;
-      item["props"] = [];
-      item["rawProps"] = "";
+      let item = { tag: newTag.tag, props: [], rawProps: "" };
       this.ionAttributeArrangement(item, newTag);
       this.value.push(item);
       this.$forceUpdate();
