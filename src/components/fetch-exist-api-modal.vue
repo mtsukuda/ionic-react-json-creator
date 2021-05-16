@@ -1,10 +1,46 @@
 <template>
-  <modal name="fetch-exist-api-modal" :draggable="true" :resizable="true">
+  <modal
+    name="fetch-exist-api-modal"
+    :draggable="true"
+    :resizable="true"
+    :scrollable="true"
+    height="auto"
+  >
     <div class="modal-header">
       <h2>Exist API</h2>
     </div>
     <div class="modal-body">
-      <div>Exist API Modal💪</div>
+      <div>
+        <b-form-group label="Radios using options" v-slot="{ ariaDescribedby }">
+          <b-form-radio-group
+            id="radio-group-1"
+            v-model="method.selected"
+            :options="method.options"
+            :aria-describedby="ariaDescribedby"
+            name="radio-options"
+          ></b-form-radio-group>
+        </b-form-group>
+        <label for="inputFetchName">Name</label>
+        <div class="col-sm">
+          <input
+            class="form-control"
+            id="inputFetchName"
+            type="text"
+            placeholder="hoge"
+            v-model="input.name"
+          />
+        </div>
+        <label for="inputFetchUri">URI</label>
+        <div class="col-sm">
+          <input
+            class="form-control"
+            id="inputFetchUri"
+            type="text"
+            placeholder="https://api.github.com/search/users?q=edeng23"
+            v-model="input.uri"
+          />
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button
@@ -13,6 +49,12 @@
       >
         閉じる
       </button>
+      <button
+        v-on:click="commit"
+        class="btn btn-outline-primary property-btn btn-sm m-1"
+      >
+        作成
+      </button>
     </div>
   </modal>
 </template>
@@ -20,10 +62,35 @@
 <script>
 export default {
   name: "fetch-exist-api-modal",
+  props: {
+    value: {},
+  },
+  data() {
+    return {
+      id: null,
+      input: {
+        name: "",
+        uri: "",
+      },
+      method: {
+        selected: "get",
+        options: [
+          { text: "GET", value: "get" },
+          { text: "POST", value: "post" },
+          { text: "PUT", value: "put", disabled: true },
+          { text: "DELETE", value: "delete", disabled: true },
+        ],
+      },
+    };
+  },
   methods: {
     show: function () {},
     hide: function () {
       this.$modal.hide("fetch-exist-api-modal");
+    },
+    commit: function () {
+      this.value["uri"] = this.input.uri;
+      this.hide();
     },
   },
 };
