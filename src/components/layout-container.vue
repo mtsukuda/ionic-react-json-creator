@@ -4,7 +4,7 @@
       <div class="border rounded layout-container-div mb-1">
         <div>
           <div>
-            <div v-if="item.root" class="h5 m-3 mt-2 mb-1">
+            <div v-if="item.root" class="h5 m-2 pl-1 mb-1">
               {{ item.tag }}
             </div>
             <b-nav-item-dropdown v-else :text="item.tag" class="tag">
