@@ -1,5 +1,11 @@
 <template>
-  <modal :name="modalId" :draggable="true" :resizable="true">
+  <modal
+    :name="modalId"
+    :draggable="true"
+    :resizable="true"
+    :scrollable="true"
+    height="auto"
+  >
     <div class="modal-header">
       <h2>{{ value.tag }}</h2>
     </div>
