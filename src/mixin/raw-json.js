@@ -36,7 +36,8 @@ export default {
       if (!showSwitch.tags) delete configShowJson.tags;
       if (!showSwitch.imports) delete configShowJson.import;
       if (!showSwitch.fetch) delete configShowJson.fetch;
-      if (showSwitch.tags && !showSwitch.debug) this.deleteRawProps(configShowJson.tags);
+      if (showSwitch.tags && !showSwitch.debug)
+        this.deleteRawProps(configShowJson.tags);
     },
   },
 };
