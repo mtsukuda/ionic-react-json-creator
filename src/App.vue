@@ -44,7 +44,7 @@ import LayoutJsonDownload from "./components/layout-json-download";
 
 export default {
   components: {
-    LayoutJsonDownload,
+    layoutJsonDownload,
     layoutContainer,
     layoutComponentName,
     jsonViewDisplaySwitch,
