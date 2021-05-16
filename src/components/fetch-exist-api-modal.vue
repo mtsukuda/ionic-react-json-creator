@@ -6,12 +6,9 @@
     :scrollable="true"
     height="auto"
   >
-    <div class="modal-header">
-      <h2>Exist API</h2>
-    </div>
     <div class="modal-body">
       <div>
-        <b-form-group label="Radios using options" v-slot="{ ariaDescribedby }">
+        <b-form-group label="Select method type:" v-slot="{ ariaDescribedby }">
           <b-form-radio-group
             id="radio-group-1"
             v-model="method.selected"
