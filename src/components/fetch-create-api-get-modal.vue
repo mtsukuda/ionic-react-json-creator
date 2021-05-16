@@ -8,16 +8,9 @@
   >
     <div class="modal-body">
       <div>
-        <b-form-group label="Select method type:" v-slot="{ ariaDescribedby }">
-          <b-form-radio-group
-            id="radio-group-1"
-            v-model="method.selected"
-            :options="method.options"
-            :aria-describedby="ariaDescribedby"
-            name="radio-options"
-          ></b-form-radio-group>
-        </b-form-group>
-        <label for="inputFetchName">Name</label>
+        <div>Fetch method type</div>
+        <div class="m-2 font-weight-bold">GET</div>
+        <label for="inputFetchName">Fetch function name</label>
         <div class="col-sm">
           <input
             class="form-control"
@@ -28,15 +21,18 @@
           />
         </div>
       </div>
-      <div class="small mb-2">
-        <b-nav-item-dropdown text="👶 [+]">
-          <b-dropdown-item
-            v-for="api in apiSelect"
-            v-on:click="addApi(api.type)"
-            class="dropdown-mine small"
-            >{{ api.label }}</b-dropdown-item
-          >
-        </b-nav-item-dropdown>
+      <div class="mt-1 mb-1">APIs</div>
+      <div class="border rounded fetch-apis-div mt-1 ml-3 mr-3">
+        <div class="small mb-2">
+          <b-nav-item-dropdown text="Add API [+]" class="list-unstyled pt-2">
+            <b-dropdown-item
+              v-for="api in apiSelect"
+              v-on:click="addApi(api.type)"
+              class="dropdown-mine small"
+              >{{ api.label }}</b-dropdown-item
+            >
+          </b-nav-item-dropdown>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -68,15 +64,6 @@ export default {
         name: "",
         method: "",
       },
-      method: {
-        selected: "get",
-        options: [
-          { text: "GET", value: "get" },
-          { text: "POST", value: "post" },
-          { text: "PUT", value: "put", disabled: true },
-          { text: "DELETE", value: "delete", disabled: true },
-        ],
-      },
       apiSelect: [
         { type: "external", label: "External API" },
         { type: "internal", label: "Internal API" },
@@ -101,4 +88,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.fetch-apis-div {
+  border-color: grey;
+}
+</style>
