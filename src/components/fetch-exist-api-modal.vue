@@ -28,6 +28,16 @@
           />
         </div>
       </div>
+      <div class="small mb-2">
+        <b-nav-item-dropdown text="👶 [+]">
+          <b-dropdown-item
+              v-for="api in apiSelect"
+              v-on:click="addApi(api.type)"
+              class="dropdown-mine small"
+          >{{ api.label }}</b-dropdown-item
+          >
+        </b-nav-item-dropdown>
+      </div>
     </div>
     <div class="modal-footer">
       <button
@@ -67,6 +77,11 @@ export default {
           { text: "DELETE", value: "delete", disabled: true },
         ],
       },
+      apiSelect: [
+        { type: "external", label: "External API" },
+        { type: "internal", label: "Internal API" },
+      ],
+      apis: [],
     };
   },
   mounted() {
@@ -75,6 +90,9 @@ export default {
   methods: {
     hide: function () {
       this.$modal.hide("fetch-exist-api-modal");
+    },
+    addApi: function (apiType) {
+      console.log(apiType);
     },
     commit: function () {
       this.hide();
