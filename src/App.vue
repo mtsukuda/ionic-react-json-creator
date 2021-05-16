@@ -5,6 +5,7 @@
     </div>
     <div class="row">
       <div class="col-10">
+        <fetch-container v-model="configJson"></fetch-container>
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
       <div class="col-2 d-flex align-items-center">
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import fetchContainer from "./components/fetch-container";
 import layoutContainer from "./components/layout-container.vue";
 import layoutComponentName from "./components/layout-component-name";
 import layoutJsonDownload from "./components/layout-json-download";
@@ -40,13 +42,13 @@ import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
-import LayoutJsonDownload from "./components/layout-json-download";
 
 export default {
   components: {
-    layoutJsonDownload,
+    fetchContainer,
     layoutContainer,
     layoutComponentName,
+    layoutJsonDownload,
     jsonViewDisplaySwitch,
     jsonViewRawjson,
     saveAs,
