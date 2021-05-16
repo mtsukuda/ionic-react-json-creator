@@ -2,7 +2,7 @@
   <div class="container pl-1 pr-1">
     <div class="border rounded fetch-container-div mb-1">
       <div class="h5 m-2 pl-1 mb-1">fetch</div>
-      <div>
+      <div class="m-1">
         <button
           v-on:click="showFetchCreateModal"
           class="btn btn-outline-info property-btn btn-sm m-1"
