@@ -18,14 +18,7 @@
             <div v-if="item.content" class="small ml-3 mb-1">
               {{ item.content }}
             </div>
-            <div v-if="!item.root" class="ml-1 mb-2">
-              <button
-                v-on:click="addChildTag(item)"
-                class="btn btn-outline-primary property-btn btn-sm m-1"
-                v-bind:disabled="hasChild(item)"
-              >
-                👶
-              </button>
+            <div v-if="!item.root" class="ml-1">
               <button
                 v-on:click="showModal(index)"
                 class="btn btn-outline-info property-btn btn-sm m-1"
@@ -38,6 +31,19 @@
               >
                 削除
               </button>
+            </div>
+            <div v-if="!item.root" class="small mb-2">
+              <b-nav-item-dropdown
+                text="👶 [+]"
+                v-bind:disabled="hasChild(item)"
+              >
+                <b-dropdown-item
+                  v-for="tag in ionTags"
+                  v-on:click="addChildTag(item, tag)"
+                  class="dropdown-mine small"
+                  >{{ tag.label }}</b-dropdown-item
+                >
+              </b-nav-item-dropdown>
             </div>
 
             <layout-attribute-modal
@@ -92,8 +98,8 @@ export default {
       if (!item.child) return false;
       return !(item.child && item.child.tags && item.child.tags.length === 0);
     },
-    addChildTag: function (item) {
-      let child = { tag: "div", props: [], rawProps: "" };
+    addChildTag: function (item, newTag) {
+      let child = { tag: newTag.tag, props: [], rawProps: "" };
       item["child"] = { tags: [] };
       item.child.tags.push(child);
       this.$forceUpdate();
