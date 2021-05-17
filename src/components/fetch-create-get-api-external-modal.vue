@@ -79,6 +79,11 @@ export default {
       this.$modal.hide("fetch-create-get-api-external-modal");
     },
     commit: function () {
+      this.value.push({
+        uri: this.input.uri,
+        responseTypeName: this.input.responseTypeName,
+        responseType: this.input.responseType,
+      });
       this.hide();
     },
   },
