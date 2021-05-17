@@ -33,7 +33,13 @@
             >
           </b-nav-item-dropdown>
         </div>
+        <div>
+          <div v-for="api in apis">
+            <div class="border rounded m-1">{{ api.uri }}</div>
+          </div>
+        </div>
         <fetch-create-get-api-external-modal
+          v-model="apis"
           @close="closeModal"
           @commit="commitModal"
         ></fetch-create-get-api-external-modal>
