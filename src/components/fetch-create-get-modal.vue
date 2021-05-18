@@ -47,10 +47,10 @@
               </b-col>
               <b-col cols="3" class="p-0 pt-1 text-right">
                 <b-button size="sm" variant="outline-primary" class="mr-1">
-                  <b-icon icon="pencil-fill" aria-label="Edit"></b-icon>
+                  <b-icon icon="pencil" aria-label="Edit"></b-icon>
                 </b-button>
                 <b-button size="sm" variant="outline-danger">
-                  <b-icon icon="trash-fill" aria-label="Delete"></b-icon>
+                  <b-icon icon="trash" aria-label="Delete"></b-icon>
                 </b-button>
               </b-col>
             </b-row>
