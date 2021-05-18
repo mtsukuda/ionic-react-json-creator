@@ -34,18 +34,18 @@
           </b-nav-item-dropdown>
         </div>
         <div>
-          <b-container class="bv-example-row">
+          <b-container class="p-0">
             <b-row
               v-for="api in apis"
               class="border rounded m-2 p-2 fetch-api-div"
             >
-              <b-col>
+              <b-col class="p-0">
                 <div class="small">
                   {{ api.responseTypeName }}<br />
                   {{ api.uri }}
                 </div>
               </b-col>
-              <b-col cols="3" class="text-right pt-1">
+              <b-col cols="3" class="p-0 pt-1 text-right">
                 <b-button size="sm" variant="outline-primary" class="mr-1">
                   <b-icon icon="pencil-fill" aria-label="Edit"></b-icon>
                 </b-button>
