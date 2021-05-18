@@ -27,9 +27,9 @@
               </button>
               <button
                 v-on:click="deleteTag(index)"
-                class="btn btn-danger property-btn btn-sm m-1"
+                class="btn btn-outline-danger property-btn btn-sm m-1"
               >
-                削除
+                <b-icon icon="trash-fill" aria-label="Delete"></b-icon>
               </button>
             </div>
             <div v-if="!item.root" class="small mb-2">
