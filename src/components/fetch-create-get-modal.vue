@@ -34,9 +34,27 @@
           </b-nav-item-dropdown>
         </div>
         <div>
-          <div v-for="api in apis">
-            <div class="border rounded m-1">{{ api.uri }}</div>
-          </div>
+          <b-container class="bv-example-row">
+            <b-row
+              v-for="api in apis"
+              class="border rounded m-2 p-2 fetch-api-div"
+            >
+              <b-col>
+                <div class="small">
+                  {{ api.responseTypeName }}<br />
+                  {{ api.uri }}
+                </div>
+              </b-col>
+              <b-col cols="3" class="text-right pt-1">
+                <b-button size="sm" variant="primary" class="mr-1">
+                  <b-icon icon="pencil-fill" aria-label="Edit"></b-icon>
+                </b-button>
+                <b-button size="sm" variant="danger">
+                  <b-icon icon="trash-fill" aria-label="Delete"></b-icon>
+                </b-button>
+              </b-col>
+            </b-row>
+          </b-container>
         </div>
         <fetch-create-get-api-external-modal
           v-model="apis"
@@ -112,5 +130,8 @@ export default {
 <style scoped>
 .fetch-apis-div {
   border-color: grey;
+}
+.fetch-api-div {
+  color: #6f6f6f;
 }
 </style>
