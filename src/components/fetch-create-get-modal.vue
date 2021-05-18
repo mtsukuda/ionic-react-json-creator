@@ -46,10 +46,10 @@
                 </div>
               </b-col>
               <b-col cols="3" class="text-right pt-1">
-                <b-button size="sm" variant="primary" class="mr-1">
+                <b-button size="sm" variant="outline-primary" class="mr-1">
                   <b-icon icon="pencil-fill" aria-label="Edit"></b-icon>
                 </b-button>
-                <b-button size="sm" variant="danger">
+                <b-button size="sm" variant="outline-danger">
                   <b-icon icon="trash-fill" aria-label="Delete"></b-icon>
                 </b-button>
               </b-col>
