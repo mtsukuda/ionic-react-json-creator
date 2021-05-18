@@ -9,7 +9,7 @@
         >
           新規作成
         </button>
-        <fetch-create-modal></fetch-create-modal>
+        <fetch-create-modal v-model="value"></fetch-create-modal>
       </div>
     </div>
   </div>

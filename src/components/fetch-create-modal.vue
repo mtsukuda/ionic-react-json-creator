@@ -24,7 +24,7 @@
         >
           GET
         </button>
-        <fetch-create-get-modal></fetch-create-get-modal>
+        <fetch-create-get-modal v-model="value"></fetch-create-get-modal>
         <button
           v-on:click="showFetchCreateApiGetModal"
           class="btn btn-outline-info property-btn"
@@ -67,6 +67,9 @@ export default {
   name: "fetch-create-modal",
   components: {
     fetchCreateGetModal,
+  },
+  props: {
+    value: {},
   },
   methods: {
     show: function () {},

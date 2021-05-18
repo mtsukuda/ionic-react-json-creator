@@ -121,6 +121,11 @@ export default {
       console.log("commit");
     },
     commit: function () {
+      this.value.push({
+        method: "get",
+        name: this.input.name,
+        apis: this.apis,
+      });
       this.hide();
     },
   },
