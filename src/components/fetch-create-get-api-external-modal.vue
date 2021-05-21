@@ -52,6 +52,7 @@
         v-on:click="commit"
         @click="$emit('commit')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
+        :disabled="createDisable"
       >
         作成
       </button>
@@ -73,6 +74,15 @@ export default {
         responseType: "",
       },
     };
+  },
+  computed: {
+    createDisable() {
+      return (
+        !this.input.uri ||
+        !this.input.responseTypeName ||
+        !this.input.responseType
+      );
+    },
   },
   methods: {
     hide: function () {
