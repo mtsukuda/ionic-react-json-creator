@@ -73,6 +73,7 @@
       <button
         v-on:click="commit"
         class="btn btn-outline-primary property-btn btn-sm m-1"
+        :disabled="createDisable"
       >
         作成
       </button>
@@ -103,6 +104,11 @@ export default {
   },
   mounted() {
     this.input.name = "12345";
+  },
+  computed: {
+    createDisable() {
+      return !this.apis.length || !this.input.name;
+    },
   },
   methods: {
     hide: function () {
