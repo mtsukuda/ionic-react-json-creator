@@ -100,6 +100,7 @@ export default {
         { type: "external", label: "External API" },
         { type: "internal", label: "Internal API" },
       ],
+      valueIndex: 0,
       apis: [],
     };
   },
@@ -114,10 +115,10 @@ export default {
   },
   methods: {
     beforeOpen(event) {
-      let index = event.params.index;
+      this.valueIndex = event.params.index;
       console.log(event.params.index);
-      this.input.name = this.value[index].name;
-      this.apis = this.value[index].apis;
+      this.input.name = this.value[this.valueIndex].name;
+      this.apis = this.value[this.valueIndex].apis;
     },
     hide: function () {
       this.$modal.hide("fetch-edit-get-modal");
