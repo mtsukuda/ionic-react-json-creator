@@ -111,7 +111,7 @@ export default {
     },
   },
   methods: {
-    beforeOpen(event) {
+    beforeOpen: function (event) {
       this.valueIndex = event.params.index;
       console.log(event.params.index);
       this.input.name = this.value[this.valueIndex].name;
