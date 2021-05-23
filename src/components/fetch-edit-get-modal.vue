@@ -104,7 +104,6 @@ export default {
       apis: [],
     };
   },
-  mounted() {},
   computed: {
     createDisable() {
       return !this.apis.length || !this.input.name;
