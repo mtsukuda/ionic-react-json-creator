@@ -105,8 +105,6 @@ export default {
     };
   },
   mounted() {
-    // this.input.name = this.value[this.index].name;
-    // this.apis = this.value[this.index].apis;
   },
   computed: {
     createDisable() {
