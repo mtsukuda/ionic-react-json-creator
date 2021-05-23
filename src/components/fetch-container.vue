@@ -36,7 +36,10 @@
           新規作成
         </button>
         <fetch-create-modal v-model="value"></fetch-create-modal>
-        <fetch-edit-get-modal v-model="value"></fetch-edit-get-modal>
+        <fetch-edit-get-modal
+          v-model="value"
+          @commit="commitEditModal"
+        ></fetch-edit-get-modal>
       </div>
     </div>
   </div>
@@ -61,6 +64,9 @@ export default {
     showFetchEditModal: function (method, index) {
       console.log(`fetch-edit-${method}-modal`);
       this.$modal.show(`fetch-edit-${method}-modal`, { index: index });
+    },
+    commitEditModal: function () {
+      this.$forceUpdate();
     },
   },
 };

@@ -137,6 +137,7 @@ export default {
         name: this.input.name,
         apis: this.apis,
       };
+      this.$emit("commit");
       this.hide();
     },
   },
