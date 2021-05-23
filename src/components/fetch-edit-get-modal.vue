@@ -112,9 +112,8 @@ export default {
   methods: {
     beforeOpen: function (event) {
       this.valueIndex = event.params.index;
-      console.log(event.params.index);
-      this.input.name = this.value[this.valueIndex].name;
-      this.apis = this.value[this.valueIndex].apis;
+      this.input.name = this.value.fetch[this.valueIndex].name;
+      this.apis = this.value.fetch[this.valueIndex].apis;
     },
     hide: function () {
       this.$modal.hide("fetch-edit-get-modal");
@@ -132,12 +131,12 @@ export default {
       console.log("commit");
     },
     commit: function () {
-      this.value[this.valueIndex] = {
+      this.value.fetch[this.valueIndex] = {
         method: "get",
         name: this.input.name,
         apis: this.apis,
       };
-      this.$emit("commit");
+      this.value.update += 1;
       this.hide();
     },
   },

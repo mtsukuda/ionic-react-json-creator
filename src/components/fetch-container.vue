@@ -4,7 +4,7 @@
       <div class="h5 m-2 pl-1 mb-1">fetch</div>
       <b-container class="bv-example-row">
         <b-row
-          v-for="(fetch, index) in value"
+          v-for="(fetch, index) in value.fetch"
           class="border rounded m-1 p-2 fetch-api-div"
         >
           <b-col class="p-0">
@@ -38,7 +38,7 @@
         <fetch-create-modal v-model="value"></fetch-create-modal>
         <fetch-edit-get-modal
           v-model="value"
-          @commit="commitEditModal"
+          v-if="value.update"
         ></fetch-edit-get-modal>
       </div>
     </div>
@@ -64,9 +64,6 @@ export default {
     showFetchEditModal: function (method, index) {
       console.log(`fetch-edit-${method}-modal`);
       this.$modal.show(`fetch-edit-${method}-modal`, { index: index });
-    },
-    commitEditModal: function () {
-      this.$forceUpdate();
     },
   },
 };

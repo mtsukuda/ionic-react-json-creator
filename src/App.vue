@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-6">
         <div class="mt-3">
-          <fetch-container v-model="configJson.fetch"></fetch-container>
+          <fetch-container v-model="configJson"></fetch-container>
           <layout-container v-model="configJson.tags"></layout-container>
         </div>
       </div>
@@ -59,6 +59,7 @@ export default {
   data() {
     return {
       configJson: {
+        update: 0,
         name: "",
         import: [],
         fetch: [],
