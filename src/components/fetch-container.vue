@@ -22,7 +22,11 @@
             >
               <b-icon icon="pencil" aria-label="Edit"></b-icon>
             </b-button>
-            <b-button size="sm" variant="outline-danger">
+            <b-button
+              size="sm"
+              variant="outline-danger"
+              v-on:click="deleteFetch(fetch.name)"
+            >
               <b-icon icon="trash" aria-label="Delete"></b-icon>
             </b-button>
           </b-col>
@@ -64,6 +68,9 @@ export default {
     showFetchEditModal: function (method, index) {
       console.log(`fetch-edit-${method}-modal`);
       this.$modal.show(`fetch-edit-${method}-modal`, { index: index });
+    },
+    deleteFetch: function (name) {
+      console.log(`${name} -> deleteFetch()`);
     },
   },
 };
