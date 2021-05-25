@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       configJson: {
-        update: 0,
+        update: 1,
         name: "",
         import: [],
         fetch: [],
