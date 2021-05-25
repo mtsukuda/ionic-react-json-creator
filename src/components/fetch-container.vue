@@ -70,7 +70,13 @@ export default {
       this.$modal.show(`fetch-edit-${method}-modal`, { index: index });
     },
     deleteFetch: function (name) {
-      console.log(`${name} -> deleteFetch()`);
+      let targetIndex = 0;
+      this.value.fetch.forEach((fetch, index) => {
+        if (fetch.name === name) {
+          targetIndex = index;
+        }
+      });
+      this.value.fetch.splice(targetIndex, 1);
     },
   },
 };
