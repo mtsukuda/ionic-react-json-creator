@@ -33,6 +33,7 @@ export default {
       };
     },
     formattedJson: function (configShowJson, showSwitch) {
+      delete configShowJson.update;
       if (!showSwitch.tags) delete configShowJson.tags;
       if (!showSwitch.imports) delete configShowJson.import;
       if (!showSwitch.fetch) delete configShowJson.fetch;
