@@ -155,7 +155,6 @@ export default {
   content: attr(data-content);
   position: relative;
   display: inline-block;
-  color: black;
   padding: 0 0.5em 0 0;
   line-height: 1.5em;
   color: #111;
