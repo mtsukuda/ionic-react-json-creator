@@ -8,6 +8,15 @@
   >
     <div class="modal-body">
       <div>
+        <div>
+          <input
+            type="checkbox"
+            id="create_front_api"
+            value="front_api"
+            v-model="useFrontApi"
+          />
+          <label for="create_front_api" class="p-1">Create Front API</label>
+        </div>
         <label for="inputApiUri">URI</label>
         <div class="col-sm mb-2">
           <input
@@ -16,6 +25,7 @@
             type="text"
             placeholder="URI"
             v-model="input.uri"
+            :disabled="uriDisable"
           />
         </div>
         <label for="inputApiResponseTypeName">Response type name</label>
@@ -73,9 +83,14 @@ export default {
         responseTypeName: "",
         responseType: "",
       },
+      useFrontApi: false,
     };
   },
   computed: {
+    uriDisable() {
+      console.log(this.useFrontApi);
+      return this.useFrontApi;
+    },
     createDisable() {
       return (
         !this.input.uri ||
