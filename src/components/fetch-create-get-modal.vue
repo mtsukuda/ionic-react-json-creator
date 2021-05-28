@@ -61,6 +61,11 @@
           @close="closeModal"
           @commit="commitModal"
         ></fetch-create-get-api-external-modal>
+        <fetch-create-get-api-internal-modal
+          v-model="apis"
+          @close="closeModal"
+          @commit="commitModal"
+        ></fetch-create-get-api-internal-modal>
       </div>
     </div>
     <div class="modal-footer">
@@ -83,9 +88,13 @@
 
 <script>
 import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
+import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
 export default {
   name: "fetch-create-get-modal",
-  components: { FetchCreateGetApiExternalModal },
+  components: {
+    FetchCreateGetApiExternalModal,
+    FetchCreateGetApiInternalModal,
+  },
   props: {
     value: {},
   },
@@ -115,10 +124,8 @@ export default {
       this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
-      if (apiType === "external") {
-        this.$modal.show("fetch-create-get-api-external-modal");
-      }
       console.log(apiType);
+      this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
     closeModal: function () {
       console.log("close");
