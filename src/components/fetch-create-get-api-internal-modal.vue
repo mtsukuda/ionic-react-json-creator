@@ -37,11 +37,28 @@
             class="form-control input-sm"
             id="inputPath"
             type="text"
-            placeholder="Path"
+            placeholder="myMock"
             v-model="input.path"
           />
         </div>
         <label>Mock</label>
+        <div class="col-sm mb-2">
+          <b-input-group class="mb-2" v-for="param in mockParams">
+            <b-form-input
+              aria-label="Label"
+              placeholder="resTitle"
+              v-model="param.label"
+            ></b-form-input>
+            <b-form-input
+              aria-label="Content"
+              placeholder="This is the Title"
+              v-model="param.content"
+            ></b-form-input>
+            <b-button variant="outline-danger" class="ml-1"
+              ><b-icon icon="trash" aria-label="Delete"></b-icon
+            ></b-button>
+          </b-input-group>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -78,6 +95,12 @@ export default {
         responseType: "",
         path: "",
       },
+      mockParams: [
+        {
+          label: "",
+          content: "",
+        },
+      ],
     };
   },
   computed: {
