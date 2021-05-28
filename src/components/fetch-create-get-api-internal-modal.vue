@@ -50,7 +50,7 @@
         @click="$emit('close')"
         class="btn btn-outline-secondary property-btn btn-sm m-1"
       >
-        閉じる
+        CLOSE
       </button>
       <button
         v-on:click="commit"
@@ -58,7 +58,7 @@
         class="btn btn-outline-primary property-btn btn-sm m-1"
         :disabled="createDisable"
       >
-        作成
+        CREATE
       </button>
     </div>
   </modal>
