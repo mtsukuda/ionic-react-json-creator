@@ -8,15 +8,6 @@
   >
     <div class="modal-body">
       <div>
-        <div>
-          <input
-            type="checkbox"
-            id="create_front_api"
-            value="front_api"
-            v-model="useFrontApi"
-          />
-          <label for="create_front_api" class="p-1">Create Front API</label>
-        </div>
         <label for="inputApiUri">URI</label>
         <div class="col-sm mb-2">
           <input
@@ -25,7 +16,6 @@
             type="text"
             placeholder="URI"
             v-model="input.uri"
-            :disabled="uriDisable"
           />
         </div>
         <label for="inputApiResponseTypeName">Response type name</label>
@@ -48,20 +38,6 @@
             v-model="input.responseType"
           />
         </div>
-      </div>
-      <div v-if="useFrontApi">
-        <hr class="hr-text" data-content="Front API Configure" />
-        <label for="inputPath">Path</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputPath"
-            type="text"
-            placeholder="Path"
-            v-model="input.path"
-          />
-        </div>
-        <label>Mock</label>
       </div>
     </div>
     <div class="modal-footer">
@@ -96,16 +72,10 @@ export default {
         uri: "",
         responseTypeName: "",
         responseType: "",
-        path: "",
       },
-      useFrontApi: false,
     };
   },
   computed: {
-    uriDisable() {
-      console.log(this.useFrontApi);
-      return this.useFrontApi;
-    },
     createDisable() {
       return (
         !this.input.uri ||
@@ -130,34 +100,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.hr-text {
-  line-height: 1em;
-  position: relative;
-  outline: 0;
-  border: 0;
-  color: black;
-  text-align: left;
-  height: 1.5em;
-  opacity: 0.5;
-}
-.hr-text:before {
-  content: "";
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #fff;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 1px;
-}
-.hr-text:after {
-  content: attr(data-content);
-  position: relative;
-  display: inline-block;
-  padding: 0 0.5em 0 0;
-  line-height: 1.5em;
-  color: #111;
-  background-color: #fcfcfa;
-}
-</style>
+<style scoped></style>
