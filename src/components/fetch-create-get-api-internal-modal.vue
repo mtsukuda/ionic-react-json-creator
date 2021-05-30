@@ -20,6 +20,38 @@
         </div>
         <label for="inputResponseType">Response type</label>
         <div class="col-sm mb-2">
+          <b-input-group
+            class="mb-2"
+            v-for="(response, index) in responseTypes"
+          >
+            <b-form-input
+              aria-label="Label"
+              placeholder="res1"
+              v-model="response.label"
+            ></b-form-input>
+            <b-form-input
+              aria-label="Content"
+              placeholder="string"
+              v-model="response.type"
+            ></b-form-input>
+            <b-dropdown text="Type" variant="outline-secondary">
+              <b-dropdown-item>string</b-dropdown-item>
+              <b-dropdown-item>boolean</b-dropdown-item>
+              <b-dropdown-item>number</b-dropdown-item>
+            </b-dropdown>
+            <b-button variant="outline-danger" class="ml-1"
+              ><b-icon
+                icon="trash"
+                aria-label="Delete"
+                v-on:click="deleteResponse(index)"
+              ></b-icon
+            ></b-button>
+          </b-input-group>
+          <b-button variant="outline-primary" v-on:click="addResponse"
+            ><b-icon icon="plus" aria-label="append"></b-icon
+          ></b-button>
+        </div>
+        <div class="col-sm mb-2">
           <input
             class="form-control input-sm"
             id="inputResponseType"
@@ -95,6 +127,12 @@ export default {
         responseType: "",
         path: "",
       },
+      responseTypes: [
+        {
+          label: "",
+          type: "",
+        },
+      ],
       mockParams: [
         {
           label: "",
@@ -113,6 +151,15 @@ export default {
     },
   },
   methods: {
+    addResponse: function () {
+      this.responseTypes.push({
+        label: "",
+        content: "",
+      });
+    },
+    deleteResponse: function (index) {
+      this.responseTypes.splice(index, 1);
+    },
     hide: function () {
       this.$modal.hide("fetch-create-get-api-internal-modal");
     },
