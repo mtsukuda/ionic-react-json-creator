@@ -55,6 +55,7 @@
     </div>
     <fetch-create-get-api-internal-mock-modal
       v-model="value"
+      v-bind:mock-params="mockParams"
     ></fetch-create-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
@@ -96,12 +97,7 @@ export default {
           type: "",
         },
       ],
-      mockParams: [
-        {
-          label: "",
-          content: "",
-        },
-      ],
+      mockParams: [],
     };
   },
   computed: {
@@ -134,6 +130,12 @@ export default {
       this.$modal.hide("fetch-create-get-api-internal-modal");
     },
     next: function () {
+      this.responseTypes.forEach((response) => {
+        this.mockParams.push({
+          label: response.label,
+          content: "",
+        });
+      });
       this.$modal.show("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
