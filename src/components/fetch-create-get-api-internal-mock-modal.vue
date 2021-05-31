@@ -59,14 +59,8 @@ export default {
   name: "fetch-create-get-api-internal-mock-modal",
   props: {
     value: {},
+    input: {},
     mockParams: {},
-  },
-  data() {
-    return {
-      input: {
-        path: "",
-      },
-    };
   },
   computed: {
     createDisable() {
