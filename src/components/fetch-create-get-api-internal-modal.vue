@@ -18,7 +18,7 @@
             v-model="input.responseTypeName"
           />
         </div>
-        <label for="inputResponseType">Response type</label>
+        <label>Response type</label>
         <div class="col-sm mb-2">
           <b-input-group
             class="mb-2"
@@ -52,38 +52,10 @@
           ></b-button>
         </div>
       </div>
-      <div>
-        <hr class="hr-text" data-content="Front API Configure" />
-        <label for="inputPath">Path</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputPath"
-            type="text"
-            placeholder="myMock"
-            v-model="input.path"
-          />
-        </div>
-        <label>Mock</label>
-        <div class="col-sm mb-2">
-          <b-input-group class="mb-2" v-for="param in mockParams">
-            <b-form-input
-              aria-label="Label"
-              placeholder="resTitle"
-              v-model="param.label"
-            ></b-form-input>
-            <b-form-input
-              aria-label="Content"
-              placeholder="This is the Title"
-              v-model="param.content"
-            ></b-form-input>
-            <b-button variant="outline-danger" class="ml-1"
-              ><b-icon icon="trash" aria-label="Delete"></b-icon
-            ></b-button>
-          </b-input-group>
-        </div>
-      </div>
     </div>
+    <fetch-create-get-api-internal-mock-modal
+      v-model="value"
+    ></fetch-create-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
         v-on:click="hide"
@@ -93,20 +65,21 @@
         CLOSE
       </button>
       <button
-        v-on:click="commit"
-        @click="$emit('commit')"
+        v-on:click="next"
         class="btn btn-outline-primary property-btn btn-sm m-1"
-        :disabled="createDisable"
+        :disabled="nextDisable"
       >
-        CREATE
+        NEXT
       </button>
     </div>
   </modal>
 </template>
 
 <script>
+import FetchCreateGetApiInternalMockModal from "./fetch-create-get-api-internal-mock-modal";
 export default {
   name: "fetch-create-get-api-internal-modal",
+  components: { FetchCreateGetApiInternalMockModal },
   props: {
     value: {},
   },
@@ -115,7 +88,6 @@ export default {
       input: {
         uri: "",
         responseTypeName: "",
-        responseType: "",
         path: "",
       },
       responseTypes: [
@@ -133,12 +105,8 @@ export default {
     };
   },
   computed: {
-    createDisable() {
-      return (
-        !this.input.uri ||
-        !this.input.responseTypeName ||
-        !this.input.responseType
-      );
+    nextDisable() {
+      return !this.input.responseTypeName || this.isResponseTypeBlank();
     },
   },
   methods: {
@@ -151,8 +119,22 @@ export default {
     deleteResponse: function (index) {
       this.responseTypes.splice(index, 1);
     },
+    isResponseTypeBlank: function () {
+      for (let i = 0; i < this.responseTypes.length; i++) {
+        if (
+          this.responseTypes[i].label === "" ||
+          this.responseTypes[i].type === ""
+        ) {
+          return true;
+        }
+      }
+      return false;
+    },
     hide: function () {
       this.$modal.hide("fetch-create-get-api-internal-modal");
+    },
+    next: function () {
+      this.$modal.show("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
       this.value.push({

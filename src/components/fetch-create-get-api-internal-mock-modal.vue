@@ -1,57 +1,12 @@
 <template>
   <modal
-    name="fetch-create-get-api-internal-modal"
+    name="fetch-create-get-api-internal-mock-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
     height="auto"
   >
     <div class="modal-body">
-      <div>
-        <label for="inputApiResponseTypeName">Response type name</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputApiResponseTypeName"
-            type="text"
-            placeholder="ResponseTypeName"
-            v-model="input.responseTypeName"
-          />
-        </div>
-        <label>Response type</label>
-        <div class="col-sm mb-2">
-          <b-input-group
-            class="mb-2"
-            v-for="(response, index) in responseTypes"
-          >
-            <b-form-input
-              aria-label="Label"
-              placeholder="res1"
-              v-model="response.label"
-            ></b-form-input>
-            <b-form-input
-              aria-label="Content"
-              placeholder="string"
-              v-model="response.type"
-            ></b-form-input>
-            <b-dropdown text="Type" variant="outline-secondary">
-              <b-dropdown-item>string</b-dropdown-item>
-              <b-dropdown-item>boolean</b-dropdown-item>
-              <b-dropdown-item>number</b-dropdown-item>
-            </b-dropdown>
-            <b-button variant="outline-danger" class="ml-1"
-              ><b-icon
-                icon="trash"
-                aria-label="Delete"
-                v-on:click="deleteResponse(index)"
-              ></b-icon
-            ></b-button>
-          </b-input-group>
-          <b-button variant="outline-primary" v-on:click="addResponse"
-            ><b-icon icon="plus" aria-label="append"></b-icon
-          ></b-button>
-        </div>
-      </div>
       <div>
         <hr class="hr-text" data-content="Front API Configure" />
         <label for="inputPath">Path</label>
@@ -106,7 +61,7 @@
 
 <script>
 export default {
-  name: "fetch-create-get-api-internal-modal",
+  name: "fetch-create-get-api-internal-mock-modal",
   props: {
     value: {},
   },
@@ -152,7 +107,7 @@ export default {
       this.responseTypes.splice(index, 1);
     },
     hide: function () {
-      this.$modal.hide("fetch-create-get-api-internal-modal");
+      this.$modal.hide("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
       this.value.push({
