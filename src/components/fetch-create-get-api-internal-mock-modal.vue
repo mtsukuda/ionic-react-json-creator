@@ -21,12 +21,11 @@
         </div>
         <label>Mock</label>
         <div class="col-sm mb-2">
-          <b-input-group class="mb-2" v-for="param in mockParams">
-            <b-form-input
-              aria-label="Label"
-              placeholder="resTitle"
-              v-model="param.label"
-            ></b-form-input>
+          <b-input-group
+            class="mb-2 prepend-width"
+            :prepend="param.label"
+            v-for="param in mockParams"
+          >
             <b-form-input
               aria-label="Content"
               placeholder="This is the Title"
@@ -39,10 +38,9 @@
     <div class="modal-footer">
       <button
         v-on:click="hide"
-        @click="$emit('close')"
         class="btn btn-outline-secondary property-btn btn-sm m-1"
       >
-        CLOSE
+        BACK
       </button>
       <button
         v-on:click="commit"
@@ -72,32 +70,22 @@ export default {
   },
   computed: {
     createDisable() {
-      return (
-        !this.input.uri ||
-        !this.input.responseTypeName ||
-        !this.input.responseType
-      );
+      return !this.input.path || this.isMockParamsBlank();
     },
   },
   methods: {
-    addResponse: function () {
-      this.responseTypes.push({
-        label: "",
-        content: "",
-      });
-    },
-    deleteResponse: function (index) {
-      this.responseTypes.splice(index, 1);
+    isMockParamsBlank: function () {
+      for (let i = 0; i < this.mockParams.length; i++) {
+        if (this.mockParams[i].content === "") {
+          return true;
+        }
+      }
+      return false;
     },
     hide: function () {
       this.$modal.hide("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
-      this.value.push({
-        uri: this.input.uri,
-        responseTypeName: this.input.responseTypeName,
-        responseType: this.input.responseType,
-      });
       this.hide();
     },
   },
@@ -105,6 +93,10 @@ export default {
 </script>
 
 <style scoped>
+.input-group-text {
+  width: 180px;
+  padding-left: 18px;
+}
 .hr-text {
   line-height: 1em;
   position: relative;
