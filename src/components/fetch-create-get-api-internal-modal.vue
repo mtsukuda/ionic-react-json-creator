@@ -56,6 +56,7 @@
     <fetch-create-get-api-internal-mock-modal
       v-model="value"
       v-bind:mock-params="responseTypes"
+      v-bind:input="input"
       @commit="commit"
     ></fetch-create-get-api-internal-mock-modal>
     <div class="modal-footer">
@@ -88,7 +89,7 @@ export default {
   data() {
     return {
       input: {
-        uri: "",
+        uri: "https://sls-front-api.io/",
         responseTypeName: "",
         path: "",
       },
@@ -134,10 +135,21 @@ export default {
       this.$modal.show("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
+      let responseType = {};
+      let mock = {};
+      this.responseTypes.forEach((response) => {
+        responseType[response.label] = response.type;
+        mock[response.label] = response.content;
+      });
       this.value.push({
         uri: this.input.uri,
         responseTypeName: this.input.responseTypeName,
-        responseType: this.input.responseType,
+        responseTypeStrict: true,
+        responseType: responseType,
+        config: {
+          path: this.input.path,
+          mock: mock,
+        },
       });
       this.hide();
     },
