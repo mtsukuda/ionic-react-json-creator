@@ -56,6 +56,7 @@
     <fetch-create-get-api-internal-mock-modal
       v-model="value"
       v-bind:mock-params="responseTypes"
+      @commit="commit"
     ></fetch-create-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
@@ -98,7 +99,6 @@ export default {
           content: "",
         },
       ],
-      mockParams: [],
     };
   },
   computed: {
