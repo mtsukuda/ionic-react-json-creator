@@ -130,6 +130,7 @@ export default {
       this.$modal.hide("fetch-create-get-api-internal-modal");
     },
     next: function () {
+      this.mockParams = [];
       this.responseTypes.forEach((response) => {
         this.mockParams.push({
           label: response.label,
