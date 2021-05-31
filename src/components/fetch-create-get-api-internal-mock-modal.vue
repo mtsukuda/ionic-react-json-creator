@@ -32,9 +32,6 @@
               placeholder="This is the Title"
               v-model="param.content"
             ></b-form-input>
-            <b-button variant="outline-danger" class="ml-1"
-              ><b-icon icon="trash" aria-label="Delete"></b-icon
-            ></b-button>
           </b-input-group>
         </div>
       </div>
@@ -64,27 +61,13 @@ export default {
   name: "fetch-create-get-api-internal-mock-modal",
   props: {
     value: {},
+    mockParams: {},
   },
   data() {
     return {
       input: {
-        uri: "",
-        responseTypeName: "",
-        responseType: "",
         path: "",
       },
-      responseTypes: [
-        {
-          label: "",
-          type: "",
-        },
-      ],
-      mockParams: [
-        {
-          label: "",
-          content: "",
-        },
-      ],
     };
   },
   computed: {
