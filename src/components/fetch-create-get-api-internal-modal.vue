@@ -51,15 +51,6 @@
             ><b-icon icon="plus" aria-label="append"></b-icon
           ></b-button>
         </div>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputResponseType"
-            type="text"
-            placeholder="res1: string"
-            v-model="input.responseType"
-          />
-        </div>
       </div>
       <div>
         <hr class="hr-text" data-content="Front API Configure" />
