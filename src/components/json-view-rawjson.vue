@@ -20,6 +20,9 @@ export default {
       this.compressImport(this.value.tags, importList);
       this.fetchImport(this.value.fetch, importList);
       this.value.import = importList;
+      let lifeCycleMethods = [];
+      this.lifeCycleMethodCalls(this.value.fetch, lifeCycleMethods);
+      this.value.lifeCycleMethods = lifeCycleMethods;
       let configShowJson = clone(this.value);
       this.formattedJson(configShowJson, this.viewConfig);
       return JSON.stringify(configShowJson, null, 2);

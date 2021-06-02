@@ -21,6 +21,7 @@ export default {
         });
       }
     },
+    lifeCycleMethodCalls: function (fetch, lifeCycleMethods) {},
     deleteRawProps: function (tags) {
       tags.forEach((tag) => {
         if (tag.rawProps !== undefined) {
