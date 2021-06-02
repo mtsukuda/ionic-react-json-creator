@@ -118,7 +118,7 @@ export default {
       viewConfig: {
         tags: "tags",
         imports: "",
-        fetch: "",
+        fetch: "fetch",
         debug: "",
       },
     };
