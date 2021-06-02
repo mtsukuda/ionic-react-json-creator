@@ -62,6 +62,7 @@ export default {
         update: 1,
         name: "",
         import: [],
+        lifeCycleMethods: [],
         fetch: [],
         renderBeforeReturn: [],
         defaultProps: [],
