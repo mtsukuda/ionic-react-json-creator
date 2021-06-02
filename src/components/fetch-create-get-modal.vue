@@ -67,6 +67,24 @@
           @commit="commitModal"
         ></fetch-create-get-api-internal-modal>
       </div>
+      <div class="mt-1 mb-1">Called method</div>
+      <div class="mt-2 ml-3 mr-3">
+        <input
+          type="checkbox"
+          id="componentDidMount"
+          value="componentDidMount"
+          v-model="input.called"
+        />
+        <label for="componentDidMount" class="pl-1">componentDidMount</label>
+        <br />
+        <input
+          type="checkbox"
+          id="componentDidUpdate"
+          value="componentDidUpdate"
+          v-model="input.called"
+        />
+        <label for="componentDidUpdate" class="pl-1">componentDidUpdate</label>
+      </div>
     </div>
     <div class="modal-footer">
       <button
@@ -103,6 +121,7 @@ export default {
       input: {
         name: "",
         method: "",
+        called: [],
       },
       apiSelect: [
         { type: "external", label: "External API" },
@@ -138,6 +157,15 @@ export default {
         method: "get",
         name: this.input.name,
         apis: this.apis,
+      });
+      if (!this.value.lifeCycleMethodsSeed) {
+        this.value["lifeCycleMethodsSeed"] = [];
+      }
+      this.input.called.forEach((lifeCycleMethod) => {
+        this.value.lifeCycleMethodsSeed.push({
+          name: this.input.name,
+          lifeCycleMethod: lifeCycleMethod,
+        });
       });
       this.$emit("commit");
       this.hide();
