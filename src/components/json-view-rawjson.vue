@@ -18,6 +18,7 @@ export default {
     raw() {
       let importList = [];
       this.compressImport(this.value.tags, importList);
+      this.fetchImport(this.value.fetch, importList);
       this.value.import = importList;
       let configShowJson = clone(this.value);
       this.formattedJson(configShowJson, this.viewConfig);
