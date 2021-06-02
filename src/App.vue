@@ -63,7 +63,6 @@ export default {
         name: "",
         import: [],
         lifeCycleMethods: [],
-        lifeCycleMethodsSeed: [],
         fetch: [],
         renderBeforeReturn: [],
         defaultProps: [],
