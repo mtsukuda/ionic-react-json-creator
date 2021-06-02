@@ -156,16 +156,8 @@ export default {
       this.value.fetch.push({
         method: "get",
         name: this.input.name,
+        lifeCycleMethods: this.input.called,
         apis: this.apis,
-      });
-      if (!this.value.lifeCycleMethodsSeed) {
-        this.value["lifeCycleMethodsSeed"] = [];
-      }
-      this.input.called.forEach((lifeCycleMethod) => {
-        this.value.lifeCycleMethodsSeed.push({
-          name: this.input.name,
-          lifeCycleMethod: lifeCycleMethod,
-        });
       });
       this.$emit("commit");
       this.hide();
