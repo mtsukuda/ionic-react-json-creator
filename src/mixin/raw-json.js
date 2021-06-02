@@ -11,6 +11,16 @@ export default {
         }
       });
     },
+    fetchImport: function (fetch, importList) {
+      if (fetch && fetch.length > 0) {
+        importList.push({
+          name: "* as fetch",
+          from: "../components/fetch",
+          type: "default",
+          props: [],
+        });
+      }
+    },
     deleteRawProps: function (tags) {
       tags.forEach((tag) => {
         if (tag.rawProps !== undefined) {
