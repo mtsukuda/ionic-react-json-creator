@@ -21,7 +21,24 @@ export default {
         });
       }
     },
-    lifeCycleMethodCalls: function (fetch, lifeCycleMethods) {},
+    lifeCycleMethodCalls: function (fetch, lifeCycleMethods) {
+      fetch.forEach((fetchSet) => {
+        if (fetchSet.lifeCycleMethods) {
+          fetchSet.lifeCycleMethods.forEach((line) => {
+            for (let i = 0; i < lifeCycleMethods.length; i++) {
+              if (lifeCycleMethods[i].methodName === line) {
+                lifeCycleMethods[i].code += `this.${fetchSet.name}();`;
+                return;
+              }
+            }
+            lifeCycleMethods.push({
+              methodName: line,
+              code: `this.${fetchSet.name}();`,
+            });
+          });
+        }
+      });
+    },
     deleteRawProps: function (tags) {
       tags.forEach((tag) => {
         if (tag.rawProps !== undefined) {
