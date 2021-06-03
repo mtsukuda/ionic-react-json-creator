@@ -63,8 +63,10 @@
         ></fetch-create-get-api-external-modal>
         <fetch-create-get-api-internal-modal
           v-model="apis"
+          v-bind:suggestion="suggestion"
           @close="closeModal"
           @commit="commitModal"
+          ref="internal"
         ></fetch-create-get-api-internal-modal>
       </div>
       <div class="mt-1 mb-1">Called method</div>
@@ -128,6 +130,9 @@ export default {
         { type: "internal", label: "Internal API" },
       ],
       apis: [],
+      suggestion: {
+        responseTypeName: "",
+      },
     };
   },
   mounted() {
@@ -143,7 +148,10 @@ export default {
       this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
-      console.log(apiType);
+      if (apiType === "internal") {
+        this.suggestion.responseTypeName = `res${this.input.name}`;
+        this.$refs.internal.setSuggestion();
+      }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
     closeModal: function () {

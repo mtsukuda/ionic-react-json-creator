@@ -85,6 +85,7 @@ export default {
   components: { FetchCreateGetApiInternalMockModal },
   props: {
     value: {},
+    suggestion: {},
   },
   data() {
     return {
@@ -108,6 +109,9 @@ export default {
     },
   },
   methods: {
+    setSuggestion: function () {
+      this.input.responseTypeName = this.suggestion.responseTypeName;
+    },
     addResponse: function () {
       this.responseTypes.push({
         label: "",
