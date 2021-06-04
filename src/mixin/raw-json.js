@@ -49,6 +49,13 @@ export default {
         }
       });
     },
+    deleteInfoLifeCycleMethods: function (fetch) {
+      fetch.forEach((eachFetch) => {
+        if (eachFetch.lifeCycleMethods !== undefined) {
+          delete eachFetch.lifeCycleMethods;
+        }
+      });
+    },
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
@@ -67,6 +74,8 @@ export default {
       if (!showSwitch.fetch) delete configShowJson.fetch;
       if (showSwitch.tags && !showSwitch.debug)
         this.deleteRawProps(configShowJson.tags);
+      if (showSwitch.fetch && !showSwitch.debug)
+        this.deleteInfoLifeCycleMethods(configShowJson.fetch);
     },
   },
 };
