@@ -60,7 +60,7 @@ export default {
     return {
       configJson: {
         update: 1,
-        name: "",
+        name: "myComponent",
         import: [],
         lifeCycleMethods: [],
         fetch: [],
