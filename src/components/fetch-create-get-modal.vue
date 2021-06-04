@@ -132,12 +132,12 @@ export default {
       ],
       apis: [],
       suggestion: {
-        responseTypeName: "",
+        functionName: "",
       },
     };
   },
   mounted() {
-    this.input.name = "12345";
+    this.input.name = "hogeHoge";
   },
   computed: {
     createDisable() {
@@ -150,9 +150,7 @@ export default {
     },
     addApi: function (apiType) {
       if (apiType === "internal") {
-        this.suggestion.responseTypeName = `res${this.input.name[0].toUpperCase()}${this.input.name.slice(
-          1
-        )}`;
+        this.suggestion.functionName = this.input.name;
         this.$refs.internal.setSuggestion();
       }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);

@@ -59,6 +59,7 @@ export default {
   name: "fetch-create-get-api-internal-mock-modal",
   props: {
     value: {},
+    suggestion: {},
     input: {},
     mockParams: {},
   },
@@ -68,6 +69,14 @@ export default {
     },
   },
   methods: {
+    setSuggestion: function () {
+      if (!this.input.path) {
+        this.input.path =
+          "lambda" +
+          this.suggestion.functionName[0].toUpperCase() +
+          this.suggestion.functionName.slice(1);
+      }
+    },
     isMockParamsBlank: function () {
       for (let i = 0; i < this.mockParams.length; i++) {
         if (this.mockParams[i].content === "") {

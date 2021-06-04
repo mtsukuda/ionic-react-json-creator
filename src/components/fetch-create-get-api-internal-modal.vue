@@ -55,9 +55,11 @@
     </div>
     <fetch-create-get-api-internal-mock-modal
       v-model="value"
+      v-bind:suggestion="suggestion"
       v-bind:mock-params="responseTypes"
       v-bind:input="input"
       @commit="commit"
+      ref="internalMock"
     ></fetch-create-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
@@ -110,7 +112,12 @@ export default {
   },
   methods: {
     setSuggestion: function () {
-      this.input.responseTypeName = this.suggestion.responseTypeName;
+      if (!this.input.responseTypeName) {
+        this.input.responseTypeName =
+          "res" +
+          this.suggestion.functionName[0].toUpperCase() +
+          this.suggestion.functionName.slice(1);
+      }
     },
     addResponse: function () {
       this.responseTypes.push({
@@ -136,6 +143,7 @@ export default {
       this.$modal.hide("fetch-create-get-api-internal-modal");
     },
     next: function () {
+      this.$refs.internalMock.setSuggestion();
       this.$modal.show("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
