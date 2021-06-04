@@ -9,7 +9,7 @@
     <div class="modal-body">
       <div>
         <hr class="hr-text" data-content="Front API Configure" />
-        <label for="inputPath">Path</label>
+        <label for="inputPath">Lambda Path</label>
         <div class="col-sm mb-2">
           <input
             class="form-control input-sm"
@@ -19,7 +19,7 @@
             v-model="input.path"
           />
         </div>
-        <label>Mock</label>
+        <label>Mock Data</label>
         <div class="col-sm mb-2">
           <b-input-group
             class="mb-2 prepend-width"
