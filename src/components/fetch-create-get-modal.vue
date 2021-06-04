@@ -109,6 +109,7 @@
 <script>
 import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
 import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
+const _ = require("lodash");
 export default {
   name: "fetch-create-get-modal",
   components: {
@@ -149,7 +150,9 @@ export default {
     },
     addApi: function (apiType) {
       if (apiType === "internal") {
-        this.suggestion.responseTypeName = `res${this.input.name}`;
+        this.suggestion.responseTypeName = `res${this.input.name[0].toUpperCase()}${this.input.name.slice(
+          1
+        )}`;
         this.$refs.internal.setSuggestion();
       }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
