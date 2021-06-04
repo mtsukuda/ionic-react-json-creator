@@ -109,7 +109,6 @@
 <script>
 import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
 import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
-const _ = require("lodash");
 export default {
   name: "fetch-create-get-modal",
   components: {
