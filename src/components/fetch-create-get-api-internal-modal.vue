@@ -166,6 +166,7 @@ export default {
       });
       this.value.push({
         uri: this.input.uri,
+        apiType: "internal",
         responseTypeName: this.input.responseTypeName,
         responseTypeStrict: true,
         responseType: responseType,
