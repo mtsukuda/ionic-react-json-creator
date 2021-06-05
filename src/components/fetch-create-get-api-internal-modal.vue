@@ -30,7 +30,7 @@
               v-model="response.label"
             ></b-form-input>
             <b-form-input
-              aria-label="Content"
+              aria-label="Type"
               placeholder="string"
               v-model="response.type"
             ></b-form-input>
@@ -119,10 +119,17 @@ export default {
           this.suggestion.functionName.slice(1);
       }
     },
+    clearResponse: function () {
+      this.responseTypes.splice(0);
+      this.responseTypes.push({
+        label: "",
+        type: "",
+      });
+    },
     addResponse: function () {
       this.responseTypes.push({
         label: "",
-        content: "",
+        type: "",
       });
     },
     deleteResponse: function (index) {

@@ -134,9 +134,11 @@ export default {
       this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
+      this.apis.splice(0);
       if (apiType === "internal") {
         this.suggestion.functionName = this.input.name;
         this.$refs.internal.setSuggestion();
+        this.$refs.internal.clearResponse();
       }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
