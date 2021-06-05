@@ -111,6 +111,10 @@ export default {
     },
   },
   methods: {
+    initModal: function () {
+      this.setSuggestion();
+      this.clearResponse();
+    },
     setSuggestion: function () {
       if (!this.input.responseTypeName) {
         this.input.responseTypeName =

@@ -137,8 +137,7 @@ export default {
       this.apis.splice(0);
       if (apiType === "internal") {
         this.suggestion.functionName = this.input.name;
-        this.$refs.internal.setSuggestion();
-        this.$refs.internal.clearResponse();
+        this.$refs.internal.initModal();
       }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
