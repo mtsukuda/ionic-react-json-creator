@@ -49,7 +49,11 @@
                 <b-button size="sm" variant="outline-primary" class="mr-1">
                   <b-icon icon="pencil" aria-label="Edit"></b-icon>
                 </b-button>
-                <b-button size="sm" variant="outline-danger">
+                <b-button
+                  size="sm"
+                  variant="outline-danger"
+                  v-on:click="deleteApi(api.responseTypeName)"
+                >
                   <b-icon icon="trash" aria-label="Delete"></b-icon>
                 </b-button>
               </b-col>
@@ -68,24 +72,6 @@
           @commit="commitModal"
           ref="internal"
         ></fetch-create-get-api-internal-modal>
-      </div>
-      <div class="mt-1 mb-1">Called method</div>
-      <div class="mt-2 ml-3 mr-3">
-        <input
-          type="checkbox"
-          id="componentDidMount"
-          value="componentDidMount"
-          v-model="input.called"
-        />
-        <label for="componentDidMount" class="pl-1">componentDidMount</label>
-        <br />
-        <input
-          type="checkbox"
-          id="componentDidUpdate"
-          value="componentDidUpdate"
-          v-model="input.called"
-        />
-        <label for="componentDidUpdate" class="pl-1">componentDidUpdate</label>
       </div>
     </div>
     <div class="modal-footer">
@@ -169,6 +155,15 @@ export default {
       });
       this.$emit("commit");
       this.hide();
+    },
+    deleteApi: function (responseTypeName) {
+      let targetIndex = 0;
+      this.apis.forEach((api, index) => {
+        if (api.responseTypeName === responseTypeName) {
+          targetIndex = index;
+        }
+      });
+      this.apis.splice(targetIndex, 1);
     },
   },
 };
