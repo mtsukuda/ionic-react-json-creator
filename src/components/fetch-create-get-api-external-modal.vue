@@ -91,6 +91,7 @@ export default {
     commit: function () {
       this.value.push({
         uri: this.input.uri,
+        apiType: "external",
         responseTypeName: this.input.responseTypeName,
         responseType: this.input.responseType,
       });
