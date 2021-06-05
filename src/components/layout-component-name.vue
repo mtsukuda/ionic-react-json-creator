@@ -1,7 +1,7 @@
 <template>
   <form>
     <div class="form-group mt-2">
-      <label for="inputComponentName">コンポーネント名</label>
+      <label for="inputComponentName">Component Name</label>
       <div class="col-sm">
         <input
           class="form-control"
