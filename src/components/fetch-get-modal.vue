@@ -133,6 +133,11 @@ export default {
     },
   },
   methods: {
+    createMode: function () {
+      this.mode = "create";
+      this.editIndex = 0;
+      this.apis.splice(0);
+    },
     editMode: function (fetch, index) {
       this.mode = "edit";
       this.editIndex = index;
