@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-create-get-modal"
+    name="fetch-get-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -100,7 +100,7 @@
 import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
 import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
 export default {
-  name: "fetch-create-get-modal",
+  name: "fetch-get-modal",
   components: {
     FetchCreateGetApiExternalModal,
     FetchCreateGetApiInternalModal,
@@ -132,7 +132,7 @@ export default {
   },
   methods: {
     hide: function () {
-      this.$modal.hide("fetch-create-get-modal");
+      this.$modal.hide("fetch-get-modal");
     },
     addApi: function (apiType) {
       if (apiType === "internal") {
