@@ -110,6 +110,7 @@ export default {
   },
   data() {
     return {
+      mode: "create",
       input: {
         name: "",
         method: "",
@@ -131,6 +132,9 @@ export default {
     },
   },
   methods: {
+    editMode: function () {
+      this.mode = "edit";
+    },
     hide: function () {
       this.$modal.hide("fetch-get-modal");
     },
