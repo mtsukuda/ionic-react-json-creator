@@ -9,7 +9,7 @@
     <div class="modal-body">
       <div>
         <hr class="hr-text" data-content="Front API Configure" />
-        <label for="inputPath">Lambda Path</label>
+        <label>Lambda Path</label>
         <div class="col-sm mb-2">
           <input
             class="form-control input-sm"
@@ -84,6 +84,9 @@ export default {
           suggestionFunctionName[0].toUpperCase() +
           suggestionFunctionName.slice(1);
       }
+    },
+    editMode: function () {
+      this.mode = "edit";
     },
     isMockParamsBlank: function () {
       for (let i = 0; i < this.mockParams.length; i++) {

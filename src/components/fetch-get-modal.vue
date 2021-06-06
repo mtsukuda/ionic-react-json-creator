@@ -34,7 +34,7 @@
           </b-nav-item-dropdown>
         </div>
         <div>
-          <b-container class="p-0">
+          <b-container class="p-0" v-if="mode">
             <b-row
               v-for="api in apis"
               class="border rounded m-2 p-2 fetch-api-div"
@@ -97,6 +97,7 @@
 </template>
 
 <script>
+const clone = require("clone");
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
 export default {
@@ -137,10 +138,14 @@ export default {
       this.mode = "create";
       this.editIndex = 0;
       this.apis.splice(0);
+      console.log(JSON.stringify(this.apis));
     },
     editMode: function (fetch, index) {
+      console.log("editMode");
       this.mode = "edit";
       this.editIndex = index;
+      this.input.name = this.value.fetch[index].name;
+      this.apis = clone(this.value.fetch[index].apis);
     },
     hide: function () {
       this.$modal.hide("fetch-get-modal");

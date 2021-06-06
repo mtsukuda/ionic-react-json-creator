@@ -138,8 +138,18 @@ export default {
       this.input.responseTypeName = api.responseTypeName;
       this.responseTypes.splice(0);
       _.forEach(api.responseType, (type, label) => {
-        this.responseTypes.push({ label: label, type: type });
+        let content = this.findMockData(api, label);
+        this.responseTypes.push({ label: label, type: type, content: content });
       });
+      if (api.config && api.config.path) {
+        this.input.path = api.config.path;
+      }
+    },
+    findMockData: function (api, label) {
+      if (api.config && api.config.mock && api.config.mock[label]) {
+        return api.config.mock[label];
+      }
+      return "";
     },
     addResponse: function () {
       this.responseTypes.push({
@@ -165,7 +175,11 @@ export default {
       this.$modal.hide("fetch-get-api-internal-modal");
     },
     next: function () {
-      this.$refs.internalMock.createMode(this.suggestionFunctionName);
+      if (this.mode === "create") {
+        this.$refs.internalMock.createMode(this.suggestionFunctionName);
+      } else {
+        this.$refs.internalMock.editMode();
+      }
       this.$modal.show("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
@@ -192,34 +206,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.hr-text {
-  line-height: 1em;
-  position: relative;
-  outline: 0;
-  border: 0;
-  color: black;
-  text-align: left;
-  height: 1.5em;
-  opacity: 0.5;
-}
-.hr-text:before {
-  content: "";
-  border-top: 1px solid #999;
-  border-bottom: 1px solid #fff;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  height: 1px;
-}
-.hr-text:after {
-  content: attr(data-content);
-  position: relative;
-  display: inline-block;
-  padding: 0 0.5em 0 0;
-  line-height: 1.5em;
-  color: #111;
-  background-color: #fcfcfa;
-}
-</style>
+<style scoped></style>
