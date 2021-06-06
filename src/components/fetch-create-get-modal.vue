@@ -139,7 +139,6 @@ export default {
       this.$modal.hide("fetch-create-get-modal");
     },
     addApi: function (apiType) {
-      this.apis.splice(0);
       if (apiType === "internal") {
         this.suggestion.functionName = this.input.name;
         this.$refs.internal.initModal();
@@ -148,6 +147,11 @@ export default {
     },
     editApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
+      let apiType = this.apis[targetIndex].apiType;
+      if (apiType === "internal") {
+        this.$refs.internal.editMode(this.apis[targetIndex]);
+      }
+      this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
     closeModal: function () {
       console.log("close");

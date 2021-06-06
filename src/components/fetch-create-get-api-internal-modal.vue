@@ -82,6 +82,7 @@
 
 <script>
 import FetchCreateGetApiInternalMockModal from "./fetch-create-get-api-internal-mock-modal";
+const _ = require("lodash");
 export default {
   name: "fetch-create-get-api-internal-modal",
   components: { FetchCreateGetApiInternalMockModal },
@@ -91,6 +92,7 @@ export default {
   },
   data() {
     return {
+      mode: "init",
       input: {
         uri: "https://sls-front-api.io/",
         responseTypeName: "",
@@ -128,6 +130,14 @@ export default {
       this.responseTypes.push({
         label: "",
         type: "",
+      });
+    },
+    editMode: function (api) {
+      this.mode = "edit";
+      this.input.responseTypeName = api.responseTypeName;
+      this.responseTypes.splice(0);
+      _.forEach(api.responseType, (type, label) => {
+        this.responseTypes.push({ label: label, type: type });
       });
     },
     addResponse: function () {
