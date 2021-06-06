@@ -113,16 +113,17 @@ export default {
     },
   },
   methods: {
-    initModal: function () {
-      this.setSuggestion();
+    createMode: function (suggestionFunctionName) {
+      this.mode = "create";
+      this.setSuggestion(suggestionFunctionName);
       this.clearResponse();
     },
-    setSuggestion: function () {
+    setSuggestion: function (suggestionFunctionName) {
       if (!this.input.responseTypeName) {
         this.input.responseTypeName =
           "res" +
-          this.suggestion.functionName[0].toUpperCase() +
-          this.suggestion.functionName.slice(1);
+          suggestionFunctionName[0].toUpperCase() +
+          suggestionFunctionName.slice(1);
       }
     },
     clearResponse: function () {

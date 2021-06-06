@@ -141,7 +141,7 @@ export default {
     addApi: function (apiType) {
       if (apiType === "internal") {
         this.suggestion.functionName = this.input.name;
-        this.$refs.internal.initModal();
+        this.$refs.internal.createMode(this.input.name);
       }
       this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
     },
