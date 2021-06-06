@@ -69,8 +69,10 @@ export default {
       this.$modal.show("fetch-create-modal");
     },
     showFetchEditModal: function (method, index) {
-      console.log(`fetch-edit-${method}-modal`);
-      this.$modal.show(`fetch-edit-${method}-modal`, { index: index });
+      if (method === "get") {
+        this.$refs.getModal.editMode(null, index);
+        this.$modal.show("fetch-get-modal");
+      }
     },
     deleteFetch: function (name) {
       let targetIndex = 0;

@@ -120,6 +120,7 @@ export default {
         { type: "external", label: "External API" },
         { type: "internal", label: "Internal API" },
       ],
+      editIndex: 0,
       apis: [],
     };
   },
@@ -132,8 +133,9 @@ export default {
     },
   },
   methods: {
-    editMode: function () {
+    editMode: function (fetch, index) {
       this.mode = "edit";
+      this.editIndex = index;
     },
     hide: function () {
       this.$modal.hide("fetch-get-modal");
