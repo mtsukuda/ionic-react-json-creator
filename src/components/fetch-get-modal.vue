@@ -70,12 +70,12 @@
           @close="closeModal"
           @commit="commitModal"
         ></fetch-get-api-external-modal>
-        <fetch-create-get-api-internal-modal
+        <fetch-get-api-internal-modal
           v-model="apis"
           @close="closeModal"
           @commit="commitModal"
           ref="internal"
-        ></fetch-create-get-api-internal-modal>
+        ></fetch-get-api-internal-modal>
       </div>
     </div>
     <div class="modal-footer">
@@ -98,12 +98,12 @@
 
 <script>
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
-import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
+import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
 export default {
   name: "fetch-get-modal",
   components: {
     FetchGetApiExternalModal,
-    FetchCreateGetApiInternalModal,
+    FetchGetApiInternalModal,
   },
   props: {
     value: {},
@@ -149,7 +149,7 @@ export default {
       if (apiType === "internal") {
         this.$refs.internal.createMode(this.input.name);
       }
-      this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
+      this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
     editApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
@@ -157,7 +157,7 @@ export default {
       if (apiType === "internal") {
         this.$refs.internal.editMode(this.apis[targetIndex]);
       }
-      this.$modal.show(`fetch-create-get-api-${apiType}-modal`);
+      this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
     closeModal: function () {
       console.log("close");

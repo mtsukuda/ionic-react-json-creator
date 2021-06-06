@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-create-get-api-internal-modal"
+    name="fetch-get-api-internal-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -83,7 +83,7 @@
 import FetchCreateGetApiInternalMockModal from "./fetch-create-get-api-internal-mock-modal";
 const _ = require("lodash");
 export default {
-  name: "fetch-create-get-api-internal-modal",
+  name: "fetch-get-api-internal-modal",
   components: { FetchCreateGetApiInternalMockModal },
   props: {
     value: {},
@@ -162,7 +162,7 @@ export default {
       return false;
     },
     hide: function () {
-      this.$modal.hide("fetch-create-get-api-internal-modal");
+      this.$modal.hide("fetch-get-api-internal-modal");
     },
     next: function () {
       this.$refs.internalMock.createMode(this.suggestionFunctionName);
