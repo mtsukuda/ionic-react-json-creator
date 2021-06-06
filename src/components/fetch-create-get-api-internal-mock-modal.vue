@@ -59,9 +59,13 @@ export default {
   name: "fetch-create-get-api-internal-mock-modal",
   props: {
     value: {},
-    suggestion: {},
     input: {},
     mockParams: {},
+  },
+  data() {
+    return {
+      mode: "create",
+    };
   },
   computed: {
     createDisable() {
@@ -69,12 +73,16 @@ export default {
     },
   },
   methods: {
-    setSuggestion: function () {
+    createMode: function (suggestionFunctionName) {
+      this.mode = "create";
+      this.setSuggestion(suggestionFunctionName);
+    },
+    setSuggestion: function (suggestionFunctionName) {
       if (!this.input.path) {
         this.input.path =
           "lambda" +
-          this.suggestion.functionName[0].toUpperCase() +
-          this.suggestion.functionName.slice(1);
+          suggestionFunctionName[0].toUpperCase() +
+          suggestionFunctionName.slice(1);
       }
     },
     isMockParamsBlank: function () {

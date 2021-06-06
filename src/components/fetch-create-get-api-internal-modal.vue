@@ -55,7 +55,6 @@
     </div>
     <fetch-create-get-api-internal-mock-modal
       v-model="value"
-      v-bind:suggestion="suggestion"
       v-bind:mock-params="responseTypes"
       v-bind:input="input"
       @commit="commit"
@@ -91,7 +90,8 @@ export default {
   },
   data() {
     return {
-      mode: "init",
+      mode: "create",
+      suggestionFunctionName: "",
       input: {
         uri: "https://sls-front-api.io/",
         responseTypeName: "",
@@ -124,6 +124,7 @@ export default {
           suggestionFunctionName[0].toUpperCase() +
           suggestionFunctionName.slice(1);
       }
+      this.suggestionFunctionName = suggestionFunctionName;
     },
     clearResponse: function () {
       this.responseTypes.splice(0);
@@ -164,7 +165,7 @@ export default {
       this.$modal.hide("fetch-create-get-api-internal-modal");
     },
     next: function () {
-      this.$refs.internalMock.setSuggestion();
+      this.$refs.internalMock.createMode(this.suggestionFunctionName);
       this.$modal.show("fetch-create-get-api-internal-mock-modal");
     },
     commit: function () {
