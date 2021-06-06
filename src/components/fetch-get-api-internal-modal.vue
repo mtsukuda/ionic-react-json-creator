@@ -53,13 +53,13 @@
         </div>
       </div>
     </div>
-    <fetch-create-get-api-internal-mock-modal
+    <fetch-get-api-internal-mock-modal
       v-model="value"
       v-bind:mock-params="responseTypes"
       v-bind:input="input"
       @commit="commit"
       ref="internalMock"
-    ></fetch-create-get-api-internal-mock-modal>
+    ></fetch-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
         v-on:click="hide"
@@ -80,11 +80,11 @@
 </template>
 
 <script>
-import FetchCreateGetApiInternalMockModal from "./fetch-create-get-api-internal-mock-modal";
+import FetchGetApiInternalMockModal from "./fetch-get-api-internal-mock-modal";
 const _ = require("lodash");
 export default {
   name: "fetch-get-api-internal-modal",
-  components: { FetchCreateGetApiInternalMockModal },
+  components: { FetchGetApiInternalMockModal },
   props: {
     value: {},
   },
@@ -166,7 +166,7 @@ export default {
     },
     next: function () {
       this.$refs.internalMock.createMode(this.suggestionFunctionName);
-      this.$modal.show("fetch-create-get-api-internal-mock-modal");
+      this.$modal.show("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
       let responseType = {};

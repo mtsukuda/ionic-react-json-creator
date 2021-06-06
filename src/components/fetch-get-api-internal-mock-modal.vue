@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-create-get-api-internal-mock-modal"
+    name="fetch-get-api-internal-mock-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -56,7 +56,7 @@
 
 <script>
 export default {
-  name: "fetch-create-get-api-internal-mock-modal",
+  name: "fetch-get-api-internal-mock-modal",
   props: {
     value: {},
     input: {},
@@ -94,7 +94,7 @@ export default {
       return false;
     },
     hide: function () {
-      this.$modal.hide("fetch-create-get-api-internal-mock-modal");
+      this.$modal.hide("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
       this.hide();
