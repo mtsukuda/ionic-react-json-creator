@@ -37,9 +37,10 @@
           v-on:click="showFetchCreateModal"
           class="btn btn-outline-info property-btn btn-sm m-1"
         >
-          新規作成
+          NEW FETCH
         </button>
         <fetch-create-modal v-model="value"></fetch-create-modal>
+        <fetch-get-modal v-model="value" ref="getModal"></fetch-get-modal>
         <fetch-edit-get-modal
           v-model="value"
           v-if="value.update"
@@ -52,9 +53,11 @@
 <script>
 import fetchCreateModal from "./fetch-create-modal";
 import fetchEditGetModal from "./fetch-edit-get-modal";
+import FetchGetModal from "./fetch-get-modal";
 export default {
   name: "fetch-container",
   components: {
+    FetchGetModal,
     fetchCreateModal,
     fetchEditGetModal,
   },
