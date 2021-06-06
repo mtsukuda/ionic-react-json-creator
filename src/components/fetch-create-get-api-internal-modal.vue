@@ -88,7 +88,6 @@ export default {
   components: { FetchCreateGetApiInternalMockModal },
   props: {
     value: {},
-    suggestion: {},
   },
   data() {
     return {
