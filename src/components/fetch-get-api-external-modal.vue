@@ -1,6 +1,6 @@
 <template>
   <modal
-    name="fetch-create-get-api-external-modal"
+    name="fetch-get-api-external-modal"
     :draggable="true"
     :resizable="true"
     :scrollable="true"
@@ -62,7 +62,7 @@
 
 <script>
 export default {
-  name: "fetch-create-get-api-external-modal",
+  name: "fetch-get-api-external-modal",
   props: {
     value: {},
   },
@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     hide: function () {
-      this.$modal.hide("fetch-create-get-api-external-modal");
+      this.$modal.hide("fetch-get-api-external-modal");
     },
     commit: function () {
       this.value.push({

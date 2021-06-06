@@ -65,11 +65,11 @@
             </b-row>
           </b-container>
         </div>
-        <fetch-create-get-api-external-modal
+        <fetch-get-api-external-modal
           v-model="apis"
           @close="closeModal"
           @commit="commitModal"
-        ></fetch-create-get-api-external-modal>
+        ></fetch-get-api-external-modal>
         <fetch-create-get-api-internal-modal
           v-model="apis"
           @close="closeModal"
@@ -97,12 +97,12 @@
 </template>
 
 <script>
-import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
+import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchCreateGetApiInternalModal from "./fetch-create-get-api-internal-modal";
 export default {
   name: "fetch-get-modal",
   components: {
-    FetchCreateGetApiExternalModal,
+    FetchGetApiExternalModal,
     FetchCreateGetApiInternalModal,
   },
   props: {

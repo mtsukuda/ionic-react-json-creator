@@ -57,11 +57,11 @@
             </b-row>
           </b-container>
         </div>
-        <fetch-create-get-api-external-modal
+        <fetch-get-api-external-modal
           v-model="apis"
           @close="closeModal"
           @commit="commitModal"
-        ></fetch-create-get-api-external-modal>
+        ></fetch-get-api-external-modal>
       </div>
     </div>
     <div class="modal-footer">
@@ -83,10 +83,10 @@
 </template>
 
 <script>
-import FetchCreateGetApiExternalModal from "./fetch-create-get-api-external-modal";
+import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 export default {
   name: "fetch-edit-get-modal",
-  components: { FetchCreateGetApiExternalModal },
+  components: { FetchGetApiExternalModal },
   props: {
     value: {},
   },
@@ -120,7 +120,7 @@ export default {
     },
     addApi: function (apiType) {
       if (apiType === "external") {
-        this.$modal.show("fetch-create-get-api-external-modal");
+        this.$modal.show("fetch-get-api-external-modal");
       }
       console.log(apiType);
     },
