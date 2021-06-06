@@ -24,7 +24,11 @@
         >
           GET
         </button>
-        <fetch-get-modal v-model="value" @commit="hide"></fetch-get-modal>
+        <fetch-get-modal
+          v-model="value"
+          @commit="hide"
+          ref="getModal"
+        ></fetch-get-modal>
         <button
           v-on:click="showFetchCreateApiGetModal"
           class="btn btn-outline-info property-btn"
@@ -77,6 +81,7 @@ export default {
       this.$modal.hide("fetch-create-modal");
     },
     showFetchCreateApiGetModal: function () {
+      this.$refs.getModal.createMode();
       this.$modal.show("fetch-get-modal");
     },
     showNoImplement: function () {
