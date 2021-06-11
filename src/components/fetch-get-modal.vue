@@ -17,7 +17,7 @@
             id="inputFetchName"
             type="text"
             placeholder="Fetch Name"
-            v-model="input.name"
+            v-model="value.fetchTemp.fetchName"
           />
         </div>
       </div>
@@ -112,7 +112,7 @@ export default {
     return {
       mode: "create",
       input: {
-        name: "",
+        // name: "",
         method: "",
         called: ["componentDidMount"],
       },
@@ -125,7 +125,9 @@ export default {
   },
   computed: {
     createDisable() {
-      return !this.value.fetchTemp.apis.length || !this.input.name;
+      return (
+        !this.value.fetchTemp.apis.length || !this.value.fetchTemp.fetchName
+      );
     },
   },
   methods: {
@@ -143,15 +145,15 @@ export default {
     },
     addApi: function (apiType) {
       if (apiType === "internal") {
-        this.$refs.internal.createMode(this.input.name);
+        this.$refs.internal.createMode(this.value.fetchTemp.fetchName);
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
     editApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
-      let apiType = this.apis[targetIndex].apiType;
+      let apiType = this.value.fetchTemp.apis[targetIndex].apiType;
       if (apiType === "internal") {
-        this.$refs.internal.editMode(this.apis[targetIndex]);
+        this.$refs.internal.editMode(this.value.fetchTemp.apis[targetIndex]);
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
@@ -164,7 +166,7 @@ export default {
     commit: function () {
       this.value.fetch.push({
         method: "get",
-        name: this.input.name,
+        name: this.value.fetchTemp.fetchName,
         lifeCycleMethods: this.input.called,
         apis: this.value.fetchTemp.apis.slice(),
       });
@@ -173,11 +175,11 @@ export default {
     },
     deleteApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
-      this.apis.splice(targetIndex, 1);
+      this.value.fetchTemp.apis.splice(targetIndex, 1);
     },
     findApi: function (responseTypeName) {
       let targetIndex = 0;
-      this.apis.forEach((api, index) => {
+      this.value.fetchTemp.apis.forEach((api, index) => {
         if (api.responseTypeName === responseTypeName) {
           targetIndex = index;
         }
