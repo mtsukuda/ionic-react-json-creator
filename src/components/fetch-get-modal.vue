@@ -110,9 +110,7 @@ export default {
   },
   data() {
     return {
-      mode: "create",
       input: {
-        // name: "",
         method: "",
         called: ["componentDidMount"],
       },
@@ -131,15 +129,6 @@ export default {
     },
   },
   methods: {
-    createMode: function () {
-      this.mode = "create";
-      this.editIndex = 0;
-    },
-    editMode: function (fetch, index) {
-      this.mode = "edit";
-      this.editIndex = index;
-      this.input.name = this.value.fetch[index].name;
-    },
     hide: function () {
       this.$modal.hide("fetch-get-modal");
     },
