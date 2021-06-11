@@ -64,7 +64,9 @@ export default {
         import: [],
         lifeCycleMethods: [],
         fetchTemp: {
-          suggestionName: "",
+          mode: "create",
+          editIndex: 0,
+          fetchName: "",
           apis: [],
         },
         fetch: [],
