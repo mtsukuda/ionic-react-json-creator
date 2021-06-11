@@ -82,6 +82,9 @@ export default {
     },
     showFetchCreateApiGetModal: function () {
       this.$refs.getModal.createMode();
+      this.value.fetchTemp.mode = "create";
+      this.value.fetchTemp.editIndex = 0;
+      this.value.fetchTemp.fetchName = "hogehoge";
       this.value.fetchTemp.apis.splice(0);
       this.$modal.show("fetch-get-modal");
     },
