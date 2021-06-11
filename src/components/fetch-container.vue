@@ -65,6 +65,9 @@ export default {
     showFetchEditModal: function (method, index) {
       if (method === "get") {
         this.$refs.getModal.editMode(null, index);
+        this.value.fetchTemp.mode = "create";
+        this.value.fetchTemp.editIndex = index;
+        this.value.fetchTemp.fetchName = this.value.fetch[index].name;
         this.value.fetchTemp.apis.splice(0);
         this.value.fetch[index].apis.forEach((api) => {
           this.value.fetchTemp.apis.push(api);
