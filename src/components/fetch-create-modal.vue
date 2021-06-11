@@ -27,7 +27,6 @@
         <fetch-get-modal
           v-model="value"
           @commit="hide"
-          ref="getModal"
         ></fetch-get-modal>
         <button
           v-on:click="showFetchCreateApiGetModal"
@@ -81,7 +80,6 @@ export default {
       this.$modal.hide("fetch-create-modal");
     },
     showFetchCreateApiGetModal: function () {
-      this.$refs.getModal.createMode();
       this.value.fetchTemp.mode = "create";
       this.value.fetchTemp.editIndex = 0;
       this.value.fetchTemp.fetchName = "hogehoge";
