@@ -40,7 +40,7 @@
           NEW FETCH
         </button>
         <fetch-create-modal v-model="value"></fetch-create-modal>
-        <fetch-get-modal v-model="value" ref="getModal"></fetch-get-modal>
+        <fetch-get-modal v-model="value"></fetch-get-modal>
       </div>
     </div>
   </div>
@@ -64,7 +64,6 @@ export default {
     },
     showFetchEditModal: function (method, index) {
       if (method === "get") {
-        this.$refs.getModal.editMode(null, index);
         this.value.fetchTemp.mode = "create";
         this.value.fetchTemp.editIndex = index;
         this.value.fetchTemp.fetchName = this.value.fetch[index].name;
