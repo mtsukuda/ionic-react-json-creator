@@ -56,6 +56,9 @@ export default {
         }
       });
     },
+    deleteFetchTemp: function (value) {
+      delete value.fetchTemp;
+    },
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
@@ -76,6 +79,7 @@ export default {
         this.deleteRawProps(configShowJson.tags);
       if (showSwitch.fetch && !showSwitch.debug)
         this.deleteInfoLifeCycleMethods(configShowJson.fetch);
+      if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
     },
   },
 };
