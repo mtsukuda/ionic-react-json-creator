@@ -10,7 +10,7 @@
       <div>
         <div>Fetch method type</div>
         <div class="m-2 font-weight-bold">GET</div>
-        <label for="inputFetchName">Fetch function name</label>
+        <label>Fetch function name</label>
         <div class="col-sm input-sm">
           <input
             class="form-control"
@@ -125,9 +125,6 @@ export default {
       apis: [],
     };
   },
-  mounted() {
-    this.input.name = "hogeHoge";
-  },
   computed: {
     createDisable() {
       return !this.apis.length || !this.input.name;
@@ -137,11 +134,12 @@ export default {
     createMode: function () {
       this.mode = "create";
       this.editIndex = 0;
+      this.$set(this.input, "hogeHoge", name);
+      // this.input = Object.assign({}, this.input, { name });
       this.apis.splice(0);
       console.log(JSON.stringify(this.apis));
     },
     editMode: function (fetch, index) {
-      console.log("editMode");
       this.mode = "edit";
       this.editIndex = index;
       this.input.name = this.value.fetch[index].name;

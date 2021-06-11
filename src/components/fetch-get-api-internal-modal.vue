@@ -97,13 +97,7 @@ export default {
         responseTypeName: "",
         path: "",
       },
-      responseTypes: [
-        {
-          label: "",
-          type: "",
-          content: "",
-        },
-      ],
+      responseTypes: [],
     };
   },
   computed: {
@@ -131,6 +125,7 @@ export default {
       this.responseTypes.push({
         label: "",
         type: "",
+        content: "",
       });
     },
     editMode: function (api) {
@@ -155,6 +150,7 @@ export default {
       this.responseTypes.push({
         label: "",
         type: "",
+        content: "",
       });
     },
     deleteResponse: function (index) {
