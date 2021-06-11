@@ -137,7 +137,6 @@ export default {
       this.$set(this.input, "hogeHoge", name);
       // this.input = Object.assign({}, this.input, { name });
       this.apis.splice(0);
-      console.log(JSON.stringify(this.apis));
     },
     editMode: function (fetch, index) {
       this.mode = "edit";
