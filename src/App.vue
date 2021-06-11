@@ -63,6 +63,10 @@ export default {
         name: "myComponent",
         import: [],
         lifeCycleMethods: [],
+        fetchTemp: {
+          suggestionName: "",
+          apis: [],
+        },
         fetch: [],
         renderBeforeReturn: [],
         defaultProps: [],
