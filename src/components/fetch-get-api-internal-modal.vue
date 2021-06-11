@@ -112,7 +112,7 @@ export default {
       this.clearResponse();
     },
     setSuggestion: function (suggestionFunctionName) {
-      if (!this.input.responseTypeName) {
+      if (!this.input.responseTypeName && suggestionFunctionName) {
         this.input.responseTypeName =
           "res" +
           suggestionFunctionName[0].toUpperCase() +
