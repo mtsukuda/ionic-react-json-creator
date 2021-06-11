@@ -36,7 +36,7 @@
         <div>
           <b-container class="p-0" v-if="mode">
             <b-row
-              v-for="api in apis"
+              v-for="api in value.fetchTemp.apis"
               class="border rounded m-2 p-2 fetch-api-div"
             >
               <b-col class="p-0">
@@ -66,12 +66,12 @@
           </b-container>
         </div>
         <fetch-get-api-external-modal
-          v-model="apis"
+          v-model="value.fetchTemp.apis"
           @close="closeModal"
           @commit="commitModal"
         ></fetch-get-api-external-modal>
         <fetch-get-api-internal-modal
-          v-model="apis"
+          v-model="value.fetchTemp.apis"
           @close="closeModal"
           @commit="commitModal"
           ref="internal"
@@ -97,7 +97,6 @@
 </template>
 
 <script>
-const clone = require("clone");
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
 export default {
@@ -122,27 +121,22 @@ export default {
         { type: "internal", label: "Internal API" },
       ],
       editIndex: 0,
-      apis: [],
     };
   },
   computed: {
     createDisable() {
-      return !this.apis.length || !this.input.name;
+      return !this.value.fetchTemp.apis.length || !this.input.name;
     },
   },
   methods: {
     createMode: function () {
       this.mode = "create";
       this.editIndex = 0;
-      this.$set(this.input, "hogeHoge", name);
-      // this.input = Object.assign({}, this.input, { name });
-      this.apis.splice(0);
     },
     editMode: function (fetch, index) {
       this.mode = "edit";
       this.editIndex = index;
       this.input.name = this.value.fetch[index].name;
-      this.apis = clone(this.value.fetch[index].apis);
     },
     hide: function () {
       this.$modal.hide("fetch-get-modal");
@@ -172,7 +166,7 @@ export default {
         method: "get",
         name: this.input.name,
         lifeCycleMethods: this.input.called,
-        apis: this.apis,
+        apis: this.value.fetchTemp.apis.slice(),
       });
       this.$emit("commit");
       this.hide();

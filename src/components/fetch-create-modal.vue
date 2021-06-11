@@ -82,6 +82,7 @@ export default {
     },
     showFetchCreateApiGetModal: function () {
       this.$refs.getModal.createMode();
+      this.value.fetchTemp.apis.splice(0);
       this.$modal.show("fetch-get-modal");
     },
     showNoImplement: function () {
