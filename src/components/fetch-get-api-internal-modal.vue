@@ -56,6 +56,7 @@
     <fetch-get-api-internal-mock-modal
       v-model="value"
       @commit="commit"
+      @update="update"
     ></fetch-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
@@ -142,6 +143,10 @@ export default {
           mock: mock,
         },
       });
+      this.hide();
+    },
+    update: function () {
+      console.log("update!");
       this.hide();
     },
   },

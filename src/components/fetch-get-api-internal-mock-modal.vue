@@ -43,12 +43,22 @@
         BACK
       </button>
       <button
+        v-if="value.mode === 'create'"
         v-on:click="commit"
         @click="$emit('commit')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
         :disabled="createDisable"
       >
         CREATE
+      </button>
+      <button
+        v-if="value.mode === 'edit'"
+        v-on:click="update"
+        @click="$emit('update')"
+        class="btn btn-outline-primary property-btn btn-sm m-1"
+        :disabled="createDisable"
+      >
+        UPDATE
       </button>
     </div>
   </modal>
@@ -86,6 +96,9 @@ export default {
       this.$modal.hide("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
+      this.hide();
+    },
+    update: function () {
       this.hide();
     },
   },

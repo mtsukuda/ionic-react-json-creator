@@ -69,11 +69,13 @@
           v-model="value.fetchTemp"
           @close="closeModal"
           @commit="commitModal"
+          @update="updateModal"
         ></fetch-get-api-external-modal>
         <fetch-get-api-internal-modal
           v-model="value.fetchTemp"
           @close="closeModal"
           @commit="commitModal"
+          @update="updateModal"
         ></fetch-get-api-internal-modal>
       </div>
     </div>
@@ -85,11 +87,20 @@
         CLOSE
       </button>
       <button
+        v-if="value.fetchTemp.mode === 'create'"
         v-on:click="commit"
         class="btn btn-outline-primary property-btn btn-sm m-1"
         :disabled="createDisable"
       >
         CREATE
+      </button>
+      <button
+        v-if="value.fetchTemp.mode === 'edit'"
+        v-on:click="update"
+        class="btn btn-outline-primary property-btn btn-sm m-1"
+        :disabled="createDisable"
+      >
+        UPDATE
       </button>
     </div>
   </modal>
@@ -171,7 +182,7 @@ export default {
           });
         });
         if (api.config && api.config.path) {
-          internal.input.path = api.config.path;
+          internal.path = api.config.path;
         }
       } else {
         let external = this.value.fetchTemp.external;
@@ -188,6 +199,9 @@ export default {
     commitModal: function () {
       console.log("commit");
     },
+    updateModal: function () {
+      console.log("update");
+    },
     commit: function () {
       this.value.fetch.push({
         method: "get",
@@ -196,6 +210,10 @@ export default {
         apis: this.value.fetchTemp.apis.slice(),
       });
       this.$emit("commit");
+      this.hide();
+    },
+    update: function () {
+      this.$emit("update");
       this.hide();
     },
     deleteApi: function (responseTypeName) {
