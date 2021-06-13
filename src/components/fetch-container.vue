@@ -66,7 +66,7 @@ export default {
       if (method === "get") {
         let fetchTemp = this.value.fetchTemp;
         let targetFetch = this.value.fetch[index];
-        fetchTemp.mode = "create";
+        fetchTemp.mode = "edit";
         fetchTemp.editIndex = index;
         fetchTemp.fetchName = targetFetch.name;
         fetchTemp.apis.splice(0);
