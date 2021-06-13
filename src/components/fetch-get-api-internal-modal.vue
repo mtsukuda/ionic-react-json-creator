@@ -126,28 +126,32 @@ export default {
       this.$modal.show("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
-      let responseType = {};
-      let mock = {};
-      this.value.internal.responseTypes.forEach((response) => {
-        responseType[response.label] = response.type;
-        mock[response.label] = response.content;
-      });
-      this.value.apis.push({
-        uri: this.value.internal.uri,
-        apiType: "internal",
-        responseTypeName: this.value.internal.responseTypeName,
-        responseTypeStrict: true,
-        responseType: responseType,
-        config: {
-          path: this.value.internal.path,
-          mock: mock,
-        },
-      });
+      this.value.apis.push(this.dataSet());
       this.hide();
     },
     update: function () {
-      console.log("update!");
+      this.value.apis[this.value.editIndex] = this.dataSet();
       this.hide();
+    },
+    dataSet: function () {
+      let responseType = {};
+      let mock = {};
+      let internal = this.value.internal;
+      internal.responseTypes.forEach((response) => {
+        responseType[response.label] = response.type;
+        mock[response.label] = response.content;
+      });
+      return {
+        uri: internal.uri,
+        apiType: "internal",
+        responseTypeName: internal.responseTypeName,
+        responseTypeStrict: true,
+        responseType: responseType,
+        config: {
+          path: internal.path,
+          mock: mock,
+        },
+      };
     },
   },
 };
