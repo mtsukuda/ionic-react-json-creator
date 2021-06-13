@@ -73,6 +73,12 @@ export default {
             responseTypeName: "",
             responseType: "",
           },
+          internal: {
+            uri: "https://sls-front-api.io/",
+            responseTypeName: "",
+            path: "",
+            responseTypes: [],
+          },
         },
         fetch: [],
         renderBeforeReturn: [],

@@ -15,14 +15,14 @@
             id="inputApiResponseTypeName"
             type="text"
             placeholder="ResponseTypeName"
-            v-model="input.responseTypeName"
+            v-model="value.internal.responseTypeName"
           />
         </div>
         <label>Response type</label>
         <div class="col-sm mb-2">
           <b-input-group
             class="mb-2"
-            v-for="(response, index) in responseTypes"
+            v-for="(response, index) in value.internal.responseTypes"
           >
             <b-form-input
               aria-label="Label"
@@ -55,10 +55,7 @@
     </div>
     <fetch-get-api-internal-mock-modal
       v-model="value"
-      v-bind:mock-params="responseTypes"
-      v-bind:input="input"
       @commit="commit"
-      ref="internalMock"
     ></fetch-get-api-internal-mock-modal>
     <div class="modal-footer">
       <button
@@ -92,76 +89,30 @@ export default {
     return {
       mode: "create",
       suggestionFunctionName: "",
-      input: {
-        uri: "https://sls-front-api.io/",
-        responseTypeName: "",
-        path: "",
-      },
-      responseTypes: [],
     };
   },
   computed: {
     nextDisable() {
-      return !this.input.responseTypeName || this.isResponseTypeBlank();
+      return (
+        !this.value.internal.responseTypeName || this.isResponseTypeBlank()
+      );
     },
   },
   methods: {
-    createMode: function (suggestionFunctionName) {
-      this.mode = "create";
-      this.setSuggestion(suggestionFunctionName);
-      this.clearResponse();
-    },
-    setSuggestion: function (suggestionFunctionName) {
-      if (!this.input.responseTypeName && suggestionFunctionName) {
-        this.input.responseTypeName =
-          "res" +
-          suggestionFunctionName[0].toUpperCase() +
-          suggestionFunctionName.slice(1);
-      }
-      this.suggestionFunctionName = suggestionFunctionName;
-    },
-    clearResponse: function () {
-      this.responseTypes.splice(0);
-      this.responseTypes.push({
-        label: "",
-        type: "",
-        content: "",
-      });
-    },
-    editMode: function (api) {
-      this.mode = "edit";
-      this.input.responseTypeName = api.responseTypeName;
-      this.responseTypes.splice(0);
-      _.forEach(api.responseType, (type, label) => {
-        let content = this.findMockData(api, label);
-        this.responseTypes.push({ label: label, type: type, content: content });
-      });
-      if (api.config && api.config.path) {
-        this.input.path = api.config.path;
-      }
-    },
-    findMockData: function (api, label) {
-      if (api.config && api.config.mock && api.config.mock[label]) {
-        return api.config.mock[label];
-      }
-      return "";
-    },
     addResponse: function () {
-      this.responseTypes.push({
+      this.value.internal.responseTypes.push({
         label: "",
         type: "",
         content: "",
       });
     },
     deleteResponse: function (index) {
-      this.responseTypes.splice(index, 1);
+      this.value.internal.responseTypes.splice(index, 1);
     },
     isResponseTypeBlank: function () {
-      for (let i = 0; i < this.responseTypes.length; i++) {
-        if (
-          this.responseTypes[i].label === "" ||
-          this.responseTypes[i].type === ""
-        ) {
+      let responseTypes = this.value.internal.responseTypes;
+      for (let i = 0; i < responseTypes.length; i++) {
+        if (responseTypes[i].label === "" || responseTypes[i].type === "") {
           return true;
         }
       }
@@ -171,28 +122,23 @@ export default {
       this.$modal.hide("fetch-get-api-internal-modal");
     },
     next: function () {
-      if (this.mode === "create") {
-        this.$refs.internalMock.createMode(this.suggestionFunctionName);
-      } else {
-        this.$refs.internalMock.editMode();
-      }
       this.$modal.show("fetch-get-api-internal-mock-modal");
     },
     commit: function () {
       let responseType = {};
       let mock = {};
-      this.responseTypes.forEach((response) => {
+      this.value.internal.responseTypes.forEach((response) => {
         responseType[response.label] = response.type;
         mock[response.label] = response.content;
       });
-      this.value.push({
-        uri: this.input.uri,
+      this.value.apis.push({
+        uri: this.value.internal.uri,
         apiType: "internal",
-        responseTypeName: this.input.responseTypeName,
+        responseTypeName: this.value.internal.responseTypeName,
         responseTypeStrict: true,
         responseType: responseType,
         config: {
-          path: this.input.path,
+          path: this.value.internal.path,
           mock: mock,
         },
       });

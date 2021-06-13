@@ -16,7 +16,7 @@
             id="inputPath"
             type="text"
             placeholder="myMock"
-            v-model="input.path"
+            v-model="value.internal.path"
           />
         </div>
         <label>Mock Data</label>
@@ -24,7 +24,7 @@
           <b-input-group
             class="mb-2 prepend-width"
             :prepend="param.label"
-            v-for="param in mockParams"
+            v-for="param in value.internal.responseTypes"
           >
             <b-form-input
               aria-label="Content"
@@ -59,8 +59,8 @@ export default {
   name: "fetch-get-api-internal-mock-modal",
   props: {
     value: {},
-    input: {},
-    mockParams: {},
+    // input: {},
+    // mockParams: {},
   },
   data() {
     return {
@@ -69,28 +69,14 @@ export default {
   },
   computed: {
     createDisable() {
-      return !this.input.path || this.isMockParamsBlank();
+      return !this.value.internal.path || this.isMockParamsBlank();
     },
   },
   methods: {
-    createMode: function (suggestionFunctionName) {
-      this.mode = "create";
-      this.setSuggestion(suggestionFunctionName);
-    },
-    setSuggestion: function (suggestionFunctionName) {
-      if (!this.input.path) {
-        this.input.path =
-          "lambda" +
-          suggestionFunctionName[0].toUpperCase() +
-          suggestionFunctionName.slice(1);
-      }
-    },
-    editMode: function () {
-      this.mode = "edit";
-    },
     isMockParamsBlank: function () {
-      for (let i = 0; i < this.mockParams.length; i++) {
-        if (this.mockParams[i].content === "") {
+      let responseTypes = this.value.internal.responseTypes;
+      for (let i = 0; i < responseTypes.length; i++) {
+        if (responseTypes[i].content === "") {
           return true;
         }
       }

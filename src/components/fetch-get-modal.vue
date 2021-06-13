@@ -74,7 +74,6 @@
           v-model="value.fetchTemp"
           @close="closeModal"
           @commit="commitModal"
-          ref="internal"
         ></fetch-get-api-internal-modal>
       </div>
     </div>
@@ -134,11 +133,23 @@ export default {
     },
     addApi: function (apiType) {
       if (apiType === "internal") {
-        this.$refs.internal.createMode(this.value.fetchTemp.fetchName);
+        let internal = this.value.fetchTemp.internal;
+        let fetchName = this.value.fetchTemp.fetchName;
+        internal.responseTypeName =
+          "res" + fetchName[0].toUpperCase() + fetchName.slice(1);
+        internal.path =
+          "lambda" + fetchName[0].toUpperCase() + fetchName.slice(1);
+        internal.responseTypes.splice(0);
+        internal.responseTypes.push({
+          label: "",
+          type: "",
+          content: "",
+        });
       } else {
-        this.value.fetchTemp.external.uri = "";
-        this.value.fetchTemp.external.responseTypeName = "";
-        this.value.fetchTemp.external.responseType = "";
+        let external = this.value.fetchTemp.external;
+        external.uri = "";
+        external.responseTypeName = "";
+        external.responseType = "";
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
@@ -146,17 +157,27 @@ export default {
       let targetIndex = this.findApi(responseTypeName);
       let apiType = this.value.fetchTemp.apis[targetIndex].apiType;
       if (apiType === "internal") {
-        this.$refs.internal.editMode(this.value.fetchTemp.apis[targetIndex]);
+        let internal = this.value.fetchTemp.internal;
+        let api = this.value.fetchTemp.apis[targetIndex];
+        internal.responseTypeName = api.responseTypeName;
+        internal.responseTypes.splice(0);
+        _.forEach(api.responseType, (type, label) => {
+          let content = this.findMockData(api, label);
+          internal.responseTypes.push({
+            label: label,
+            type: type,
+            content: content,
+          });
+        });
+        if (api.config && api.config.path) {
+          internal.input.path = api.config.path;
+        }
       } else {
-        this.value.fetchTemp.external.uri = this.value.fetchTemp.apis[
-          targetIndex
-        ].uri;
-        this.value.fetchTemp.external.responseTypeName = this.value.fetchTemp.apis[
-          targetIndex
-        ].responseTypeName;
-        this.value.fetchTemp.external.responseType = this.value.fetchTemp.apis[
-          targetIndex
-        ].responseType;
+        let external = this.value.fetchTemp.external;
+        let targetApi = this.value.fetchTemp.apis[targetIndex];
+        external.uri = targetApi.uri;
+        external.responseTypeName = targetApi.responseTypeName;
+        external.responseType = targetApi.responseType;
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
@@ -179,6 +200,12 @@ export default {
     deleteApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
       this.value.fetchTemp.apis.splice(targetIndex, 1);
+    },
+    findMockData: function (api, label) {
+      if (api.config && api.config.mock && api.config.mock[label]) {
+        return api.config.mock[label];
+      }
+      return "";
     },
     findApi: function (responseTypeName) {
       let targetIndex = 0;
