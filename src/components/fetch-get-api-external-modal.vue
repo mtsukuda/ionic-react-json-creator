@@ -15,7 +15,7 @@
             id="inputApiUri"
             type="text"
             placeholder="URI"
-            v-model="input.uri"
+            v-model="value.external.uri"
           />
         </div>
         <label for="inputApiResponseTypeName">Response type name</label>
@@ -25,7 +25,7 @@
             id="inputApiResponseTypeName"
             type="text"
             placeholder="ResponseTypeName"
-            v-model="input.responseTypeName"
+            v-model="value.external.responseTypeName"
           />
         </div>
         <label for="inputResponseType">Response type</label>
@@ -35,7 +35,7 @@
             id="inputResponseType"
             type="text"
             placeholder="res1: string"
-            v-model="input.responseType"
+            v-model="value.external.responseType"
           />
         </div>
       </div>
@@ -66,21 +66,12 @@ export default {
   props: {
     value: {},
   },
-  data() {
-    return {
-      input: {
-        uri: "",
-        responseTypeName: "",
-        responseType: "",
-      },
-    };
-  },
   computed: {
     createDisable() {
       return (
-        !this.input.uri ||
-        !this.input.responseTypeName ||
-        !this.input.responseType
+        !this.value.external.uri ||
+        !this.value.external.responseTypeName ||
+        !this.value.external.responseType
       );
     },
   },
@@ -89,11 +80,11 @@ export default {
       this.$modal.hide("fetch-get-api-external-modal");
     },
     commit: function () {
-      this.value.push({
-        uri: this.input.uri,
+      this.value.apis.push({
+        uri: this.value.external.uri,
         apiType: "external",
-        responseTypeName: this.input.responseTypeName,
-        responseType: this.input.responseType,
+        responseTypeName: this.value.external.responseTypeName,
+        responseType: this.value.external.responseType,
       });
       this.hide();
     },

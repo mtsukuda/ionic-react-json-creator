@@ -34,7 +34,7 @@
           </b-nav-item-dropdown>
         </div>
         <div>
-          <b-container class="p-0" v-if="mode">
+          <b-container class="p-0">
             <b-row
               v-for="api in value.fetchTemp.apis"
               class="border rounded m-2 p-2 fetch-api-div"
@@ -66,12 +66,12 @@
           </b-container>
         </div>
         <fetch-get-api-external-modal
-          v-model="value.fetchTemp.apis"
+          v-model="value.fetchTemp"
           @close="closeModal"
           @commit="commitModal"
         ></fetch-get-api-external-modal>
         <fetch-get-api-internal-modal
-          v-model="value.fetchTemp.apis"
+          v-model="value.fetchTemp"
           @close="closeModal"
           @commit="commitModal"
           ref="internal"
@@ -135,6 +135,10 @@ export default {
     addApi: function (apiType) {
       if (apiType === "internal") {
         this.$refs.internal.createMode(this.value.fetchTemp.fetchName);
+      } else {
+        this.value.fetchTemp.external.uri = "";
+        this.value.fetchTemp.external.responseTypeName = "";
+        this.value.fetchTemp.external.responseType = "";
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
@@ -143,6 +147,16 @@ export default {
       let apiType = this.value.fetchTemp.apis[targetIndex].apiType;
       if (apiType === "internal") {
         this.$refs.internal.editMode(this.value.fetchTemp.apis[targetIndex]);
+      } else {
+        this.value.fetchTemp.external.uri = this.value.fetchTemp.apis[
+          targetIndex
+        ].uri;
+        this.value.fetchTemp.external.responseTypeName = this.value.fetchTemp.apis[
+          targetIndex
+        ].responseTypeName;
+        this.value.fetchTemp.external.responseType = this.value.fetchTemp.apis[
+          targetIndex
+        ].responseType;
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
