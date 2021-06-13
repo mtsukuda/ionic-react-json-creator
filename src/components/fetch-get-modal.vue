@@ -135,10 +135,8 @@ export default {
       if (apiType === "internal") {
         let internal = this.value.fetchTemp.internal;
         let fetchName = this.value.fetchTemp.fetchName;
-        internal.responseTypeName =
-          "res" + fetchName[0].toUpperCase() + fetchName.slice(1);
-        internal.path =
-          "lambda" + fetchName[0].toUpperCase() + fetchName.slice(1);
+        internal.responseTypeName = this.suggestionName("res", fetchName);
+        internal.path = this.suggestionName("lambda", fetchName);
         internal.responseTypes.splice(0);
         internal.responseTypes.push({
           label: "",
@@ -152,6 +150,9 @@ export default {
         external.responseType = "";
       }
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
+    },
+    suggestionName: function (prefix, name) {
+      return prefix + name[0].toUpperCase() + name.slice(1);
     },
     editApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
