@@ -68,6 +68,11 @@ export default {
           editIndex: 0,
           fetchName: "",
           apis: [],
+          external: {
+            uri: "",
+            responseTypeName: "",
+            responseType: "",
+          },
         },
         fetch: [],
         renderBeforeReturn: [],
