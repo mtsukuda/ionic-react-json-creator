@@ -49,7 +49,7 @@
         CLOSE
       </button>
       <button
-        v-if="value.mode === 'create'"
+        v-if="value.external.mode === 'create'"
         v-on:click="commit"
         @click="$emit('commit')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
@@ -58,7 +58,7 @@
         CREATE
       </button>
       <button
-        v-if="value.mode === 'edit'"
+        v-if="value.external.mode === 'edit'"
         v-on:click="update"
         @click="$emit('update')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
@@ -90,22 +90,21 @@ export default {
       this.$modal.hide("fetch-get-api-external-modal");
     },
     commit: function () {
-      this.value.apis.push({
-        uri: this.value.external.uri,
-        apiType: "external",
-        responseTypeName: this.value.external.responseTypeName,
-        responseType: this.value.external.responseType,
-      });
+      this.value.apis.push(this.dataSet());
       this.hide();
     },
     update: function () {
-      this.value.apis.push({
-        uri: this.value.external.uri,
-        apiType: "external",
-        responseTypeName: this.value.external.responseTypeName,
-        responseType: this.value.external.responseType,
-      });
+      this.value.apis[this.value.external.editIndex] = this.dataSet();
       this.hide();
+    },
+    dataSet: function () {
+      let external = this.value.external;
+      return {
+        uri: external.uri,
+        apiType: "external",
+        responseTypeName: external.responseTypeName,
+        responseType: external.responseType,
+      };
     },
   },
 };

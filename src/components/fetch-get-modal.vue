@@ -146,6 +146,7 @@ export default {
       if (apiType === "internal") {
         let internal = this.value.fetchTemp.internal;
         let fetchName = this.value.fetchTemp.fetchName;
+        internal.mode = "create";
         internal.responseTypeName = this.suggestionName("res", fetchName);
         internal.path = this.suggestionName("lambda", fetchName);
         internal.responseTypes.splice(0);
@@ -156,6 +157,7 @@ export default {
         });
       } else {
         let external = this.value.fetchTemp.external;
+        external.mode = "create";
         external.uri = "";
         external.responseTypeName = "";
         external.responseType = "";
@@ -171,6 +173,8 @@ export default {
       if (apiType === "internal") {
         let internal = this.value.fetchTemp.internal;
         let api = this.value.fetchTemp.apis[targetIndex];
+        internal.mode = "edit";
+        internal.editIndex = targetIndex;
         internal.responseTypeName = api.responseTypeName;
         internal.responseTypes.splice(0);
         _.forEach(api.responseType, (type, label) => {
@@ -187,6 +191,8 @@ export default {
       } else {
         let external = this.value.fetchTemp.external;
         let targetApi = this.value.fetchTemp.apis[targetIndex];
+        external.mode = "edit";
+        external.editIndex = targetIndex;
         external.uri = targetApi.uri;
         external.responseTypeName = targetApi.responseTypeName;
         external.responseType = targetApi.responseType;
@@ -213,6 +219,13 @@ export default {
       this.hide();
     },
     update: function () {
+      let fetchTemp = this.value.fetchTemp;
+      this.value.fetch[fetchTemp.editIndex] = {
+        method: "get",
+        name: fetchTemp.fetchName,
+        lifeCycleMethods: this.input.called,
+        apis: fetchTemp.apis.slice(),
+      };
       this.$emit("update");
       this.hide();
     },

@@ -43,7 +43,7 @@
         BACK
       </button>
       <button
-        v-if="value.mode === 'create'"
+        v-if="value.internal.mode === 'create'"
         v-on:click="commit"
         @click="$emit('commit')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
@@ -52,7 +52,7 @@
         CREATE
       </button>
       <button
-        v-if="value.mode === 'edit'"
+        v-if="value.internal.mode === 'edit'"
         v-on:click="update"
         @click="$emit('update')"
         class="btn btn-outline-primary property-btn btn-sm m-1"
