@@ -216,6 +216,11 @@ export default {
     update: function () {
       let fetchTemp = this.value.fetchTemp;
       this.value.fetch[fetchTemp.editIndex] = this.dataSet();
+      let fetchClone = _.cloneDeep(this.value.fetch);
+      this.value.fetch.splice(0);
+      fetchClone.forEach((fetch) => {
+        this.value.fetch.push(fetch);
+      });
       this.$emit("update");
       this.hide();
     },
