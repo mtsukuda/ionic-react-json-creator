@@ -24,10 +24,7 @@
         >
           GET
         </button>
-        <fetch-get-modal
-          v-model="value"
-          @commit="hide"
-        ></fetch-get-modal>
+        <fetch-get-modal v-model="value" @commit="hide"></fetch-get-modal>
         <button
           v-on:click="showFetchCreateApiGetModal"
           class="btn btn-outline-info property-btn"
