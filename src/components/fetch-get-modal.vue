@@ -209,25 +209,24 @@ export default {
       console.log("update");
     },
     commit: function () {
-      this.value.fetch.push({
-        method: "get",
-        name: this.value.fetchTemp.fetchName,
-        lifeCycleMethods: this.input.called,
-        apis: this.value.fetchTemp.apis.slice(),
-      });
+      this.value.fetch.push(this.dataSet());
       this.$emit("commit");
       this.hide();
     },
     update: function () {
       let fetchTemp = this.value.fetchTemp;
-      this.value.fetch[fetchTemp.editIndex] = {
+      this.value.fetch[fetchTemp.editIndex] = this.dataSet();
+      this.$emit("update");
+      this.hide();
+    },
+    dataSet: function () {
+      let fetchTemp = this.value.fetchTemp;
+      return {
         method: "get",
         name: fetchTemp.fetchName,
         lifeCycleMethods: this.input.called,
         apis: fetchTemp.apis.slice(),
       };
-      this.$emit("update");
-      this.hide();
     },
     deleteApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
