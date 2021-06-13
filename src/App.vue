@@ -69,12 +69,14 @@ export default {
           fetchName: "",
           apis: [],
           external: {
+            mode: "create",
             editIndex: 0,
             uri: "",
             responseTypeName: "",
             responseType: "",
           },
           internal: {
+            mode: "create",
             editIndex: 0,
             uri: "https://sls-front-api.io/",
             responseTypeName: "",
