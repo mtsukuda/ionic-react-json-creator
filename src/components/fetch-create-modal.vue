@@ -76,10 +76,11 @@ export default {
       this.$modal.hide("fetch-create-modal");
     },
     showFetchCreateApiGetModal: function () {
-      this.value.fetchTemp.mode = "create";
-      this.value.fetchTemp.editIndex = 0;
-      this.value.fetchTemp.fetchName = "hogehoge";
-      this.value.fetchTemp.apis.splice(0);
+      let fetchTemp = this.value.fetchTemp;
+      fetchTemp.mode = "create";
+      fetchTemp.editIndex = 0;
+      fetchTemp.fetchName = "hogeHoge";
+      fetchTemp.apis.splice(0);
       this.$modal.show("fetch-get-modal");
     },
     showNoImplement: function () {
