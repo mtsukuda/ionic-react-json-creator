@@ -72,7 +72,6 @@ export default {
     value: {},
   },
   methods: {
-    show: function () {},
     hide: function () {
       this.$modal.hide("fetch-create-modal");
     },
