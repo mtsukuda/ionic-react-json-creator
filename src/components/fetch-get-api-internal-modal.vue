@@ -34,11 +34,6 @@
               placeholder="string"
               v-model="response.type"
             ></b-form-input>
-            <b-dropdown text="Type" variant="outline-secondary">
-              <b-dropdown-item>string</b-dropdown-item>
-              <b-dropdown-item>boolean</b-dropdown-item>
-              <b-dropdown-item>number</b-dropdown-item>
-            </b-dropdown>
             <b-button variant="outline-danger" class="ml-1"
               ><b-icon
                 icon="trash"
@@ -92,6 +87,7 @@ export default {
     return {
       mode: "create",
       suggestionFunctionName: "",
+      type: ["string", "boolean", "number"],
     };
   },
   computed: {
