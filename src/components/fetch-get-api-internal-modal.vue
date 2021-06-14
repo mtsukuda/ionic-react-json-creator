@@ -93,7 +93,9 @@ export default {
   computed: {
     nextDisable() {
       return (
-        !this.value.internal.responseTypeName || this.isResponseTypeBlank()
+        !this.value.internal.responseTypeName ||
+        this.isResponseTypeBlank() ||
+        !this.checkForTypeCorrect()
       );
     },
   },
@@ -116,6 +118,15 @@ export default {
         }
       }
       return false;
+    },
+    checkForTypeCorrect: function () {
+      let result = true;
+      this.value.internal.responseTypes.forEach((responseType) => {
+        if (!this.type.includes(responseType.type)) {
+          result = false;
+        }
+      });
+      return result;
     },
     hide: function () {
       this.$modal.hide("fetch-get-api-internal-modal");
