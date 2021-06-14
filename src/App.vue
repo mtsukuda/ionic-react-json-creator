@@ -15,7 +15,7 @@
       <div class="col-6">
         <div class="mt-3">
           <fetch-container v-model="configJson"></fetch-container>
-          <layout-container v-model="configJson.tags"></layout-container>
+          <layout-container v-model="configJson"></layout-container>
         </div>
       </div>
       <div class="col-6">

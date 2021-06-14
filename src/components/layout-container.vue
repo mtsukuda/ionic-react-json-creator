@@ -1,6 +1,6 @@
 <template>
   <div class="container pl-1 pr-1">
-    <div v-for="(item, index) in value" :key="index">
+    <div v-for="(item, index) in value.tags" :key="index">
       <div class="border rounded layout-container-div mb-1">
         <div>
           <div>
@@ -48,18 +48,18 @@
 
             <layout-attribute-modal
               ref="attributeModal"
-              v-model="value[index]"
+              v-model="value.tags[index]"
             />
 
             <layout-container
               v-if="item.child && item.child.tags"
-              v-model="item.child.tags"
+              v-model="item.child"
             ></layout-container>
           </div>
         </div>
       </div>
 
-      <div v-if="!item.root && index + 1 === value.length" class="small">
+      <div v-if="!item.root && index + 1 === value.tags.length" class="small">
         <b-nav-item-dropdown text="タグ追加 [+]">
           <b-dropdown-item
             v-for="tag in ionTags"
@@ -85,9 +85,6 @@ export default {
   props: {
     value: {},
   },
-  mounted() {
-    console.log(this.value);
-  },
   methods: {
     changeTag: function (newTag, item) {
       item.tag = newTag.tag;
@@ -107,11 +104,11 @@ export default {
     addTag: function (newTag) {
       let item = { tag: newTag.tag, props: [], rawProps: "" };
       this.ionAttributeArrangement(item, newTag);
-      this.value.push(item);
+      this.value.tags.push(item);
       this.$forceUpdate();
     },
     deleteTag: function (index) {
-      this.value.splice(index, 1);
+      this.value.tags.splice(index, 1);
       this.$forceUpdate();
     },
     showModal: function (index) {
