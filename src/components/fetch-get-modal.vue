@@ -134,7 +134,9 @@ export default {
   computed: {
     createDisable() {
       return (
-        !this.value.fetchTemp.apis.length || !this.value.fetchTemp.fetchName
+        !this.value.fetchTemp.apis.length ||
+        !this.value.fetchTemp.fetchName ||
+        this.duplicateCheckForFetchName(this.value.fetchTemp.fetchName)
       );
     },
   },
@@ -251,6 +253,15 @@ export default {
         }
       });
       return targetIndex;
+    },
+    duplicateCheckForFetchName: function (fetchName) {
+      let result = false;
+      this.value.fetch.forEach((fetch) => {
+        if (fetch.name === fetchName && result === false) {
+          result = true;
+        }
+      });
+      return result;
     },
   },
 };
