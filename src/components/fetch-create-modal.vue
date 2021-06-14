@@ -71,11 +71,6 @@ export default {
   props: {
     value: {},
   },
-  data() {
-    return {
-      suggestions: ["salmon", "tuna", "shrimp", "squid", "octopus", "hogeHoge"],
-    };
-  },
   methods: {
     hide: function () {
       this.$modal.hide("fetch-create-modal");
