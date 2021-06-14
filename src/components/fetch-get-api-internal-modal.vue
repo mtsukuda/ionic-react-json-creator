@@ -55,6 +55,7 @@
     </div>
     <fetch-get-api-internal-mock-modal
       v-model="value"
+      v-bind:fetch="fetch"
       @commit="commit"
       @update="update"
     ></fetch-get-api-internal-mock-modal>
@@ -85,6 +86,7 @@ export default {
   components: { FetchGetApiInternalMockModal },
   props: {
     value: {},
+    fetch: {},
   },
   data() {
     return {

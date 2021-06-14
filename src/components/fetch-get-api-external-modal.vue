@@ -75,13 +75,17 @@ export default {
   name: "fetch-get-api-external-modal",
   props: {
     value: {},
+    fetch: {},
   },
   computed: {
     createDisable() {
       return (
         !this.value.external.uri ||
         !this.value.external.responseTypeName ||
-        !this.value.external.responseType
+        !this.value.external.responseType ||
+        this.duplicateCheckForResponseTypeName(
+          this.value.external.responseTypeName
+        )
       );
     },
   },
@@ -105,6 +109,17 @@ export default {
         responseTypeName: external.responseTypeName,
         responseType: external.responseType,
       };
+    },
+    duplicateCheckForResponseTypeName: function (responseTypeName) {
+      let result = false;
+      this.fetch.forEach((fetch) => {
+        fetch.apis.forEach((api) => {
+          if (api.responseTypeName === responseTypeName && result === false) {
+            result = true;
+          }
+        });
+      });
+      return result;
     },
   },
 };

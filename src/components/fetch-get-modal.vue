@@ -67,12 +67,14 @@
         </div>
         <fetch-get-api-external-modal
           v-model="value.fetchTemp"
+          v-bind:fetch="value.fetch"
           @close="closeModal"
           @commit="commitModal"
           @update="updateModal"
         ></fetch-get-api-external-modal>
         <fetch-get-api-internal-modal
           v-model="value.fetchTemp"
+          v-bind:fetch="value.fetch"
           @close="closeModal"
           @commit="commitModal"
           @update="updateModal"

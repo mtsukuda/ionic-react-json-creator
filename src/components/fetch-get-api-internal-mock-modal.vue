@@ -69,8 +69,7 @@ export default {
   name: "fetch-get-api-internal-mock-modal",
   props: {
     value: {},
-    // input: {},
-    // mockParams: {},
+    fetch: {},
   },
   data() {
     return {
