@@ -71,6 +71,11 @@ export default {
   props: {
     value: {},
   },
+  data() {
+    return {
+      suggestions: ["salmon", "tuna", "shrimp", "squid", "octopus", "hogeHoge"],
+    };
+  },
   methods: {
     hide: function () {
       this.$modal.hide("fetch-create-modal");
@@ -79,12 +84,19 @@ export default {
       let fetchTemp = this.value.fetchTemp;
       fetchTemp.mode = "create";
       fetchTemp.editIndex = 0;
-      fetchTemp.fetchName = "hogeHoge";
+      fetchTemp.fetchName = this.suggestionName();
       fetchTemp.apis.splice(0);
       this.$modal.show("fetch-get-modal");
     },
     showNoImplement: function () {
       console.log("Sorry, we are out of service...");
+    },
+    suggestionName: function () {
+      let S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let N = 8;
+      return Array.from(Array(N))
+        .map(() => S[Math.floor(Math.random() * S.length)])
+        .join("");
     },
   },
 };
