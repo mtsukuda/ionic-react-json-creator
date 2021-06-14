@@ -119,6 +119,11 @@ export default {
           }
         });
       });
+      this.value.apis.forEach((api) => {
+        if (api.responseTypeName === responseTypeName && result === false) {
+          result = true;
+        }
+      });
       return result;
     },
   },
