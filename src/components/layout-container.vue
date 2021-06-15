@@ -34,7 +34,7 @@
             </div>
             <div v-if="!item.root" class="small mb-2">
               <b-nav-item-dropdown
-                text="👶 [+]"
+                text="CHILD [+]"
                 v-bind:disabled="hasChild(item)"
               >
                 <b-dropdown-item
@@ -46,11 +46,6 @@
               </b-nav-item-dropdown>
             </div>
 
-            <layout-attribute-modal
-              ref="attributeModal"
-              v-model="value.tags[index]"
-            />
-
             <layout-container
               v-if="item.child && item.child.tags"
               v-model="item.child"
@@ -61,7 +56,7 @@
       </div>
 
       <div v-if="!item.root && index + 1 === value.tags.length" class="small">
-        <b-nav-item-dropdown text="タグ追加 [+]">
+        <b-nav-item-dropdown text="TAG [+]">
           <b-dropdown-item
             v-for="tag in ionTags"
             v-on:click="addTag(tag)"
