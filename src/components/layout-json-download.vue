@@ -36,7 +36,7 @@ export default {
         debug: false,
       });
       const blob = new Blob([JSON.stringify(configShowJson, null, 2)], {
-        types: "application/json",
+        type: "application/json",
       });
       saveAs(blob, `${this.value.name}.json`);
     },
