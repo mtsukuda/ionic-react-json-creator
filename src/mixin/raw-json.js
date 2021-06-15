@@ -59,6 +59,9 @@ export default {
     deleteFetchTemp: function (value) {
       delete value.fetchTemp;
     },
+    deleteTagTemp: function (value) {
+      delete value.tagTemp;
+    },
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
@@ -80,6 +83,7 @@ export default {
       if (showSwitch.fetch && !showSwitch.debug)
         this.deleteInfoLifeCycleMethods(configShowJson.fetch);
       if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
+      if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
     },
   },
 };
