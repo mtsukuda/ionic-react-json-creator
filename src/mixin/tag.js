@@ -13,8 +13,7 @@ export default {
         result = this.findTag(tags[i], tagUID);
         if (result) return result;
       }
-      if (result === null)
-        throw `Could not find tag object [${tagUID}]`;
+      if (result === null) throw `Could not find tag object [${tagUID}]`;
     },
     findTag: function (tag, tagUID) {
       let result = null;
