@@ -117,7 +117,6 @@ export default {
         this.value.tags,
         this.value.tagTemp.editTagUID
       );
-      console.log(targetTag);
       if (targetTag === null)
         throw `Could not find tag object [${this.value.tagTemp.editTagUID}]`;
       if (targetTag.content) this.input.content = targetTag.content;
