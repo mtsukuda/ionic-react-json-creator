@@ -27,6 +27,14 @@
         class="ml-2"
       />
       <label for="debug" class="p-1 text-danger">debug</label>
+      <input
+        type="checkbox"
+        id="tag-uid"
+        value="debug"
+        v-model="value.tagUid"
+        class="ml-2"
+      />
+      <label for="tag-uid" class="p-1 text-danger">tag uid</label>
     </form>
   </div>
 </template>

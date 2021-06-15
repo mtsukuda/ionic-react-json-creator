@@ -62,6 +62,16 @@ export default {
     deleteTagTemp: function (value) {
       delete value.tagTemp;
     },
+    deleteTagUid: function (tags) {
+      tags.forEach((tag) => {
+        if (tag.uid !== undefined) {
+          delete tag.uid;
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteTagUid(tag.child.tags);
+        }
+      });
+    },
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
@@ -84,6 +94,7 @@ export default {
         this.deleteInfoLifeCycleMethods(configShowJson.fetch);
       if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
       if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
+      if (!showSwitch.tagUID) this.deleteTagUid(configShowJson.tags);
     },
   },
 };

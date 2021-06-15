@@ -159,6 +159,7 @@ export default {
         imports: "",
         fetch: "fetch",
         debug: "",
+        tagUid: "",
       },
     };
   },
