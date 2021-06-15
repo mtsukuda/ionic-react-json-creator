@@ -27,6 +27,20 @@ export default {
       }
       return null;
     },
+    responseList: function (fetch) {
+      let responseResult = [];
+      let _ = require("lodash");
+      if (!fetch || !fetch.length) return responseResult;
+      fetch.forEach((block) => {
+        block.apis.forEach((api) => {
+          let responseTypeName = api.responseTypeName;
+          _.forEach(api.responseType, (type, label) => {
+            responseResult.push(`${responseTypeName}.${label}`);
+          });
+        });
+      });
+      return responseResult;
+    },
     updateTag: function (tags, tagUID, input) {
       let targetTag = this.targetTag(tags, tagUID);
       targetTag["content"] = input.content;

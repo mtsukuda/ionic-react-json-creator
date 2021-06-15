@@ -111,8 +111,10 @@
 <script>
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
+import tag from "../mixin/tag";
 export default {
   name: "fetch-get-modal",
+  mixins: [tag],
   components: {
     FetchGetApiExternalModal,
     FetchGetApiInternalModal,
@@ -213,7 +215,10 @@ export default {
       console.log("update");
     },
     commit: function () {
+      let fetchTemp = this.value.fetchTemp;
       this.value.fetch.push(this.dataSet());
+      fetchTemp.responseList.splice(0);
+      fetchTemp.responseList = this.responseList(this.value.fetch);
       this.$emit("commit");
       this.hide();
     },
@@ -225,6 +230,8 @@ export default {
       fetchClone.forEach((fetch) => {
         this.value.fetch.push(fetch);
       });
+      fetchTemp.responseList.splice(0);
+      fetchTemp.responseList = this.responseList(this.value.fetch);
       this.$emit("update");
       this.hide();
     },
