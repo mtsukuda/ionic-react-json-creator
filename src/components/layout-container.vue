@@ -74,6 +74,7 @@
 import LayoutTagAttributeModal from "./layout-tag-attribute-modal";
 import ion from "../mixin/ion";
 import tag from "../mixin/tag";
+const clone = require("clone");
 export default {
   name: "layout-container",
   mixins: [ion, tag],
@@ -100,8 +101,9 @@ export default {
         props: [],
         rawProps: "",
       };
-      item["child"] = { tags: [] };
-      item.child.tags.push(child);
+      let targetTag = this.targetTag(this.configJson.tags, item.uid);
+      this.$set(targetTag, "child", { tags: [] });
+      targetTag.child.tags.push(child);
     },
     addTag: function (newTag) {
       let item = {
