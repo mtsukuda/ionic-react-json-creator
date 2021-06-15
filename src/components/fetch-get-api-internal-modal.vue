@@ -33,7 +33,11 @@
               aria-label="Type"
               placeholder="string"
               v-model="response.type"
+              list="list-type"
             ></b-form-input>
+            <datalist id="list-type">
+              <option v-for="type in types">{{ type }}</option>
+            </datalist>
             <b-button variant="outline-danger" class="ml-1"
               ><b-icon
                 icon="trash"
@@ -86,7 +90,7 @@ export default {
     return {
       mode: "create",
       suggestionFunctionName: "",
-      type: ["string", "boolean", "number"],
+      types: ["string", "boolean", "number"],
     };
   },
   computed: {
@@ -121,7 +125,7 @@ export default {
     checkForTypeCorrect: function () {
       let result = true;
       this.value.internal.responseTypes.forEach((responseType) => {
-        if (!this.type.includes(responseType.type)) {
+        if (!this.types.includes(responseType.type)) {
           result = false;
         }
       });
