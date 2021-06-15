@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="inputProperty">プロパティ</label>
+    <label>プロパティ</label>
     <div class="col-sm">
       <b-form-textarea
         id="inputProperty"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "layout-attribute-modal-property",
+  name: "layout-tag-attribute-modal-property",
   props: {
     value: {},
   },

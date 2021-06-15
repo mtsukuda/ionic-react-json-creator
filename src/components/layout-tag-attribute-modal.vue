@@ -61,9 +61,9 @@
       <div v-else>
         <p>プロパティはありません</p>
       </div>
-      <layout-attribute-modal-property
+      <layout-tag-attribute-modal-property
         v-model="input"
-      ></layout-attribute-modal-property>
+      ></layout-tag-attribute-modal-property>
     </div>
     <div class="modal-footer">
       <button
@@ -83,13 +83,13 @@
 </template>
 
 <script>
-import layoutAttributeModalProperty from "./layout-attribute-modal-property";
+import layoutTagAttributeModalProperty from "./layout-tag-attribute-modal-property";
 import tag from "../mixin/tag";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
-    layoutAttributeModalProperty,
+    layoutTagAttributeModalProperty,
   },
   props: {
     value: {},
