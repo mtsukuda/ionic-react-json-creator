@@ -70,7 +70,7 @@
         v-on:click="hide"
         class="btn btn-outline-secondary property-btn btn-sm m-1"
       >
-        閉じる
+        CLOSE
       </button>
       <button
         v-on:click="commit"

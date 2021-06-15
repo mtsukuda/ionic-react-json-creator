@@ -23,7 +23,7 @@
                 v-on:click="showModal(item.uid, item.tag)"
                 class="btn btn-outline-info property-btn btn-sm m-1"
               >
-                プロパティ
+                PROPERTY
               </button>
               <button
                 v-on:click="deleteTag(index)"
