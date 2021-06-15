@@ -75,7 +75,6 @@
 
 <script>
 import FetchGetApiInternalMockModal from "./fetch-get-api-internal-mock-modal";
-const _ = require("lodash");
 export default {
   name: "fetch-get-api-internal-modal",
   components: { FetchGetApiInternalMockModal },
