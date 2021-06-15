@@ -15,7 +15,10 @@
       <div class="col-6">
         <div class="mt-3">
           <fetch-container v-model="configJson"></fetch-container>
-          <layout-container v-model="configJson"></layout-container>
+          <layout-container
+            v-model="configJson"
+            v-bind:config-json="configJson"
+          ></layout-container>
         </div>
       </div>
       <div class="col-6">
@@ -32,6 +35,7 @@
 </template>
 
 <script>
+import tag from "./mixin/tag";
 import fetchContainer from "./components/fetch-container";
 import layoutContainer from "./components/layout-container.vue";
 import layoutComponentName from "./components/layout-component-name";
@@ -44,6 +48,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
 
 export default {
+  mixins: [tag],
   components: {
     fetchContainer,
     layoutContainer,
@@ -55,6 +60,9 @@ export default {
   },
   mounted() {
     console.log(this.configJson.tags[0].child.tags);
+    for (let i = 0; i < this.configJson.tags.length; i++) {
+      this.numberingTagUID(this.configJson.tags[i]);
+    }
   },
   data() {
     return {
@@ -87,25 +95,33 @@ export default {
         fetch: [],
         renderBeforeReturn: [],
         defaultProps: [],
+        tagTemp: {
+          editTagUID: "",
+          editTag: "",
+        },
         tags: [
           {
+            uid: "",
             tag: "div",
             root: true,
             child: {
               tags: [
                 {
+                  uid: "",
                   tag: "IonCard",
                   props: [],
                   rawProps: "",
                   child: {
                     tags: [
                       {
+                        uid: "",
                         tag: "IonCardHeader",
                         props: [],
                         rawProps: "",
                         child: {
                           tags: [
                             {
+                              uid: "",
                               tag: "IonCardTitle",
                               content: "カードタイトルだよぉ",
                               noCR: "yes",
@@ -113,6 +129,7 @@ export default {
                               rawProps: "",
                             },
                             {
+                              uid: "",
                               tag: "IonCardSubtitle",
                               content: "サブタイトル 2021",
                               noCR: "yes",
@@ -123,6 +140,7 @@ export default {
                         },
                       },
                       {
+                        uid: "",
                         tag: "IonCardContent",
                         content:
                           "おぎやはぎの矢作兼が５日、ＴＢＳ系「水曜日のダウンタウン」に出演。過去の「やらせ体験」を明かした。",
@@ -144,6 +162,17 @@ export default {
         debug: "",
       },
     };
+  },
+  methods: {
+    numberingTagUID: function (tag) {
+      let tagUID = this.tagUID();
+      if (tag.uid) tag.uid = tagUID;
+      else tag["uid"] = tagUID;
+      if (tag.child && tag.child.tags) {
+        for (let i = 0; i < tag.child.tags.length; i++)
+          this.numberingTagUID(tag.child.tags[i]);
+      }
+    },
   },
 };
 </script>
