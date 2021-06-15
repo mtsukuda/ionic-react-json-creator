@@ -26,5 +26,15 @@ export default {
       }
       return null;
     },
+    updateTag: function (tags, tagUID, input) {
+      let targetTag = this.targetTag(tags, tagUID);
+      if (targetTag === null) throw `Could not find tag object [${tagUID}]`;
+      targetTag["content"] = input.content;
+      targetTag["rawProps"] = input.property;
+      targetTag["props"] = this.propertyList(input.property);
+    },
+    propertyList: function (rawProperty) {
+      return rawProperty.split("\n");
+    },
   },
 };

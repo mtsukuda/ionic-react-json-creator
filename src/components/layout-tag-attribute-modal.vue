@@ -124,13 +124,12 @@ export default {
       this.$modal.show(this.modalId);
     },
     commit: function () {
-      // this.value["content"] = this.input.content;
-      // this.value["rawProps"] = this.input.property;
-      // this.value["props"] = this.propertyList(this.input.property);
+      this.updateTag(
+        this.value.tags,
+        this.value.tagTemp.editTagUID,
+        this.input
+      );
       this.$modal.hide(this.modalId);
-    },
-    propertyList: function (rawProperty) {
-      return rawProperty.split("\n");
     },
     hide: function () {
       this.$modal.hide(this.modalId);
