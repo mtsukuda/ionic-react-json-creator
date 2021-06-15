@@ -7,10 +7,10 @@
     height="auto"
   >
     <div class="modal-header">
-      <h2>{{ value.tag }}</h2>
+      <h2>{{ value.tagTemp.editTag }}</h2>
     </div>
     <div class="modal-body">
-      <div v-if="value.tag === 'IonCardTitle'">
+      <div v-if="value.tagTemp.editTag === 'IonCardTitle'">
         <label for="inputIonCardTitle">カードタイトル</label>
         <div class="col-sm">
           <input
@@ -22,7 +22,7 @@
           />
         </div>
       </div>
-      <div v-else-if="value.tag === 'IonCardSubtitle'">
+      <div v-else-if="value.tagTemp.editTag === 'IonCardSubtitle'">
         <label for="inputIonCardSubTitle">サブタイトル</label>
         <div class="col-sm">
           <input
@@ -34,7 +34,7 @@
           />
         </div>
       </div>
-      <div v-else-if="value.tag === 'IonCardContent'">
+      <div v-else-if="value.tagTemp.editTag === 'IonCardContent'">
         <label for="inputIonCardContent">コンテンツ</label>
         <div class="col-sm">
           <input
@@ -46,7 +46,7 @@
           />
         </div>
       </div>
-      <div v-else-if="value.tag === 'div'">
+      <div v-else-if="value.tagTemp.editTag === 'div'">
         <label for="inputDiv">コンテンツ</label>
         <div class="col-sm">
           <input
@@ -84,8 +84,10 @@
 
 <script>
 import layoutAttributeModalProperty from "./layout-attribute-modal-property";
+import tag from "../mixin/tag";
 export default {
-  name: "layout-attribute-modal",
+  name: "layout-tag-attribute-modal",
+  mixins: [tag],
   components: {
     layoutAttributeModalProperty,
   },
@@ -106,19 +108,26 @@ export default {
   },
   computed: {
     modalId() {
-      return `modal-attribute-${this.id}`;
+      return `modal-tag-attribute-${this.id}`;
     },
   },
   methods: {
     show: function () {
-      if (this.value.content) this.input.content = this.value.content;
-      if (this.value.rawProps) this.input.property = this.value.rawProps;
+      let targetTag = this.targetTag(
+        this.value.tags,
+        this.value.tagTemp.editTagUID
+      );
+      console.log(targetTag);
+      if (targetTag === null)
+        throw `Could not find tag object [${this.value.tagTemp.editTagUID}]`;
+      if (targetTag.content) this.input.content = targetTag.content;
+      if (targetTag.rawProps) this.input.property = targetTag.rawProps;
       this.$modal.show(this.modalId);
     },
     commit: function () {
-      this.value["content"] = this.input.content;
-      this.value["rawProps"] = this.input.property;
-      this.value["props"] = this.propertyList(this.input.property);
+      // this.value["content"] = this.input.content;
+      // this.value["rawProps"] = this.input.property;
+      // this.value["props"] = this.propertyList(this.input.property);
       this.$modal.hide(this.modalId);
     },
     propertyList: function (rawProperty) {
