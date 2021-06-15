@@ -59,7 +59,6 @@ export default {
     saveAs,
   },
   mounted() {
-    console.log(this.configJson.tags[0].child.tags);
     for (let i = 0; i < this.configJson.tags.length; i++) {
       this.numberingTagUID(this.configJson.tags[i]);
     }
