@@ -13,6 +13,8 @@ export default {
         result = this.findTag(tags[i], tagUID);
         if (result) return result;
       }
+      if (result === null)
+        throw `Could not find tag object [${tagUID}]`;
     },
     findTag: function (tag, tagUID) {
       let result = null;
@@ -28,7 +30,6 @@ export default {
     },
     updateTag: function (tags, tagUID, input) {
       let targetTag = this.targetTag(tags, tagUID);
-      if (targetTag === null) throw `Could not find tag object [${tagUID}]`;
       targetTag["content"] = input.content;
       targetTag["rawProps"] = input.property;
       targetTag["props"] = this.propertyList(input.property);

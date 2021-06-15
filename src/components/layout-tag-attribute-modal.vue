@@ -117,8 +117,6 @@ export default {
         this.value.tags,
         this.value.tagTemp.editTagUID
       );
-      if (targetTag === null)
-        throw `Could not find tag object [${this.value.tagTemp.editTagUID}]`;
       if (targetTag.content) this.input.content = targetTag.content;
       if (targetTag.rawProps) this.input.property = targetTag.rawProps;
       this.$modal.show(this.modalId);
