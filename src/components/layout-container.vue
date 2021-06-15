@@ -20,7 +20,7 @@
             </div>
             <div v-if="!item.root" class="ml-1">
               <button
-                v-on:click="showModal(index)"
+                v-on:click="showModal(item.uid, item.tag)"
                 class="btn btn-outline-info property-btn btn-sm m-1"
               >
                 プロパティ
@@ -54,6 +54,7 @@
             <layout-container
               v-if="item.child && item.child.tags"
               v-model="item.child"
+              v-bind:config-json="configJson"
             ></layout-container>
           </div>
         </div>
@@ -70,50 +71,60 @@
         </b-nav-item-dropdown>
       </div>
     </div>
+    <layout-tag-attribute-modal ref="tagAttributeModal" v-model="configJson" />
   </div>
 </template>
 
 <script>
-import layoutAttributeModal from "./layout-attribute-modal";
+import LayoutTagAttributeModal from "./layout-tag-attribute-modal";
 import ion from "../mixin/ion";
+import tag from "../mixin/tag";
 export default {
   name: "layout-container",
-  mixins: [ion],
+  mixins: [ion, tag],
   components: {
-    layoutAttributeModal,
+    LayoutTagAttributeModal,
   },
   props: {
     value: {},
+    configJson: {},
   },
   methods: {
     changeTag: function (newTag, item) {
       item.tag = newTag.tag;
       this.ionAttributeArrangement(item, newTag);
-      this.$forceUpdate();
     },
     hasChild: function (item) {
       if (!item.child) return false;
       return !(item.child && item.child.tags && item.child.tags.length === 0);
     },
     addChildTag: function (item, newTag) {
-      let child = { tag: newTag.tag, props: [], rawProps: "" };
+      let child = {
+        uid: this.tagUID(),
+        tag: newTag.tag,
+        props: [],
+        rawProps: "",
+      };
       item["child"] = { tags: [] };
       item.child.tags.push(child);
-      this.$forceUpdate();
     },
     addTag: function (newTag) {
-      let item = { tag: newTag.tag, props: [], rawProps: "" };
+      let item = {
+        uid: this.tagUID(),
+        tag: newTag.tag,
+        props: [],
+        rawProps: "",
+      };
       this.ionAttributeArrangement(item, newTag);
       this.value.tags.push(item);
-      this.$forceUpdate();
     },
     deleteTag: function (index) {
       this.value.tags.splice(index, 1);
-      this.$forceUpdate();
     },
-    showModal: function (index) {
-      console.log(this.$refs);
-      this.$refs.attributeModal[index].show();
+    showModal: function (uid, tag) {
+      this.configJson.tagTemp.editTagUID = uid;
+      this.configJson.tagTemp.editTag = tag;
+      this.$refs.tagAttributeModal.show();
     },
   },
 };
