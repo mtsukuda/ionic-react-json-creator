@@ -30,7 +30,7 @@
       <input
         type="checkbox"
         id="tag-uid"
-        value="debug"
+        value="tagUid"
         v-model="value.tagUid"
         class="ml-2"
       />

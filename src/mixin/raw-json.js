@@ -94,7 +94,7 @@ export default {
         this.deleteInfoLifeCycleMethods(configShowJson.fetch);
       if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
       if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
-      if (!showSwitch.tagUID) this.deleteTagUid(configShowJson.tags);
+      if (!showSwitch.tagUid) this.deleteTagUid(configShowJson.tags);
     },
   },
 };
