@@ -39,16 +39,6 @@ export default {
         }
       });
     },
-    deleteRawProps: function (tags) {
-      tags.forEach((tag) => {
-        if (tag.rawProps !== undefined) {
-          delete tag.rawProps;
-        }
-        if (tag.child && tag.child.tags) {
-          this.deleteRawProps(tag.child.tags);
-        }
-      });
-    },
     deleteInfoLifeCycleMethods: function (fetch) {
       fetch.forEach((eachFetch) => {
         if (eachFetch.lifeCycleMethods !== undefined) {
@@ -69,6 +59,16 @@ export default {
         }
         if (tag.child && tag.child.tags) {
           this.deleteTagUid(tag.child.tags);
+        }
+      });
+    },
+    deleteRawProps: function (tags) {
+      tags.forEach((tag) => {
+        if (tag.rawProps !== undefined) {
+          delete tag.rawProps;
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteRawProps(tag.child.tags);
         }
       });
     },
