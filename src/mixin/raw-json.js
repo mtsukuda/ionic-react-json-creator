@@ -39,6 +39,18 @@ export default {
         }
       });
     },
+    contentToCode: function (tags) {
+      tags.forEach((tag) => {
+        if (tag.code !== undefined) {
+          if (tag.code) {
+            tag.content = `{${tag.content}}`;
+          }
+        }
+        if (tag.child && tag.child.tags) {
+          this.contentToCode(tag.child.tags);
+        }
+      });
+    },
     deleteInfoLifeCycleMethods: function (fetch) {
       fetch.forEach((eachFetch) => {
         if (eachFetch.lifeCycleMethods !== undefined) {
@@ -95,6 +107,7 @@ export default {
     },
     formattedJson: function (configShowJson, showSwitch) {
       delete configShowJson.update;
+      this.contentToCode(configShowJson.tags);
       if (!showSwitch.tags) delete configShowJson.tags;
       if (!showSwitch.imports) delete configShowJson.import;
       if (!showSwitch.fetch) delete configShowJson.fetch;
