@@ -4,11 +4,11 @@
     <div class="col-sm">
       <b-form-textarea
         id="inputProperty"
+        size="sm"
         v-model="value.property"
         placeholder="shape='round'"
         rows="3"
         max-rows="6"
-        class="small"
       ></b-form-textarea>
     </div>
   </div>

@@ -11,10 +11,19 @@
     </div>
     <div class="modal-body">
       <div v-if="value.tagTemp.editTag === 'IonCardTitle'">
-        <label for="inputIonCardTitle" class="small">カードタイトル</label>
+        <label for="inputIonCardTitle" class="small"
+          >カードタイトル<b-form-checkbox
+            id="use-fetch-code"
+            name="use-fetch-code"
+            value="code"
+          >
+            Use Fetch Code
+          </b-form-checkbox></label
+        >
         <div class="col-sm">
           <input
-            class="form-control small"
+            class="form-control"
+            size="sm"
             id="inputIonCardTitle"
             type="text"
             placeholder="カードタイトル"
@@ -23,10 +32,19 @@
         </div>
       </div>
       <div v-else-if="value.tagTemp.editTag === 'IonCardSubtitle'">
-        <label for="inputIonCardSubTitle">サブタイトル</label>
+        <label for="inputIonCardSubTitle" class="small"
+          >サブタイトル<b-form-checkbox
+            id="use-fetch-code"
+            name="use-fetch-code"
+            value="code"
+          >
+            Use Fetch Code
+          </b-form-checkbox></label
+        >
         <div class="col-sm">
           <input
             class="form-control"
+            size="sm"
             id="inputIonCardSubTitle"
             type="text"
             placeholder="サブタイトル"
@@ -35,10 +53,19 @@
         </div>
       </div>
       <div v-else-if="value.tagTemp.editTag === 'IonCardContent'">
-        <label for="inputIonCardContent">コンテンツ</label>
+        <label for="inputIonCardContent"
+          >コンテンツ<b-form-checkbox
+            id="use-fetch-code"
+            name="use-fetch-code"
+            value="code"
+          >
+            Use Fetch Code
+          </b-form-checkbox></label
+        >
         <div class="col-sm">
           <input
             class="form-control"
+            size="sm"
             id="inputIonCardContent"
             type="text"
             placeholder="コンテンツ：改行させたい場合は<br />で改行"
@@ -51,6 +78,7 @@
         <div class="col-sm">
           <input
             class="form-control"
+            size="sm"
             id="inputDiv"
             type="text"
             placeholder="コンテンツ"
