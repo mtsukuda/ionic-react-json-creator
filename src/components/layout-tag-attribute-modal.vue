@@ -30,6 +30,7 @@
             type="text"
             placeholder="カードタイトル"
             v-model="input.content"
+            list="list-response"
           />
         </div>
       </div>
@@ -53,6 +54,7 @@
             type="text"
             placeholder="サブタイトル"
             v-model="input.content"
+            list="list-response"
           />
         </div>
       </div>
@@ -76,6 +78,7 @@
             type="text"
             placeholder="コンテンツ：改行させたい場合は<br />で改行"
             v-model="input.content"
+            list="list-response"
           />
         </div>
       </div>
@@ -99,6 +102,9 @@
         v-model="input"
       ></layout-tag-attribute-modal-property>
     </div>
+    <datalist id="list-response">
+      <option v-for="list in value.fetchTemp.responseList">{{ list }}</option>
+    </datalist>
     <div class="modal-footer">
       <button
         v-on:click="hide"

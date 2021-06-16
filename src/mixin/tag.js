@@ -35,7 +35,7 @@ export default {
         block.apis.forEach((api) => {
           let responseTypeName = api.responseTypeName;
           _.forEach(api.responseType, (type, label) => {
-            responseResult.push(`${responseTypeName}.${label}`);
+            responseResult.push(`this.state.${responseTypeName}.data.${label}`);
           });
         });
       });
