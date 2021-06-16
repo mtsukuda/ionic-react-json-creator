@@ -67,7 +67,7 @@ export default {
     return {
       configJson: {
         update: 1,
-        name: "myComponent",
+        name: "myCardComponent",
         import: [],
         lifeCycleMethods: [],
         fetchTemp: {
@@ -90,9 +90,40 @@ export default {
             path: "",
             responseTypes: [],
           },
-          responseList: [],
+          responseList: [
+            "this.state.resCardData.data.title",
+            "this.state.resCardData.data.subtitle",
+            "this.state.resCardData.data.content",
+          ],
         },
-        fetch: [],
+        fetch: [
+          {
+            method: "get",
+            name: "cardData",
+            apis: [
+              {
+                uri: "https://sls-front-api.io/",
+                apiType: "internal",
+                responseTypeName: "resCardData",
+                responseTypeStrict: true,
+                responseType: {
+                  title: "string",
+                  subtitle: "string",
+                  content: "string",
+                },
+                config: {
+                  path: "lambdaTwWEOMDy",
+                  mock: {
+                    title: "カードタイトルだよぉ",
+                    subtitle: "カードの「サブ」タイトルだよぉ",
+                    content:
+                      "おぎやはぎの矢作兼が５日、ＴＢＳ系「水曜日のダウンタウン」に出演。過去の「やらせ体験」を明かした。",
+                  },
+                },
+              },
+            ],
+          },
+        ],
         renderBeforeReturn: [],
         defaultProps: [],
         tagTemp: {
@@ -123,8 +154,8 @@ export default {
                             {
                               uid: "",
                               tag: "IonCardTitle",
-                              code: "",
-                              content: "カードタイトルだよぉ",
+                              code: "yes",
+                              content: "this.state.resCardData.data.title",
                               noCR: "yes",
                               props: [],
                               rawProps: "",
@@ -132,8 +163,8 @@ export default {
                             {
                               uid: "",
                               tag: "IonCardSubtitle",
-                              code: "",
-                              content: "サブタイトル 2021",
+                              code: "yes",
+                              content: "this.state.resCardData.data.subtitle",
                               noCR: "yes",
                               props: [],
                               rawProps: "",
@@ -144,9 +175,8 @@ export default {
                       {
                         uid: "",
                         tag: "IonCardContent",
-                        code: "",
-                        content:
-                          "おぎやはぎの矢作兼が５日、ＴＢＳ系「水曜日のダウンタウン」に出演。過去の「やらせ体験」を明かした。",
+                        code: "yes",
+                        content: "this.state.resCardData.data.content",
                         props: [],
                         rawProps: "",
                       },
