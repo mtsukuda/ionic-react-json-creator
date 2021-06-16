@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label>プロパティ</label>
+    <label class="small">プロパティ</label>
     <div class="col-sm">
       <b-form-textarea
         id="inputProperty"
@@ -8,6 +8,7 @@
         placeholder="shape='round'"
         rows="3"
         max-rows="6"
+        class="small"
       ></b-form-textarea>
     </div>
   </div>

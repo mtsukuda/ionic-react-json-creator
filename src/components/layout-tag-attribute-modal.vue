@@ -11,10 +11,10 @@
     </div>
     <div class="modal-body">
       <div v-if="value.tagTemp.editTag === 'IonCardTitle'">
-        <label for="inputIonCardTitle">カードタイトル</label>
+        <label for="inputIonCardTitle" class="small">カードタイトル</label>
         <div class="col-sm">
           <input
-            class="form-control"
+            class="form-control small"
             id="inputIonCardTitle"
             type="text"
             placeholder="カードタイトル"
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div v-else>
-        <p>プロパティはありません</p>
+        <p class="small">プロパティはありません</p>
       </div>
       <layout-tag-attribute-modal-property
         v-model="input"
