@@ -15,7 +15,9 @@
           >カードタイトル<b-form-checkbox
             id="use-fetch-code"
             name="use-fetch-code"
-            value="code"
+            value="yes"
+            unchecked-value=""
+            v-model="input.code"
           >
             Use Fetch Code
           </b-form-checkbox></label
@@ -36,7 +38,9 @@
           >サブタイトル<b-form-checkbox
             id="use-fetch-code"
             name="use-fetch-code"
-            value="code"
+            value="yes"
+            unchecked-value=""
+            v-model="input.code"
           >
             Use Fetch Code
           </b-form-checkbox></label
@@ -57,7 +61,8 @@
           >コンテンツ<b-form-checkbox
             id="use-fetch-code"
             name="use-fetch-code"
-            value="code"
+            value="yes"
+            unchecked-value=""
             v-model="input.code"
           >
             Use Fetch Code
