@@ -62,6 +62,16 @@ export default {
         }
       });
     },
+    deleteCodeTag: function (tags) {
+      tags.forEach((tag) => {
+        if (tag.code !== undefined) {
+          delete tag.code;
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteCodeTag(tag.child.tags);
+        }
+      });
+    },
     deleteRawProps: function (tags) {
       tags.forEach((tag) => {
         if (tag.rawProps !== undefined) {
@@ -95,6 +105,7 @@ export default {
       if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
       if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
       if (!showSwitch.tagUid) this.deleteTagUid(configShowJson.tags);
+      if (!showSwitch.debug) this.deleteCodeTag(configShowJson.tags);
     },
   },
 };
