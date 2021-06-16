@@ -43,6 +43,7 @@ export default {
     },
     updateTag: function (tags, tagUID, input) {
       let targetTag = this.targetTag(tags, tagUID);
+      targetTag["code"] = input.code;
       targetTag["content"] = input.content;
       targetTag["rawProps"] = input.property;
       targetTag["props"] = this.propertyList(input.property);
