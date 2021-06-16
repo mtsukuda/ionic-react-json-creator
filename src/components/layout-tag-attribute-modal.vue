@@ -58,6 +58,7 @@
             id="use-fetch-code"
             name="use-fetch-code"
             value="code"
+            v-model="input.code"
           >
             Use Fetch Code
           </b-form-checkbox></label
@@ -126,6 +127,7 @@ export default {
     return {
       id: null,
       input: {
+        code: "",
         content: "",
         property: "",
       },
