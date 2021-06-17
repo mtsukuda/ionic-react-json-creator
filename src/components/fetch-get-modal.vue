@@ -100,7 +100,6 @@
         v-if="value.fetchTemp.mode === 'edit'"
         v-on:click="update"
         class="btn btn-outline-primary property-btn btn-sm m-1"
-        :disabled="updateDisable"
       >
         UPDATE
       </button>
@@ -112,6 +111,7 @@
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
 import tag from "../mixin/tag";
+const _ = require("lodash");
 export default {
   name: "fetch-get-modal",
   mixins: [tag],
@@ -137,13 +137,6 @@ export default {
   },
   computed: {
     createDisable() {
-      return (
-        !this.value.fetchTemp.apis.length ||
-        !this.value.fetchTemp.fetchName ||
-        this.duplicateCheckForFetchName(this.value.fetchTemp.fetchName)
-      );
-    },
-    updateDisable() {
       return (
         !this.value.fetchTemp.apis.length ||
         !this.value.fetchTemp.fetchName ||
@@ -202,7 +195,6 @@ export default {
         internal.editIndex = targetIndex;
         internal.responseTypeName = api.responseTypeName;
         internal.responseTypes.splice(0);
-        let _ = require("lodash");
         _.forEach(api.responseType, (type, label) => {
           let content = this.findMockData(api, label);
           internal.responseTypes.push({
