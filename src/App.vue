@@ -4,11 +4,12 @@
       <h1>Ionic JSON Layout Manager</h1>
     </div>
     <div class="row">
-      <div class="col-10">
+      <div class="col-9">
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
-      <div class="col-2 d-flex align-items-center">
+      <div class="col-3 d-flex align-items-center">
         <layout-json-download v-model="configJson"></layout-json-download>
+        <layout-page-download v-model="configJson"></layout-page-download>
       </div>
     </div>
     <div class="row">
@@ -40,6 +41,7 @@ import fetchContainer from "./components/fetch-container";
 import layoutContainer from "./components/layout-container.vue";
 import layoutComponentName from "./components/layout-component-name";
 import layoutJsonDownload from "./components/layout-json-download";
+import LayoutPageDownload from "./components/layout-page-download";
 import jsonViewDisplaySwitch from "./components/json-view-display-switch";
 import jsonViewRawjson from "./components/json-view-rawjson";
 import saveAs from "file-saver";
@@ -54,6 +56,7 @@ export default {
     layoutContainer,
     layoutComponentName,
     layoutJsonDownload,
+    LayoutPageDownload,
     jsonViewDisplaySwitch,
     jsonViewRawjson,
     saveAs,
@@ -67,7 +70,7 @@ export default {
     return {
       configJson: {
         update: 1,
-        name: "myCardComponent",
+        name: "MyCardComponent",
         import: [],
         lifeCycleMethods: [],
         fetchTemp: {
