@@ -171,7 +171,19 @@ export default {
       this.$modal.show(`fetch-get-api-${apiType}-modal`);
     },
     suggestionName: function (prefix, name) {
-      return prefix + name[0].toUpperCase() + name.slice(1);
+      let suggestionName = prefix + name[0].toUpperCase() + name.slice(1);
+      let number = "";
+      for (let i = 2; i <= 100; i++) {
+        if (
+          this.duplicateCheckForResponseTypeName(suggestionName + number) ===
+          false
+        ) {
+          suggestionName += number;
+          break;
+        }
+        number = i.toString();
+      }
+      return suggestionName;
     },
     editApi: function (responseTypeName) {
       let targetIndex = this.findApi(responseTypeName);
@@ -183,6 +195,7 @@ export default {
         internal.editIndex = targetIndex;
         internal.responseTypeName = api.responseTypeName;
         internal.responseTypes.splice(0);
+        let _ = require("lodash");
         _.forEach(api.responseType, (type, label) => {
           let content = this.findMockData(api, label);
           internal.responseTypes.push({
@@ -267,6 +280,22 @@ export default {
       let result = false;
       this.value.fetch.forEach((fetch) => {
         if (fetch.name === fetchName && result === false) {
+          result = true;
+        }
+      });
+      return result;
+    },
+    duplicateCheckForResponseTypeName: function (responseTypeName) {
+      let result = false;
+      this.value.fetch.forEach((fetch) => {
+        fetch.apis.forEach((api) => {
+          if (api.responseTypeName === responseTypeName && result === false) {
+            result = true;
+          }
+        });
+      });
+      this.value.fetchTemp.apis.forEach((api) => {
+        if (api.responseTypeName === responseTypeName && result === false) {
           result = true;
         }
       });
