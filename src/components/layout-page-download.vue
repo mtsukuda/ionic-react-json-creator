@@ -136,11 +136,6 @@ export default {
                           ],
                         },
                       },
-                      {
-                        tag: "SampleComponent",
-                        props: [],
-                        single: "yes",
-                      },
                     ],
                   },
                 },
