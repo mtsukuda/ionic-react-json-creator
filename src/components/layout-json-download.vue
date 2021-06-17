@@ -38,7 +38,10 @@ export default {
       const blob = new Blob([JSON.stringify(configShowJson, null, 2)], {
         type: "application/json",
       });
-      saveAs(blob, `${this.value.name}.json`);
+      saveAs(
+        blob,
+        `${this.value.name[0].toUpperCase() + this.value.name.slice(1)}.json`
+      );
     },
   },
 };
