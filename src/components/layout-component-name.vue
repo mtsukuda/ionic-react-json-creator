@@ -7,7 +7,7 @@
           class="form-control"
           id="inputComponentName"
           type="text"
-          placeholder="myComponent"
+          placeholder="MyComponent"
           v-model="value.name"
         />
       </div>
