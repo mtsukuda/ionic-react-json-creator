@@ -62,9 +62,11 @@
 </template>
 
 <script>
+import fetchUtil from "../mixin/fetch-util";
 import fetchGetModal from "./fetch-get-modal";
 export default {
   name: "fetch-create-modal",
+  mixins: [fetchUtil],
   components: {
     fetchGetModal,
   },
@@ -79,19 +81,12 @@ export default {
       let fetchTemp = this.value.fetchTemp;
       fetchTemp.mode = "create";
       fetchTemp.editIndex = 0;
-      fetchTemp.fetchName = this.suggestionName();
+      fetchTemp.fetchName = this.suggestionStr();
       fetchTemp.apis.splice(0);
       this.$modal.show("fetch-get-modal");
     },
     showNoImplement: function () {
       console.log("Sorry, we are out of service...");
-    },
-    suggestionName: function () {
-      let S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      let N = 8;
-      return Array.from(Array(N))
-        .map(() => S[Math.floor(Math.random() * S.length)])
-        .join("");
     },
   },
 };
