@@ -100,7 +100,7 @@
         v-if="value.fetchTemp.mode === 'edit'"
         v-on:click="update"
         class="btn btn-outline-primary property-btn btn-sm m-1"
-        :disabled="createDisable"
+        :disabled="updateDisable"
       >
         UPDATE
       </button>
@@ -137,6 +137,13 @@ export default {
   },
   computed: {
     createDisable() {
+      return (
+        !this.value.fetchTemp.apis.length ||
+        !this.value.fetchTemp.fetchName ||
+        this.duplicateCheckForFetchName(this.value.fetchTemp.fetchName)
+      );
+    },
+    updateDisable() {
       return (
         !this.value.fetchTemp.apis.length ||
         !this.value.fetchTemp.fetchName ||
