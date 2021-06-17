@@ -6,7 +6,7 @@
       class="btn btn-outline-info property-btn btn-sm m-1"
     >
       <b-icon-download></b-icon-download>
-      JSON出力
+      JSON
     </button>
   </div>
 </template>
