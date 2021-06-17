@@ -111,10 +111,11 @@
 import FetchGetApiExternalModal from "./fetch-get-api-external-modal";
 import FetchGetApiInternalModal from "./fetch-get-api-internal-modal";
 import tag from "../mixin/tag";
+import fetchUtil from "../mixin/fetch-util";
 const _ = require("lodash");
 export default {
   name: "fetch-get-modal",
-  mixins: [tag],
+  mixins: [tag, fetchUtil],
   components: {
     FetchGetApiExternalModal,
     FetchGetApiInternalModal,
@@ -154,7 +155,7 @@ export default {
         let fetchName = this.value.fetchTemp.fetchName;
         internal.mode = "create";
         internal.responseTypeName = this.suggestionName("res", fetchName);
-        internal.path = this.suggestionName("lambda", fetchName);
+        internal.path = this.suggestionName("lambda", this.suggestionStr());
         internal.responseTypes.splice(0);
         internal.responseTypes.push({
           label: "",
