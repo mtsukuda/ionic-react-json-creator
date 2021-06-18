@@ -21,6 +21,22 @@ export default {
         });
       }
     },
+    loadingImport: function (fetch, importList) {
+      let loading = false;
+      fetch.forEach((fetchSet) => {
+        if (fetchSet.lifeCycleMethods) {
+          loading = true;
+        }
+      });
+      if (loading) {
+        importList.push({
+          name: "Loading",
+          from: "../components/loading",
+          type: "package",
+          props: [],
+        });
+      }
+    },
     lifeCycleMethodCalls: function (fetch, lifeCycleMethods) {
       fetch.forEach((fetchSet) => {
         if (fetchSet.lifeCycleMethods) {
@@ -43,15 +59,15 @@ export default {
       let returnCondition = "";
       fetch.forEach((fetchSet) => {
         if (fetchSet.lifeCycleMethods) {
-          returnCondition +=
-            (returnCondition ? "||" : "") +
-            `this.state.${fetchSet.name}.isLoading`;
+          fetchSet.apis.forEach((api) => {
+            returnCondition +=
+              (returnCondition ? "||" : "") +
+              `this.state.${api.responseTypeName}.isLoading`;
+          });
         }
       });
       if (returnCondition) {
-        renderBeforeReturn.push(
-          `if(${returnCondition}){return <Loading />;}`
-        );
+        renderBeforeReturn.push(`if(${returnCondition}){return <Loading />;}`);
       }
     },
     contentToCode: function (tags) {
@@ -138,13 +154,16 @@ export default {
     finalJson: function (originJson, showSwitch) {
       let importList = [];
       this.compressImport(originJson.tags, importList);
-      this.fetchImport(originJson.fetch, importList);
       originJson.import = importList;
-      let lifeCycleMethods = [];
-      this.lifeCycleMethodCalls(originJson.fetch, lifeCycleMethods);
-      originJson.lifeCycleMethods = lifeCycleMethods;
+      originJson.lifeCycleMethods.splice(0);
+      this.lifeCycleMethodCalls(originJson.fetch, originJson.lifeCycleMethods);
+      this.fetchImport(originJson.fetch, originJson.import);
       originJson.renderBeforeReturn.splice(0);
-      this.renderBeforeReturnCalls(originJson.fetch, originJson.renderBeforeReturn);
+      this.renderBeforeReturnCalls(
+        originJson.fetch,
+        originJson.renderBeforeReturn
+      );
+      this.loadingImport(originJson.fetch, originJson.import);
       let clone = require("clone");
       let configShowJson = clone(originJson);
       this.formattedJson(configShowJson, showSwitch);
