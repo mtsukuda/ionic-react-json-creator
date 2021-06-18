@@ -25,15 +25,12 @@ export default {
       return this.value.name.length <= 3;
     },
     jsonDownload: function () {
-      let importList = [];
-      this.compressImport(this.value.tags, importList);
-      this.value.import = importList;
-      let configShowJson = clone(this.value);
-      this.formattedJson(configShowJson, {
+      let configShowJson = this.finalJson(this.value, {
         tags: true,
         imports: true,
         fetch: true,
         debug: false,
+        tagUid: false,
       });
       const blob = new Blob([JSON.stringify(configShowJson, null, 2)], {
         type: "application/json",
