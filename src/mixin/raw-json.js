@@ -120,5 +120,18 @@ export default {
       if (!showSwitch.tagUid) this.deleteTagUid(configShowJson.tags);
       if (!showSwitch.debug) this.deleteCodeTag(configShowJson.tags);
     },
+    finalJson: function (originJson, showSwitch) {
+      let importList = [];
+      this.compressImport(originJson.tags, importList);
+      this.fetchImport(originJson.fetch, importList);
+      originJson.import = importList;
+      let lifeCycleMethods = [];
+      this.lifeCycleMethodCalls(originJson.fetch, lifeCycleMethods);
+      originJson.lifeCycleMethods = lifeCycleMethods;
+      let clone = require("clone");
+      let configShowJson = clone(originJson);
+      this.formattedJson(configShowJson, showSwitch);
+      return JSON.stringify(configShowJson, null, 2);
+    },
   },
 };
