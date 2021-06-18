@@ -103,6 +103,7 @@ export default {
           {
             method: "get",
             name: "cardData",
+            lifeCycleMethods: ["componentDidMount"],
             apis: [
               {
                 uri: "https://sls-front-api.io/",
