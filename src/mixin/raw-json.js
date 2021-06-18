@@ -39,6 +39,21 @@ export default {
         }
       });
     },
+    renderBeforeReturnCalls: function (fetch, renderBeforeReturn) {
+      let returnCondition = "";
+      fetch.forEach((fetchSet) => {
+        if (fetchSet.lifeCycleMethods) {
+          returnCondition +=
+            (returnCondition ? "||" : "") +
+            `this.state.${fetchSet.name}.isLoading`;
+        }
+      });
+      if (returnCondition) {
+        renderBeforeReturn.push(
+          `if(${returnCondition}){return <Loading />;}`
+        );
+      }
+    },
     contentToCode: function (tags) {
       tags.forEach((tag) => {
         if (tag.code !== undefined) {
@@ -128,6 +143,8 @@ export default {
       let lifeCycleMethods = [];
       this.lifeCycleMethodCalls(originJson.fetch, lifeCycleMethods);
       originJson.lifeCycleMethods = lifeCycleMethods;
+      originJson.renderBeforeReturn.splice(0);
+      this.renderBeforeReturnCalls(originJson.fetch, originJson.renderBeforeReturn);
       let clone = require("clone");
       let configShowJson = clone(originJson);
       this.formattedJson(configShowJson, showSwitch);
