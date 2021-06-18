@@ -32,7 +32,7 @@ export default {
         debug: false,
         tagUid: false,
       });
-      const blob = new Blob([JSON.stringify(configShowJson, null, 2)], {
+      const blob = new Blob([configShowJson], {
         type: "application/json",
       });
       saveAs(
