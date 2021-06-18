@@ -154,6 +154,10 @@ export default {
       let configPageJson = clone(this.configPageJson);
       let componentName =
         this.value.name[0].toUpperCase() + this.value.name.slice(1);
+      let pageName = `${componentName}Page`;
+      let _ = require("lodash");
+      let downloadFileName = _.snakeCase(pageName).replaceAll("_", "-");
+      configPageJson.name = pageName;
       configPageJson.import.push({
         name: `${componentName}`,
         from: `../user-components/${componentName}`,
@@ -168,7 +172,7 @@ export default {
       const blob = new Blob([JSON.stringify(configPageJson, null, 2)], {
         type: "application/json",
       });
-      saveAs(blob, `${this.value.name}Page.json`);
+      saveAs(blob, `${downloadFileName}.json`);
     },
   },
 };

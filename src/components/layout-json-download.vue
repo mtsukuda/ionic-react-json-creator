@@ -25,6 +25,11 @@ export default {
       return this.value.name.length <= 3;
     },
     jsonDownload: function () {
+      let componentName = `${
+        this.value.name[0].toUpperCase() + this.value.name.slice(1)
+      }`;
+      let _ = require("lodash");
+      let downloadFileName = _.snakeCase(componentName).replaceAll("_", "-");
       let configShowJson = this.finalJson(this.value, {
         tags: true,
         imports: true,
@@ -35,10 +40,7 @@ export default {
       const blob = new Blob([configShowJson], {
         type: "application/json",
       });
-      saveAs(
-        blob,
-        `${this.value.name[0].toUpperCase() + this.value.name.slice(1)}.json`
-      );
+      saveAs(blob, `${downloadFileName}.json`);
     },
   },
 };
