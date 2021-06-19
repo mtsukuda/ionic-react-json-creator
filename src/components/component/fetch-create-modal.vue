@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import fetchUtil from "../mixin/fetch-util";
+import fetchUtil from "../../mixin/fetch-util";
 import fetchGetModal from "./fetch-get-modal";
 export default {
   name: "fetch-create-modal",

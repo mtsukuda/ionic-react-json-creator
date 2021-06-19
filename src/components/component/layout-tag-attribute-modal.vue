@@ -124,7 +124,7 @@
 
 <script>
 import layoutTagAttributeModalProperty from "./layout-tag-attribute-modal-property";
-import tag from "../mixin/tag";
+import tag from "../../mixin/tag";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],

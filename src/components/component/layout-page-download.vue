@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import rawJson from "../mixin/raw-json";
+import rawJson from "../../mixin/raw-json";
 const clone = require("clone");
 export default {
   name: "layout-page-download",

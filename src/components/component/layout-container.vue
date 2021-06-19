@@ -72,8 +72,8 @@
 
 <script>
 import LayoutTagAttributeModal from "./layout-tag-attribute-modal";
-import ion from "../mixin/ion";
-import tag from "../mixin/tag";
+import ion from "../../mixin/ion";
+import tag from "../../mixin/tag";
 const clone = require("clone");
 export default {
   name: "layout-container",

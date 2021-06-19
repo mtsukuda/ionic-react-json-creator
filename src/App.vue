@@ -52,13 +52,13 @@
 
 <script>
 import tag from "./mixin/tag";
-import fetchContainer from "./components/fetch-container";
-import layoutContainer from "./components/layout-container.vue";
-import layoutComponentName from "./components/layout-component-name";
-import layoutJsonDownload from "./components/layout-json-download";
-import LayoutPageDownload from "./components/layout-page-download";
-import jsonViewDisplaySwitch from "./components/json-view-display-switch";
-import jsonViewRawjson from "./components/json-view-rawjson";
+import fetchContainer from "./components/component/fetch-container";
+import layoutContainer from "./components/component/layout-container.vue";
+import layoutComponentName from "./components/component/layout-component-name";
+import layoutJsonDownload from "./components/component/layout-json-download";
+import LayoutPageDownload from "./components/component/layout-page-download";
+import jsonViewDisplaySwitch from "./components/component/json-view-display-switch";
+import jsonViewRawjson from "./components/component/json-view-rawjson";
 import saveAs from "file-saver";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";

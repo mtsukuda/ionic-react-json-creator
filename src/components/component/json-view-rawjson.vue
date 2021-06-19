@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import rawJson from "../mixin/raw-json";
+import rawJson from "../../mixin/raw-json";
 export default {
   name: "json-view-rawjson",
   mixins: [rawJson],
