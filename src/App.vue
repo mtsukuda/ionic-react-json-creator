@@ -21,6 +21,7 @@
     <component-template
       v-model="configJson"
       v-bind:view-config="viewConfig"
+      v-if="selected === 'component'"
     ></component-template>
   </div>
 </template>
