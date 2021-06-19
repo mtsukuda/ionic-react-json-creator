@@ -4,10 +4,10 @@
       <h1>Ionic JSON Layout Manager</h1>
     </div>
     <div class="row">
-      <div class="col-9">
+      <div class="col-6">
         <layout-component-name v-model="configJson"></layout-component-name>
       </div>
-      <div class="col-3 d-flex align-items-center">
+      <div class="col-6 d-flex align-items-center">
         <layout-json-download v-model="configJson"></layout-json-download>
         <layout-page-download v-model="configJson"></layout-page-download>
       </div>
