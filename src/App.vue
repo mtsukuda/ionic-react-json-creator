@@ -1,7 +1,22 @@
 <template>
   <div id="app" class="container-fluid">
-    <div class="p-1">
-      <h1>Ionic JSON Layout Manager</h1>
+    <div class="row">
+      <div class="col-6">
+        <div class="p-1">
+          <h1>Ionic JSON Layout Manager</h1>
+        </div>
+      </div>
+      <div class="col-6 d-flex align-items-center pt-2">
+        <b-form-group label="" v-slot="{ ariaDescribedby }">
+          <b-form-radio-group
+            id="radio-group-1"
+            v-model="selected"
+            :options="options"
+            :aria-describedby="ariaDescribedby"
+            name="radio-options"
+          ></b-form-radio-group>
+        </b-form-group>
+      </div>
     </div>
     <div class="row">
       <div class="col-6">
@@ -68,6 +83,11 @@ export default {
   },
   data() {
     return {
+      selected: "component",
+      options: [
+        { text: "Menu", value: "menu", disabled: false },
+        { text: "Component", value: "component", disabled: false },
+      ],
       configJson: {
         update: 1,
         name: "MyCardComponent",
