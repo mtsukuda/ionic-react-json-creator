@@ -9,6 +9,7 @@
           type="text"
           placeholder="MyComponent"
           v-model="value.name"
+          @blur="setCapitalize"
         />
       </div>
     </div>
@@ -20,6 +21,12 @@ export default {
   name: "layout-component-name",
   props: {
     value: {},
+  },
+  methods: {
+    setCapitalize: function () {
+      this.value.name =
+        this.value.name.charAt(0).toUpperCase() + this.value.name.slice(1);
+    },
   },
 };
 </script>
