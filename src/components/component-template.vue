@@ -33,14 +33,14 @@
 </template>
 
 <script>
-import tag from "./mixin/tag";
-import fetchContainer from "./components/component/fetch-container";
-import layoutContainer from "./components/component/layout-container.vue";
-import layoutComponentName from "./components/component/layout-component-name";
-import layoutJsonDownload from "./components/component/layout-json-download";
-import LayoutPageDownload from "./components/component/layout-page-download";
-import jsonViewDisplaySwitch from "./components/component/json-view-display-switch";
-import jsonViewRawjson from "./components/component/json-view-rawjson";
+import tag from "../mixin/tag";
+import fetchContainer from "./component/fetch-container";
+import layoutContainer from "./component/layout-container.vue";
+import layoutComponentName from "./component/layout-component-name";
+import layoutJsonDownload from "./component/layout-json-download";
+import LayoutPageDownload from "./component/layout-page-download";
+import jsonViewDisplaySwitch from "./component/json-view-display-switch";
+import jsonViewRawjson from "./component/json-view-rawjson";
 import saveAs from "file-saver";
 
 export default {

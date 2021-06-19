@@ -27,7 +27,7 @@
 
 <script>
 import tag from "./mixin/tag";
-import ComponentTemplate from "./component-template";
+import ComponentTemplate from "./components/component-template";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
