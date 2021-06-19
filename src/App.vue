@@ -18,48 +18,16 @@
         </b-form-group>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <layout-component-name v-model="configJson"></layout-component-name>
-      </div>
-      <div class="col-6 d-flex align-items-center">
-        <layout-json-download v-model="configJson"></layout-json-download>
-        <layout-page-download v-model="configJson"></layout-page-download>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="mt-3">
-          <fetch-container v-model="configJson"></fetch-container>
-          <layout-container
-            v-model="configJson"
-            v-bind:config-json="configJson"
-          ></layout-container>
-        </div>
-      </div>
-      <div class="col-6">
-        <json-view-display-switch
-          v-model="viewConfig"
-        ></json-view-display-switch>
-        <json-view-rawjson
-          v-model="configJson"
-          v-bind:view-config="viewConfig"
-        ></json-view-rawjson>
-      </div>
-    </div>
+    <component-template
+      v-model="configJson"
+      v-bind:view-config="viewConfig"
+    ></component-template>
   </div>
 </template>
 
 <script>
 import tag from "./mixin/tag";
-import fetchContainer from "./components/component/fetch-container";
-import layoutContainer from "./components/component/layout-container.vue";
-import layoutComponentName from "./components/component/layout-component-name";
-import layoutJsonDownload from "./components/component/layout-json-download";
-import LayoutPageDownload from "./components/component/layout-page-download";
-import jsonViewDisplaySwitch from "./components/component/json-view-display-switch";
-import jsonViewRawjson from "./components/component/json-view-rawjson";
-import saveAs from "file-saver";
+import ComponentTemplate from "./component-template";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
@@ -67,14 +35,7 @@ import "bootstrap-vue/dist/bootstrap-vue-icons.css";
 export default {
   mixins: [tag],
   components: {
-    fetchContainer,
-    layoutContainer,
-    layoutComponentName,
-    layoutJsonDownload,
-    LayoutPageDownload,
-    jsonViewDisplaySwitch,
-    jsonViewRawjson,
-    saveAs,
+    ComponentTemplate,
   },
   mounted() {
     for (let i = 0; i < this.configJson.tags.length; i++) {
