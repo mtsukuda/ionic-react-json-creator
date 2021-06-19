@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "src-format": "prettier --write src/**/*.js && prettier --write src/App.vue && prettier --write src/**/*.vue"
+    "src-format": "prettier --write src/**/*.js && prettier --write src/App.vue && prettier --write src/**/*.vue && prettier --write src/**/**/*.vue"
   },
   "dependencies": {
     "bootstrap-vue": "^2.3.0",
