@@ -1,6 +1,8 @@
 <template>
   <div class="row">
-    <div class="col-6">menu layout area</div>
+    <div class="col-6">
+      <menu-container v-model="menu" />
+    </div>
     <div class="col-6">
       <json-view-menu-raw-json v-model="menu" />
     </div>
@@ -9,9 +11,10 @@
 
 <script>
 import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
+import MenuContainer from "./menu/menu-container";
 export default {
   name: "menu-template",
-  components: { JsonViewMenuRawJson },
+  components: { MenuContainer, JsonViewMenuRawJson },
   props: {
     value: {},
   },
