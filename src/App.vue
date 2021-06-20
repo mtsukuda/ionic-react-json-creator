@@ -23,6 +23,7 @@
       v-bind:view-config="viewConfig"
       v-if="selected === 'component'"
     ></component-template>
+    <menu-template></menu-template>
   </div>
 </template>
 
@@ -32,10 +33,12 @@ import ComponentTemplate from "./components/component-template";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
+import MenuTemplate from "./components/menu-template";
 
 export default {
   mixins: [tag],
   components: {
+    MenuTemplate,
     ComponentTemplate,
   },
   mounted() {
