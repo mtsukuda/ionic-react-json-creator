@@ -2,7 +2,7 @@
   <div class="container pl-1 pr-1">
     <div v-for="menu in value">
       <div class="border rounded layout-container-div mb-1">
-        <div class="p-1">
+        <div class="p-2">
           {{ menu.strTitle }}
         </div>
         <div class="ml-1">
@@ -21,9 +21,11 @@
         </div>
       </div>
     </div>
-    <b-button variant="outline-primary" v-on:click=""
-      ><b-icon icon="plus" aria-label="append"></b-icon
-    ></b-button>
+    <div class="mt-2">
+      <b-button variant="outline-primary" v-on:click="addMenu"
+        ><b-icon icon="plus" aria-label="append"></b-icon
+      ></b-button>
+    </div>
   </div>
 </template>
 
@@ -33,6 +35,16 @@ export default {
   props: {
     value: {},
     configJson: {},
+  },
+  methods: {
+    addMenu: function () {
+      this.value.push({
+        strTitle: "Sample Menu",
+        strUrl: "/page/sampleMenu",
+        icon: "extensionPuzzle",
+        component: "Default",
+      });
+    },
   },
 };
 </script>
