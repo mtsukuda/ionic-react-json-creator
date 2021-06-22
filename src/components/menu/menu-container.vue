@@ -1,6 +1,6 @@
 <template>
   <div class="container pl-1 pr-1">
-    <div v-for="menu in value">
+    <div v-for="(menu, index) in value">
       <div class="border rounded layout-container-div mb-1">
         <div class="p-2">
           {{ menu.strTitle }}
@@ -13,7 +13,7 @@
             PROPERTY
           </button>
           <button
-            v-on:click=""
+            v-on:click="deleteTag(index)"
             class="btn btn-outline-danger property-btn btn-sm m-1"
           >
             <b-icon icon="trash" aria-label="Delete"></b-icon>
@@ -40,6 +40,9 @@ export default {
     configJson: {},
   },
   methods: {
+    deleteTag: function (index) {
+      this.value.splice(index, 1);
+    },
     addMenu: function () {
       this.value.push({
         uid: this.tagUID(),
