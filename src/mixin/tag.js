@@ -7,6 +7,15 @@ export default {
         Math.floor(strong * Math.random()).toString(16)
       );
     },
+    numberingTagUID: function (tag) {
+      let tagUID = this.tagUID();
+      if (tag.uid) tag.uid = tagUID;
+      else tag["uid"] = tagUID;
+      if (tag.child && tag.child.tags) {
+        for (let i = 0; i < tag.child.tags.length; i++)
+          this.numberingTagUID(tag.child.tags[i]);
+      }
+    },
     targetTag: function (tags, tagUID) {
       let result = null;
       for (let i = 0; i < tags.length; i++) {
