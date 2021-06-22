@@ -30,8 +30,11 @@
 </template>
 
 <script>
+import tag from "../../mixin/tag";
+
 export default {
   name: "menu-container",
+  mixins: [tag],
   props: {
     value: {},
     configJson: {},
@@ -39,6 +42,7 @@ export default {
   methods: {
     addMenu: function () {
       this.value.push({
+        uid: this.tagUID(),
         strTitle: "Sample Menu",
         strUrl: "/page/sampleMenu",
         icon: "extensionPuzzle",
