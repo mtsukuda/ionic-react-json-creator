@@ -12,8 +12,10 @@
 <script>
 import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import MenuContainer from "./menu/menu-container";
+import tag from "../mixin/tag";
 export default {
   name: "menu-template",
+  mixins: [tag],
   components: { MenuContainer, JsonViewMenuRawJson },
   props: {
     value: {},
@@ -59,6 +61,11 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    for (let i = 0; i < this.menu.length; i++) {
+      this.numberingTagUID(this.menu[i]);
+    }
   },
 };
 </script>
