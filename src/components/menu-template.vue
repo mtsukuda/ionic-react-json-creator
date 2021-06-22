@@ -22,6 +22,7 @@ export default {
     return {
       menu: [
         {
+          uid: "",
           strTitle: "ダッシュボード",
           strUrl: "/page/Dashboard",
           icon: "extensionPuzzle",
@@ -29,46 +30,32 @@ export default {
           redirect: "yes",
         },
         {
+          uid: "",
           strTitle: "BASE アプリ",
           strUrl: "/page/Base",
           icon: "storefront",
           component: "Default",
         },
         {
+          uid: "",
           strTitle: "その他",
           strUrl: "/page/Others",
           icon: "layers",
           component: "Default",
         },
         {
+          uid: "",
           strTitle: "Sample",
           strUrl: "/sample",
           icon: "planet",
           component: "SamplePage",
         },
         {
+          uid: "",
           strTitle: "Sample2",
           strUrl: "/sample2",
           icon: "basketball",
           component: "SamplePage2",
-        },
-        {
-          strTitle: "MyCard",
-          strUrl: "/mycard",
-          icon: "basketball",
-          component: "MyCardComponentPage",
-        },
-        {
-          strTitle: "MyOmanko",
-          strUrl: "/omanko",
-          icon: "basketball",
-          component: "OmankoComponentPage",
-        },
-        {
-          strTitle: "MyTakosuke",
-          strUrl: "/takosuke",
-          icon: "basketball",
-          component: "TakosukeComponentPage",
         },
       ],
     };
