@@ -5,7 +5,7 @@
     </div>
     <div class="col-6">
       <json-view-menu-display-switch v-model="viewConfig" />
-      <json-view-menu-raw-json v-model="menu" />
+      <json-view-menu-raw-json v-model="menu" v-bind:view-config="viewConfig" />
     </div>
   </div>
 </template>
