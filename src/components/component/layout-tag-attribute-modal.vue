@@ -152,7 +152,7 @@ export default {
   },
   methods: {
     show: function () {
-      let targetTag = this.targetTag(
+      let targetTag = this.targetNode(
         this.value.tags,
         this.value.tagTemp.editTagUID
       );

@@ -16,21 +16,21 @@ export default {
           this.numberingTagUID(tag.child.tags[i]);
       }
     },
-    targetTag: function (tags, tagUID) {
+    targetNode: function (tags, tagUID) {
       let result = null;
       for (let i = 0; i < tags.length; i++) {
-        result = this.findTag(tags[i], tagUID);
+        result = this.findNode(tags[i], tagUID);
         if (result) return result;
       }
       if (result === null) throw `Could not find tag object [${tagUID}]`;
     },
-    findTag: function (tag, tagUID) {
+    findNode: function (tag, tagUID) {
       let result = null;
       if (!tag.uid) return result;
       if (tag.uid === tagUID) return tag;
       if (tag.child && tag.child.tags) {
         for (let i = 0; i < tag.child.tags.length; i++) {
-          result = this.findTag(tag.child.tags[i], tagUID);
+          result = this.findNode(tag.child.tags[i], tagUID);
           if (result) return result;
         }
       }
@@ -51,7 +51,7 @@ export default {
       return responseResult;
     },
     updateTag: function (tags, tagUID, input) {
-      let targetTag = this.targetTag(tags, tagUID);
+      let targetTag = this.targetNode(tags, tagUID);
       targetTag["code"] = input.code;
       targetTag["content"] = input.content;
       targetTag["rawProps"] = input.property;

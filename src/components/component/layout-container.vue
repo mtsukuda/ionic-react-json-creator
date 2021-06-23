@@ -101,7 +101,7 @@ export default {
         props: [],
         rawProps: "",
       };
-      let targetTag = this.targetTag(this.configJson.tags, item.uid);
+      let targetTag = this.targetNode(this.configJson.tags, item.uid);
       this.$set(targetTag, "child", { tags: [] });
       targetTag.child.tags.push(child);
     },
