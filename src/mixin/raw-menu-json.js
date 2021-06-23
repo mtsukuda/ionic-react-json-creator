@@ -7,14 +7,14 @@ export default {
         }
       });
     },
-    formattedJson: function (configShowJson, showSwitch) {
-      if (!showSwitch.menuUid) this.deleteMenuUid(configShowJson.tags);
+    formattedJson: function (menuJson, showSwitch) {
+      if (!showSwitch.menuUid) this.deleteMenuUid(menuJson);
     },
-    finalJson: function (originJson, showSwitch) {
+    finalJson: function (originMenuJson, showSwitch) {
       let clone = require("clone");
-      let configShowJson = clone(originJson);
-      this.formattedJson(configShowJson, showSwitch);
-      return JSON.stringify(configShowJson, null, 2);
+      let menuJson = clone(originMenuJson);
+      this.formattedJson(menuJson, showSwitch);
+      return JSON.stringify(menuJson, null, 2);
     },
   },
 };
