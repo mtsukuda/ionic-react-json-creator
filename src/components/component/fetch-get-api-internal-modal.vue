@@ -28,13 +28,13 @@
               aria-label="Label"
               placeholder="res1"
               v-model="response.label"
-            ></b-form-input>
+            />
             <b-form-input
               aria-label="Type"
               placeholder="string"
               v-model="response.type"
               list="list-type"
-            ></b-form-input>
+            />
             <datalist id="list-type">
               <option v-for="type in types">{{ type }}</option>
             </datalist>
@@ -43,12 +43,11 @@
                 icon="trash"
                 aria-label="Delete"
                 v-on:click="deleteResponse(index)"
-              ></b-icon
-            ></b-button>
+            /></b-button>
           </b-input-group>
           <b-button variant="outline-primary" v-on:click="addResponse"
-            ><b-icon icon="plus" aria-label="append"></b-icon
-          ></b-button>
+            ><b-icon icon="plus" aria-label="append"
+          /></b-button>
         </div>
       </div>
     </div>

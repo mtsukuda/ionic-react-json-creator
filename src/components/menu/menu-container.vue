@@ -23,8 +23,8 @@
     </div>
     <div class="mt-2">
       <b-button variant="outline-primary" v-on:click="addMenu"
-        ><b-icon icon="plus" aria-label="append"></b-icon
-      ></b-button>
+        ><b-icon icon="plus" aria-label="append"
+      /></b-button>
     </div>
   </div>
 </template>

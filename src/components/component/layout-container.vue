@@ -50,7 +50,7 @@
               v-if="item.child && item.child.tags"
               v-model="item.child"
               v-bind:config-json="configJson"
-            ></layout-container>
+            />
           </div>
         </div>
       </div>

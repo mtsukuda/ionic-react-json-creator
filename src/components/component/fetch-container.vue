@@ -20,14 +20,14 @@
               class="mr-1"
               v-on:click="showFetchEditModal(fetch.method, index)"
             >
-              <b-icon icon="pencil" aria-label="Edit"></b-icon>
+              <b-icon icon="pencil" aria-label="Edit" />
             </b-button>
             <b-button
               size="sm"
               variant="outline-danger"
               v-on:click="deleteFetch(fetch.name)"
             >
-              <b-icon icon="trash" aria-label="Delete"></b-icon>
+              <b-icon icon="trash" aria-label="Delete" />
             </b-button>
           </b-col>
         </b-row>
@@ -39,8 +39,8 @@
         >
           NEW FETCH
         </button>
-        <fetch-create-modal v-model="value"></fetch-create-modal>
-        <fetch-get-modal v-model="value"></fetch-get-modal>
+        <fetch-create-modal v-model="value" />
+        <fetch-get-modal v-model="value" />
       </div>
     </div>
   </div>

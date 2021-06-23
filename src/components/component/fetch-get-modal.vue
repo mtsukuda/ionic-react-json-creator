@@ -52,14 +52,14 @@
                   class="mr-1"
                   v-on:click="editApi(api.responseTypeName)"
                 >
-                  <b-icon icon="pencil" aria-label="Edit"></b-icon>
+                  <b-icon icon="pencil" aria-label="Edit" />
                 </b-button>
                 <b-button
                   size="sm"
                   variant="outline-danger"
                   v-on:click="deleteApi(api.responseTypeName)"
                 >
-                  <b-icon icon="trash" aria-label="Delete"></b-icon>
+                  <b-icon icon="trash" aria-label="Delete" />
                 </b-button>
               </b-col>
             </b-row>
@@ -71,14 +71,14 @@
           @close="closeModal"
           @commit="commitModal"
           @update="updateModal"
-        ></fetch-get-api-external-modal>
+        />
         <fetch-get-api-internal-modal
           v-model="value.fetchTemp"
           v-bind:fetch="value.fetch"
           @close="closeModal"
           @commit="commitModal"
           @update="updateModal"
-        ></fetch-get-api-internal-modal>
+        />
       </div>
       <div class="mt-1 mb-1">Called method</div>
       <div class="mt-2 ml-3 mr-3">

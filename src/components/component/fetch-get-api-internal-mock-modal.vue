@@ -30,7 +30,7 @@
               aria-label="Content"
               placeholder="This is the Title"
               v-model="param.content"
-            ></b-form-input>
+            />
           </b-input-group>
         </div>
       </div>

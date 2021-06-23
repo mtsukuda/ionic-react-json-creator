@@ -98,9 +98,7 @@
       <div v-else>
         <p class="small">プロパティはありません</p>
       </div>
-      <layout-tag-attribute-modal-property
-        v-model="input"
-      ></layout-tag-attribute-modal-property>
+      <layout-tag-attribute-modal-property v-model="input" />
     </div>
     <datalist id="list-response">
       <option v-for="list in value.fetchTemp.responseList">{{ list }}</option>

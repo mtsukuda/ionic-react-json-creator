@@ -5,7 +5,7 @@
       v-bind:disabled="existComponentName()"
       class="btn btn-outline-info property-btn btn-sm m-1"
     >
-      <b-icon-download></b-icon-download>
+      <b-icon-download />
       PAGE
     </button>
   </div>
