@@ -60,6 +60,10 @@ export default {
           component: "SamplePage2",
         },
       ],
+      viewConfig: {
+        debug: "",
+        tagUid: "",
+      },
     };
   },
   mounted() {

@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "json-view-display-switch",
+  name: "json-view-menu-display-switch",
   props: {
     value: {},
   },
