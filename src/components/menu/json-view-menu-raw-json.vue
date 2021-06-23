@@ -5,14 +5,19 @@
 </template>
 
 <script>
+import rawMenuJson from "../../mixin/raw-menu-json";
+
 export default {
   name: "json-view-menu-raw-json",
+  mixins: [rawMenuJson],
   props: {
     value: {},
+    viewConfig: {},
   },
   computed: {
     raw() {
-      return JSON.stringify(this.value, null, 2);
+      console.log(JSON.stringify(this.value));
+      return this.finalJson(this.value, this.viewConfig);
     },
   },
 };
