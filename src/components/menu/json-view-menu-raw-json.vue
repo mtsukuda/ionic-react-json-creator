@@ -16,7 +16,6 @@ export default {
   },
   computed: {
     raw() {
-      console.log(JSON.stringify(this.value));
       return this.finalJson(this.value, this.viewConfig);
     },
   },
