@@ -14,7 +14,7 @@
             :options="options"
             :aria-describedby="ariaDescribedby"
             name="radio-options"
-          ></b-form-radio-group>
+          />
         </b-form-group>
       </div>
     </div>
@@ -22,8 +22,8 @@
       v-model="configJson"
       v-bind:view-config="viewConfig"
       v-if="selected === 'component'"
-    ></component-template>
-    <menu-template></menu-template>
+    />
+    <menu-template v-if="selected === 'menu'" />
   </div>
 </template>
 
