@@ -26,7 +26,11 @@
             type="text"
             placeholder="Menu Icon"
             v-model="value.menuTemp.icon"
+            list="list-icon"
           />
+          <datalist id="list-icon">
+            <option v-for="icon in value.icons">{{ icon }}</option>
+          </datalist>
         </div>
       </div>
     </div>
