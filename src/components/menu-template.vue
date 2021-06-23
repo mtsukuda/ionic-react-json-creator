@@ -64,7 +64,7 @@ export default {
       ],
       viewConfig: {
         debug: "",
-        tagUid: "",
+        menuUid: "",
       },
     };
   },
