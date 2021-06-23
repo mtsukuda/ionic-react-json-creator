@@ -56,7 +56,7 @@
       v-bind:fetch="fetch"
       @commit="commit"
       @update="update"
-    ></fetch-get-api-internal-mock-modal>
+    />
     <div class="modal-footer">
       <button
         v-on:click="hide"
