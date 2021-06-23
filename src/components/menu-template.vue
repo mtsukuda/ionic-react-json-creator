@@ -4,19 +4,21 @@
       <menu-container v-model="menu" />
     </div>
     <div class="col-6">
+      <json-view-menu-display-switch v-model="viewConfig" />
       <json-view-menu-raw-json v-model="menu" />
     </div>
   </div>
 </template>
 
 <script>
-import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import MenuContainer from "./menu/menu-container";
+import JsonViewMenuDisplaySwitch from "./menu/json-view-menu-display-switch";
+import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import tag from "../mixin/tag";
 export default {
   name: "menu-template",
   mixins: [tag],
-  components: { MenuContainer, JsonViewMenuRawJson },
+  components: { MenuContainer, JsonViewMenuDisplaySwitch, JsonViewMenuRawJson },
   props: {
     value: {},
   },
