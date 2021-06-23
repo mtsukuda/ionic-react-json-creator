@@ -12,11 +12,10 @@ export default {
   mixins: [rawMenuJson],
   props: {
     value: {},
-    viewConfig: {},
   },
   computed: {
     raw() {
-      return this.finalJson(this.value, this.viewConfig);
+      return this.finalJson(this.value.menu, this.value.viewConfig);
     },
   },
 };

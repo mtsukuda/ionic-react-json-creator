@@ -1,11 +1,11 @@
 <template>
   <div class="row">
     <div class="col-6">
-      <menu-container v-model="menu" />
+      <menu-container v-model="menuConfig" />
     </div>
     <div class="col-6">
-      <json-view-menu-display-switch v-model="viewConfig" />
-      <json-view-menu-raw-json v-model="menu" v-bind:view-config="viewConfig" />
+      <json-view-menu-display-switch v-model="menuConfig" />
+      <json-view-menu-raw-json v-model="menuConfig" />
     </div>
   </div>
 </template>
@@ -24,53 +24,62 @@ export default {
   },
   data() {
     return {
-      menu: [
-        {
+      menuConfig: {
+        menuTemp: {
           uid: "",
-          strTitle: "ダッシュボード",
-          strUrl: "/page/Dashboard",
-          icon: "extensionPuzzle",
-          component: "Default",
-          redirect: "yes",
+          strTitle: "",
+          strUrl: "",
+          icon: "",
+          component: "",
         },
-        {
-          uid: "",
-          strTitle: "BASE アプリ",
-          strUrl: "/page/Base",
-          icon: "storefront",
-          component: "Default",
+        menu: [
+          {
+            uid: "",
+            strTitle: "ダッシュボード",
+            strUrl: "/page/Dashboard",
+            icon: "extensionPuzzle",
+            component: "Default",
+            redirect: "yes",
+          },
+          {
+            uid: "",
+            strTitle: "BASE アプリ",
+            strUrl: "/page/Base",
+            icon: "storefront",
+            component: "Default",
+          },
+          {
+            uid: "",
+            strTitle: "その他",
+            strUrl: "/page/Others",
+            icon: "layers",
+            component: "Default",
+          },
+          {
+            uid: "",
+            strTitle: "Sample",
+            strUrl: "/sample",
+            icon: "planet",
+            component: "SamplePage",
+          },
+          {
+            uid: "",
+            strTitle: "Sample2",
+            strUrl: "/sample2",
+            icon: "basketball",
+            component: "SamplePage2",
+          },
+        ],
+        viewConfig: {
+          debug: "",
+          menuUid: "",
         },
-        {
-          uid: "",
-          strTitle: "その他",
-          strUrl: "/page/Others",
-          icon: "layers",
-          component: "Default",
-        },
-        {
-          uid: "",
-          strTitle: "Sample",
-          strUrl: "/sample",
-          icon: "planet",
-          component: "SamplePage",
-        },
-        {
-          uid: "",
-          strTitle: "Sample2",
-          strUrl: "/sample2",
-          icon: "basketball",
-          component: "SamplePage2",
-        },
-      ],
-      viewConfig: {
-        debug: "",
-        menuUid: "",
       },
     };
   },
   mounted() {
-    for (let i = 0; i < this.menu.length; i++) {
-      this.numberingTagUID(this.menu[i]);
+    for (let i = 0; i < this.menuConfig.menu.length; i++) {
+      this.numberingTagUID(this.menuConfig.menu[i]);
     }
   },
 };

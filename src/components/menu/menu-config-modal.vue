@@ -8,25 +8,25 @@
   >
     <div class="modal-body">
       <div>
-        <label for="inputMenuCaption">Menu caption</label>
+        <label for="inputMenuCaption">Menu Title</label>
         <div class="col-sm mb-2">
           <input
             class="form-control input-sm"
             id="inputMenuCaption"
             type="text"
-            placeholder="Menu Caption"
-            v-model=""
+            placeholder="Menu Title"
+            v-model="value.menuTemp.strTitle"
           />
-          <label for="inputMenuIcon">Menu icon</label>
-          <div class="col-sm mb-2">
-            <input
-              class="form-control input-sm"
-              id="inputMenuIcon"
-              type="text"
-              placeholder="Menu Icon"
-              v-model=""
-            />
-          </div>
+        </div>
+        <label for="inputMenuIcon">Menu Icon</label>
+        <div class="col-sm mb-2">
+          <input
+            class="form-control input-sm"
+            id="inputMenuIcon"
+            type="text"
+            placeholder="Menu Icon"
+            v-model="value.menuTemp.icon"
+          />
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
         type="checkbox"
         id="debug"
         value="debug"
-        v-model="value.debug"
+        v-model="value.viewConfig.debug"
         class="ml-2"
       />
       <label for="debug" class="p-1 text-danger">debug</label>
@@ -13,7 +13,7 @@
         type="checkbox"
         id="tag-uid"
         value="tagUid"
-        v-model="value.menuUid"
+        v-model="value.viewConfig.menuUid"
         class="ml-2"
       />
       <label for="tag-uid" class="p-1 text-danger">menu uid</label>
