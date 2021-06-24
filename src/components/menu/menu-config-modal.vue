@@ -32,6 +32,16 @@
             <option v-for="icon in value.icons">{{ icon }}</option>
           </datalist>
         </div>
+        <label for="inputMenuComponent">Component</label>
+        <div class="col-sm mb-2">
+          <input
+            class="form-control input-sm"
+            id="inputMenuComponent"
+            type="text"
+            placeholder="Component Name"
+            v-model="value.menuTemp.component"
+          />
+        </div>
       </div>
     </div>
     <div class="modal-footer">
@@ -84,11 +94,6 @@ export default {
       targetMenu.component = menuTemp.component;
       this.hide();
     },
-    update: function () {
-      // this.value.apis[this.value.editIndex] = this.dataSet();
-      this.hide();
-    },
-    dataSet: function () {},
   },
 };
 </script>
