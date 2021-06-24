@@ -48,12 +48,15 @@ export default {
     showConfigModal: function (menu) {
       let targetMenu = this.targetNode(this.value.menu, menu.uid);
       let menuTemp = this.value.menuTemp;
+      menuTemp.uid = targetMenu.uid;
       menuTemp.strTitle = targetMenu.strTitle;
+      menuTemp.strUrl = targetMenu.strUrl;
       menuTemp.icon = targetMenu.icon;
+      menuTemp.component = targetMenu.component;
       this.$modal.show("menu-config-modal");
     },
     addMenu: function () {
-      this.value.push({
+      this.value.menu.push({
         uid: this.tagUID(),
         strTitle: "Sample Menu",
         strUrl: "/page/sampleMenu",
