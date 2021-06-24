@@ -45,6 +45,7 @@
       <button
         v-on:click="commit"
         class="btn btn-outline-primary property-btn btn-sm m-1"
+        :disabled="okDisable"
       >
         OK
       </button>
@@ -64,7 +65,11 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    okDisable() {
+      return !this.value.menuTemp.strTitle.length;
+    },
+  },
   methods: {
     hide: function () {
       this.$modal.hide("menu-config-modal");
