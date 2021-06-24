@@ -43,7 +43,7 @@
         CLOSE
       </button>
       <button
-        v-on:click=""
+        v-on:click="commit"
         class="btn btn-outline-primary property-btn btn-sm m-1"
       >
         OK
@@ -53,8 +53,11 @@
 </template>
 
 <script>
+import tag from "../../mixin/tag";
+
 export default {
   name: "menu-config-modal",
+  mixins: [tag],
   props: {
     value: {},
   },
@@ -67,7 +70,13 @@ export default {
       this.$modal.hide("menu-config-modal");
     },
     commit: function () {
-      // this.value.apis.push(this.dataSet());
+      let menuTemp = this.value.menuTemp;
+      let targetMenu = this.targetNode(this.value.menu, menuTemp.uid);
+      targetMenu.uid = menuTemp.uid;
+      targetMenu.strTitle = menuTemp.strTitle;
+      targetMenu.strUrl = menuTemp.strUrl;
+      targetMenu.icon = menuTemp.icon;
+      targetMenu.component = menuTemp.component;
       this.hide();
     },
     update: function () {
