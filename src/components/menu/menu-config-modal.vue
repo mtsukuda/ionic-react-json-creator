@@ -18,6 +18,16 @@
             v-model="value.menuTemp.strTitle"
           />
         </div>
+        <label for="inputMenuURL">URL</label>
+        <div class="col-sm mb-2">
+          <input
+            class="form-control input-sm"
+            id="inputMenuURL"
+            type="text"
+            placeholder="myPage"
+            v-model="value.menuTemp.strUrl"
+          />
+        </div>
         <label for="inputMenuIcon">Menu Icon</label>
         <div class="col-sm mb-2">
           <input
