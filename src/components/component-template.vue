@@ -2,11 +2,11 @@
   <div>
     <div class="row">
       <div class="col-6">
-        <layout-component-name v-model="value"></layout-component-name>
+        <layout-component-name v-model="value" />
       </div>
       <div class="col-6 d-flex align-items-center">
-        <layout-json-download v-model="value"></layout-json-download>
-        <layout-page-download v-model="value"></layout-page-download>
+        <layout-page-download v-model="value" />
+        <layout-component-download v-model="value" />
       </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@ import tag from "../mixin/tag";
 import fetchContainer from "./component/fetch-container";
 import layoutContainer from "./component/layout-container.vue";
 import layoutComponentName from "./component/layout-component-name";
-import layoutJsonDownload from "./component/layout-json-download";
+import layoutComponentDownload from "./component/layout-component-download";
 import LayoutPageDownload from "./component/layout-page-download";
 import jsonViewDisplaySwitch from "./component/json-view-display-switch";
 import jsonViewRawjson from "./component/json-view-rawjson";
@@ -42,7 +42,7 @@ export default {
     fetchContainer,
     layoutContainer,
     layoutComponentName,
-    layoutJsonDownload,
+    layoutComponentDownload,
     LayoutPageDownload,
     jsonViewDisplaySwitch,
     jsonViewRawjson,

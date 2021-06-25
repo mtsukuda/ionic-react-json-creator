@@ -6,7 +6,7 @@
       class="btn btn-outline-info property-btn btn-sm m-1"
     >
       <b-icon-download />
-      JSON
+      COMPONENT
     </button>
   </div>
 </template>
@@ -15,7 +15,7 @@
 import rawJson from "../../mixin/raw-json";
 const clone = require("clone");
 export default {
-  name: "layout-json-download",
+  name: "layout-component-download",
   mixins: [rawJson],
   props: {
     value: {},
