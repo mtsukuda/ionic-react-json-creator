@@ -32,6 +32,9 @@ export default {
           icon: "",
           component: "",
         },
+        header: {
+          strTitle: "Ionic Admin Panel",
+        },
         menu: [
           {
             uid: "",
