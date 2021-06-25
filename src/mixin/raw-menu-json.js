@@ -21,9 +21,15 @@ export default {
         delete menuConfigJson.menuTemp;
       }
     },
+    deleteComponents: function (menuConfigJson) {
+      if (menuConfigJson.components !== undefined) {
+        delete menuConfigJson.components;
+      }
+    },
     formattedJson: function (menuConfigJson, showSwitch) {
       this.defaultComponent(menuConfigJson.menu);
       if (!showSwitch.debug) this.deleteMenuTemp(menuConfigJson);
+      if (!showSwitch.debug) this.deleteComponents(menuConfigJson);
       if (!showSwitch.menuUid) this.deleteMenuUid(menuConfigJson.menu);
     },
     finalJson: function (originMenuConfigJson, showSwitch) {
