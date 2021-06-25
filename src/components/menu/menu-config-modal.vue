@@ -15,7 +15,7 @@
             id="inputMenuCaption"
             type="text"
             placeholder="Menu Title"
-            v-model="value.menuTemp.strTitle"
+            v-model="value.json.menuTemp.strTitle"
           />
         </div>
         <label for="inputMenuURL">URL</label>
@@ -25,7 +25,7 @@
             id="inputMenuURL"
             type="text"
             placeholder="myPage"
-            v-model="value.menuTemp.strUrl"
+            v-model="value.json.menuTemp.strUrl"
           />
         </div>
         <label for="inputMenuIcon">Menu Icon</label>
@@ -35,7 +35,7 @@
             id="inputMenuIcon"
             type="text"
             placeholder="Menu Icon"
-            v-model="value.menuTemp.icon"
+            v-model="value.json.menuTemp.icon"
             list="list-icon"
           />
           <datalist id="list-icon">
@@ -49,11 +49,11 @@
             id="inputMenuComponent"
             type="text"
             placeholder="Component Name"
-            v-model="value.menuTemp.component"
+            v-model="value.json.menuTemp.component"
             list="list-component"
           />
           <datalist id="list-component">
-            <option v-for="component in value.components">
+            <option v-for="component in value.json.components">
               {{ component }}
             </option>
           </datalist>
@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     okDisable() {
-      return !this.value.menuTemp.strTitle.length;
+      return !this.value.json.menuTemp.strTitle.length;
     },
   },
   methods: {
@@ -101,8 +101,8 @@ export default {
       this.$modal.hide("menu-config-modal");
     },
     commit: function () {
-      let menuTemp = this.value.menuTemp;
-      let targetMenu = this.targetNode(this.value.menu, menuTemp.uid);
+      let menuTemp = this.value.json.menuTemp;
+      let targetMenu = this.targetNode(this.value.json.menu, menuTemp.uid);
       targetMenu.uid = menuTemp.uid;
       targetMenu.strTitle = menuTemp.strTitle;
       targetMenu.strUrl = menuTemp.strUrl;

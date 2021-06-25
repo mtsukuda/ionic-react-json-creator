@@ -7,22 +7,22 @@ export default {
         }
       });
     },
-    defaultComponent: function (menuJson) {
-      for (let i = 0; i < menuJson.length; i++) {
-        if (menuJson[i].component === "Default") {
-          menuJson[i].strUrl = `/page/${menuJson[i].strUrl}`;
+    defaultComponent: function (menuConfigJson) {
+      for (let i = 0; i < menuConfigJson.length; i++) {
+        if (menuConfigJson[i].component === "Default") {
+          menuConfigJson[i].strUrl = `/page/${menuConfigJson[i].strUrl}`;
         }
       }
     },
-    formattedJson: function (menuConfig, showSwitch) {
-      this.defaultComponent(menuConfig.menu);
-      if (!showSwitch.menuUid) this.deleteMenuUid(menuConfig.menu);
+    formattedJson: function (menuConfigJson, showSwitch) {
+      this.defaultComponent(menuConfigJson.menu);
+      if (!showSwitch.menuUid) this.deleteMenuUid(menuConfigJson.menu);
     },
-    finalJson: function (originMenuConfig, showSwitch) {
+    finalJson: function (originMenuConfigJson, showSwitch) {
       let clone = require("clone");
-      let menuConfig = clone(originMenuConfig);
-      this.formattedJson(menuConfig, showSwitch);
-      return JSON.stringify(menuConfig, null, 2);
+      let menuConfigJson = clone(originMenuConfigJson);
+      this.formattedJson(menuConfigJson, showSwitch);
+      return JSON.stringify(menuConfigJson, null, 2);
     },
   },
 };

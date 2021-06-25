@@ -1,6 +1,6 @@
 <template>
   <div class="container pl-1 pr-1">
-    <div v-for="(menu, index) in value.menu">
+    <div v-for="(menu, index) in value.json.menu">
       <div class="border rounded layout-container-div mb-1">
         <div class="p-2">
           {{ menu.strTitle }}
@@ -43,11 +43,11 @@ export default {
   },
   methods: {
     deleteTag: function (index) {
-      this.value.menu.splice(index, 1);
+      this.value.json.menu.splice(index, 1);
     },
     showConfigModal: function (menu) {
-      let targetMenu = this.targetNode(this.value.menu, menu.uid);
-      let menuTemp = this.value.menuTemp;
+      let targetMenu = this.targetNode(this.value.json.menu, menu.uid);
+      let menuTemp = this.value.json.menuTemp;
       menuTemp.uid = targetMenu.uid;
       menuTemp.strTitle = targetMenu.strTitle;
       menuTemp.strUrl = targetMenu.strUrl;
@@ -56,7 +56,7 @@ export default {
       this.$modal.show("menu-config-modal");
     },
     addMenu: function () {
-      this.value.menu.push({
+      this.value.json.menu.push({
         uid: this.tagUID(),
         strTitle: "Sample Menu",
         strUrl: "sampleMenu",

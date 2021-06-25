@@ -8,7 +8,7 @@
           id="inputMenuHeaderTitle"
           type="text"
           placeholder="MyComponent"
-          v-model="value.header.strTitle"
+          v-model="value.json.header.strTitle"
         />
       </div>
     </div>

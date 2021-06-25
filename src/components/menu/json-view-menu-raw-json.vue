@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     raw() {
-      return this.finalJson(this.value, this.value.viewConfig);
+      return this.finalJson(this.value.json, this.value.viewConfig);
     },
   },
 };

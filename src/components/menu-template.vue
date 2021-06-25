@@ -38,54 +38,57 @@ export default {
   data() {
     return {
       menuConfig: {
-        menuTemp: {
-          uid: "",
-          strTitle: "",
-          strUrl: "",
-          icon: "",
-          component: "",
+        json: {
+          menuTemp: {
+            uid: "",
+            strTitle: "",
+            strUrl: "",
+            icon: "",
+            component: "",
+          },
+          header: {
+            strTitle: "Ionic Admin Panel",
+          },
+          menu: [
+            {
+              uid: "",
+              strTitle: "ダッシュボード",
+              strUrl: "Dashboard",
+              icon: "extensionPuzzle",
+              component: "Default",
+              redirect: "yes",
+            },
+            {
+              uid: "",
+              strTitle: "BASE アプリ",
+              strUrl: "Base",
+              icon: "storefront",
+              component: "Default",
+            },
+            {
+              uid: "",
+              strTitle: "その他",
+              strUrl: "Others",
+              icon: "layers",
+              component: "Default",
+            },
+            {
+              uid: "",
+              strTitle: "Sample",
+              strUrl: "/sample",
+              icon: "planet",
+              component: "SamplePage",
+            },
+            {
+              uid: "",
+              strTitle: "Sample2",
+              strUrl: "/sample2",
+              icon: "basketball",
+              component: "SamplePage2",
+            },
+          ],
+          components: ["Default"],
         },
-        header: {
-          strTitle: "Ionic Admin Panel",
-        },
-        menu: [
-          {
-            uid: "",
-            strTitle: "ダッシュボード",
-            strUrl: "Dashboard",
-            icon: "extensionPuzzle",
-            component: "Default",
-            redirect: "yes",
-          },
-          {
-            uid: "",
-            strTitle: "BASE アプリ",
-            strUrl: "Base",
-            icon: "storefront",
-            component: "Default",
-          },
-          {
-            uid: "",
-            strTitle: "その他",
-            strUrl: "Others",
-            icon: "layers",
-            component: "Default",
-          },
-          {
-            uid: "",
-            strTitle: "Sample",
-            strUrl: "/sample",
-            icon: "planet",
-            component: "SamplePage",
-          },
-          {
-            uid: "",
-            strTitle: "Sample2",
-            strUrl: "/sample2",
-            icon: "basketball",
-            component: "SamplePage2",
-          },
-        ],
         viewConfig: {
           debug: "",
           menuUid: "",
@@ -140,13 +143,12 @@ export default {
           "bonfire",
           "book",
         ],
-        components: ["Default"],
       },
     };
   },
   mounted() {
-    for (let i = 0; i < this.menuConfig.menu.length; i++) {
-      this.numberingTagUID(this.menuConfig.menu[i]);
+    for (let i = 0; i < this.menuConfig.json.menu.length; i++) {
+      this.numberingTagUID(this.menuConfig.json.menu[i]);
     }
   },
 };
