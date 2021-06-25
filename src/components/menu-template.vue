@@ -1,24 +1,37 @@
 <template>
-  <div class="row">
-    <div class="col-6">
-      <menu-container v-model="menuConfig" />
+  <div>
+    <div class="row">
+      <div class="col-6">
+        <menu-header v-model="menuConfig" />
+      </div>
     </div>
-    <div class="col-6">
-      <json-view-menu-display-switch v-model="menuConfig" />
-      <json-view-menu-raw-json v-model="menuConfig" />
+    <div class="row">
+      <div class="col-6">
+        <menu-container v-model="menuConfig" />
+      </div>
+      <div class="col-6">
+        <json-view-menu-display-switch v-model="menuConfig" />
+        <json-view-menu-raw-json v-model="menuConfig" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import MenuContainer from "./menu/menu-container";
+import MenuHeader from "./menu/menu-header";
 import JsonViewMenuDisplaySwitch from "./menu/json-view-menu-display-switch";
 import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import tag from "../mixin/tag";
 export default {
   name: "menu-template",
   mixins: [tag],
-  components: { MenuContainer, JsonViewMenuDisplaySwitch, JsonViewMenuRawJson },
+  components: {
+    MenuHeader,
+    MenuContainer,
+    JsonViewMenuDisplaySwitch,
+    JsonViewMenuRawJson,
+  },
   props: {
     value: {},
   },
