@@ -1,16 +1,18 @@
 export default {
   methods: {
-    deleteMenuUid: function (tags) {
-      tags.forEach((tag) => {
-        if (tag.uid !== undefined) {
-          delete tag.uid;
+    deleteMenuUid: function (menuConfigJsonMenu) {
+      menuConfigJsonMenu.forEach((menu) => {
+        if (menu.uid !== undefined) {
+          delete menu.uid;
         }
       });
     },
-    defaultComponent: function (menuConfigJson) {
-      for (let i = 0; i < menuConfigJson.length; i++) {
-        if (menuConfigJson[i].component === "Default") {
-          menuConfigJson[i].strUrl = `/page/${menuConfigJson[i].strUrl}`;
+    defaultComponent: function (menuConfigJsonMenu) {
+      for (let i = 0; i < menuConfigJsonMenu.length; i++) {
+        if (menuConfigJsonMenu[i].component === "Default") {
+          menuConfigJsonMenu[
+            i
+          ].strUrl = `/page/${menuConfigJsonMenu[i].strUrl}`;
         }
       }
     },
