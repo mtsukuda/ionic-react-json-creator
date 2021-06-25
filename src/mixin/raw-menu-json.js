@@ -14,8 +14,14 @@ export default {
         }
       }
     },
+    deleteMenuTemp: function (menuConfigJson) {
+      if (menuConfigJson.menuTemp !== undefined) {
+        delete menuConfigJson.menuTemp;
+      }
+    },
     formattedJson: function (menuConfigJson, showSwitch) {
       this.defaultComponent(menuConfigJson.menu);
+      if (!showSwitch.debug) this.deleteMenuTemp(menuConfigJson);
       if (!showSwitch.menuUid) this.deleteMenuUid(menuConfigJson.menu);
     },
     finalJson: function (originMenuConfigJson, showSwitch) {
