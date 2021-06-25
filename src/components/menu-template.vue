@@ -4,6 +4,9 @@
       <div class="col-6">
         <menu-header v-model="menuConfig" />
       </div>
+      <div class="col-6 d-flex align-items-center">
+        <menu-download v-model="menuConfig" />
+      </div>
     </div>
     <div class="row">
       <div class="col-6">
@@ -23,10 +26,12 @@ import MenuHeader from "./menu/menu-header";
 import JsonViewMenuDisplaySwitch from "./menu/json-view-menu-display-switch";
 import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import tag from "../mixin/tag";
+import MenuDownload from "./menu/menu-download";
 export default {
   name: "menu-template",
   mixins: [tag],
   components: {
+    MenuDownload,
     MenuHeader,
     MenuContainer,
     JsonViewMenuDisplaySwitch,

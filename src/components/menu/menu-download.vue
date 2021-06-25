@@ -22,9 +22,9 @@ export default {
   methods: {
     jsonDownload: function () {
       let downloadFileName = "menu";
-      let downloadJson = this.finalJson(this.value, {
+      let downloadJson = this.finalJson(this.value.json, {
         debug: false,
-        tagUid: false,
+        menuUid: false,
       });
       const blob = new Blob([downloadJson], {
         type: "application/json",
