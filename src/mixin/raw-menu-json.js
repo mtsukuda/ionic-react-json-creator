@@ -7,7 +7,15 @@ export default {
         }
       });
     },
+    defaultComponent: function (menuJson) {
+      for (let i = 0; i < menuJson.length; i++) {
+        if (menuJson[i].component === "Default") {
+          menuJson[i].strUrl = `/page/${menuJson[i].strUrl}`;
+        }
+      }
+    },
     formattedJson: function (menuJson, showSwitch) {
+      this.defaultComponent(menuJson);
       if (!showSwitch.menuUid) this.deleteMenuUid(menuJson);
     },
     finalJson: function (originMenuJson, showSwitch) {
