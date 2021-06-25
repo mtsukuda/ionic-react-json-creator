@@ -59,7 +59,7 @@ export default {
       this.value.menu.push({
         uid: this.tagUID(),
         strTitle: "Sample Menu",
-        strUrl: "/page/sampleMenu",
+        strUrl: "sampleMenu",
         icon: "extensionPuzzle",
         component: "Default",
       });

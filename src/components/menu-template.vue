@@ -36,7 +36,7 @@ export default {
           {
             uid: "",
             strTitle: "ダッシュボード",
-            strUrl: "/page/Dashboard",
+            strUrl: "Dashboard",
             icon: "extensionPuzzle",
             component: "Default",
             redirect: "yes",
@@ -44,14 +44,14 @@ export default {
           {
             uid: "",
             strTitle: "BASE アプリ",
-            strUrl: "/page/Base",
+            strUrl: "Base",
             icon: "storefront",
             component: "Default",
           },
           {
             uid: "",
             strTitle: "その他",
-            strUrl: "/page/Others",
+            strUrl: "Others",
             icon: "layers",
             component: "Default",
           },
