@@ -124,6 +124,7 @@ export default {
           "bonfire",
           "book",
         ],
+        components: ["Default"],
       },
     };
   },

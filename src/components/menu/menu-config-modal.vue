@@ -40,7 +40,13 @@
             type="text"
             placeholder="Component Name"
             v-model="value.menuTemp.component"
+            list="list-component"
           />
+          <datalist id="list-component">
+            <option v-for="component in value.components">
+              {{ component }}
+            </option>
+          </datalist>
         </div>
       </div>
     </div>
