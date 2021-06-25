@@ -14,15 +14,15 @@ export default {
         }
       }
     },
-    formattedJson: function (menuJson, showSwitch) {
-      this.defaultComponent(menuJson);
-      if (!showSwitch.menuUid) this.deleteMenuUid(menuJson);
+    formattedJson: function (menuConfig, showSwitch) {
+      this.defaultComponent(menuConfig.menu);
+      if (!showSwitch.menuUid) this.deleteMenuUid(menuConfig.menu);
     },
-    finalJson: function (originMenuJson, showSwitch) {
+    finalJson: function (originMenuConfig, showSwitch) {
       let clone = require("clone");
-      let menuJson = clone(originMenuJson);
-      this.formattedJson(menuJson, showSwitch);
-      return JSON.stringify(menuJson, null, 2);
+      let menuConfig = clone(originMenuConfig);
+      this.formattedJson(menuConfig, showSwitch);
+      return JSON.stringify(menuConfig, null, 2);
     },
   },
 };
