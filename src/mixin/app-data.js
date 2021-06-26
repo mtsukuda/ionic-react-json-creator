@@ -12,11 +12,18 @@ export default {
   },
   methods: {
     activeConfig: function (configList) {
+      let activeConfig = null;
       for (let i = 0; i < configList.list.length; i++) {
         if (configList.list[i].name === configList.temp.activeConfigName) {
-          return configList.list[i];
+          activeConfig = configList.list[i];
+          break;
         }
       }
+      if (activeConfig === null) throw "Could not find active config data.";
+      for (let i = 0; i < activeConfig.tags.length; i++) {
+        this.numberingTagUID(activeConfig.tags[i]);
+      }
+      return activeConfig;
     },
     addConfig: function (configListList) {
       configListList.push({
