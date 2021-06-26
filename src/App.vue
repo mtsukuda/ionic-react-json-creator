@@ -31,6 +31,7 @@
 <script>
 import tag from "./mixin/tag";
 import appData from "./mixin/app-data";
+import helper from "./mixin/helper";
 import ComponentListTemplate from "./components/component-list-template";
 import ComponentTemplate from "./components/component-template";
 import MenuTemplate from "./components/menu-template";
@@ -39,7 +40,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
 
 export default {
-  mixins: [tag, appData],
+  mixins: [tag, appData, helper],
   components: {
     ComponentListTemplate,
     MenuTemplate,
