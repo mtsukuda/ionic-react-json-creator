@@ -19,12 +19,13 @@
       </div>
     </div>
     <component-list-template
-        v-model="configList"
-        v-if="selected === 'list' && configList.temp.status === 'list'"
+      v-model="configList"
+      v-if="selected === 'list' && configList.temp.status === 'list'"
     />
     <component-template
       v-model="configJson"
       v-bind:view-config="viewConfig"
+      v-bind:config-list="configList"
       v-if="selected === 'list' && configList.temp.status === 'component'"
     />
     <menu-template v-if="selected === 'menu'" />

@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-6">
+      <div class="col-5">
         <layout-component-name v-model="value" />
+      </div>
+      <div class="col-1" style="padding-top: 2.4em">
+        <b-button
+          block
+          variant="outline-primary"
+          v-on:click="backToComponentList"
+          ><b-icon icon="arrow-up"
+        /></b-button>
       </div>
       <div class="col-6 d-flex align-items-center">
         <layout-page-download v-model="value" />
@@ -51,6 +59,12 @@ export default {
   props: {
     value: {},
     viewConfig: {},
+    configList: {},
+  },
+  methods: {
+    backToComponentList: function () {
+      this.configList.temp.status = "list";
+    },
   },
 };
 </script>
