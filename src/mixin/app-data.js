@@ -3,6 +3,7 @@ export default {
     return {
       configList: {
         temp: {
+          status: "list",
           activeConfigName: "",
         },
         list: [],

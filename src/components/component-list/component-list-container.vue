@@ -7,7 +7,7 @@
         </div>
         <div class="ml-1">
           <button
-            v-on:click=""
+            v-on:click="editComponent(component)"
             class="btn btn-outline-info property-btn btn-sm m-1"
           >
             EDIT COMPONENT
@@ -40,6 +40,10 @@ export default {
     value: {},
   },
   methods: {
+    editComponent: function (component) {
+      this.value.temp.status = "component";
+      this.value.temp.activeConfigName = component.name;
+    },
     addComponent: function () {
       this.addConfig(this.value.list);
     },

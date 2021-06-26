@@ -18,12 +18,15 @@
         </b-form-group>
       </div>
     </div>
+    <component-list-template
+        v-model="configList"
+        v-if="selected === 'list' && configList.temp.status === 'list'"
+    />
     <component-template
       v-model="configJson"
       v-bind:view-config="viewConfig"
-      v-if="selected === 'component'"
+      v-if="selected === 'list' && configList.temp.status === 'component'"
     />
-    <component-list-template v-model="configList" v-if="selected === 'list'" />
     <menu-template v-if="selected === 'menu'" />
   </div>
 </template>
@@ -54,7 +57,7 @@ export default {
   },
   data() {
     return {
-      selected: "component",
+      selected: "list",
       options: [
         { text: "Menu", value: "menu", disabled: false },
         { text: "List", value: "list", disabled: false },
