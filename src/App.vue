@@ -20,13 +20,13 @@
     </div>
     <component-list-template
       v-model="configList"
-      v-if="selected === 'list' && configList.temp.status === 'list'"
+      v-if="selected === 'component' && configList.temp.status === 'list'"
     />
     <component-template
       v-model="configJson"
       v-bind:view-config="viewConfig"
       v-bind:config-list="configList"
-      v-if="selected === 'list' && configList.temp.status === 'component'"
+      v-if="selected === 'component' && configList.temp.status === 'component'"
     />
     <menu-template v-if="selected === 'menu'" />
   </div>
@@ -58,10 +58,9 @@ export default {
   },
   data() {
     return {
-      selected: "list",
+      selected: "component",
       options: [
         { text: "Menu", value: "menu", disabled: false },
-        { text: "List", value: "list", disabled: false },
         { text: "Component", value: "component", disabled: false },
       ],
       configJson: {
