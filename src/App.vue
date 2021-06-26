@@ -23,7 +23,7 @@
       v-if="selected === 'component' && configList.temp.status === 'list'"
     />
     <component-template
-      v-model="configJson"
+      v-model="config"
       v-bind:view-config="viewConfig"
       v-bind:config-list="configList"
       v-if="selected === 'component' && configList.temp.status === 'component'"
@@ -55,6 +55,11 @@ export default {
       this.numberingTagUID(this.configJson.tags[i]);
     }
     this.addConfig(this.configList.list);
+  },
+  computed: {
+    config() {
+      return this.activeConfig(this.configList);
+    },
   },
   data() {
     return {

@@ -11,8 +11,15 @@ export default {
     };
   },
   methods: {
-    addConfig: function (configList) {
-      configList.push({
+    activeConfig: function (configList) {
+      for (let i = 0; i < configList.list.length; i++) {
+        if (configList.list[i].name === configList.temp.activeConfigName) {
+          return configList.list[i];
+        }
+      }
+    },
+    addConfig: function (configListList) {
+      configListList.push({
         name: this.suggestionStr(true),
         import: [],
         lifeCycleMethods: [],
