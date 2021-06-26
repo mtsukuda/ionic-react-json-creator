@@ -28,7 +28,16 @@
             v-model="value.json.menuTemp.strUrl"
           />
         </div>
-        <label for="inputMenuIcon">Menu Icon</label>
+        <label for="inputMenuIcon"
+          >Menu Icon
+          <div>
+            <small
+              ><a href="https://ionic.io/ionicons/v4" target="_blank"
+                >Ionic Icon Reference</a
+              ></small
+            >
+          </div></label
+        >
         <div class="col-sm mb-2">
           <input
             class="form-control input-sm"
