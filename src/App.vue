@@ -23,21 +23,24 @@
       v-bind:view-config="viewConfig"
       v-if="selected === 'component'"
     />
+    <component-list-template v-model="configJson" v-if="selected === 'list'" />
     <menu-template v-if="selected === 'menu'" />
   </div>
 </template>
 
 <script>
 import tag from "./mixin/tag";
+import ComponentListTemplate from "./components/component-list-template";
 import ComponentTemplate from "./components/component-template";
+import MenuTemplate from "./components/menu-template";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap-vue/dist/bootstrap-vue-icons.css";
-import MenuTemplate from "./components/menu-template";
 
 export default {
   mixins: [tag],
   components: {
+    ComponentListTemplate,
     MenuTemplate,
     ComponentTemplate,
   },
@@ -51,6 +54,7 @@ export default {
       selected: "component",
       options: [
         { text: "Menu", value: "menu", disabled: false },
+        { text: "List", value: "list", disabled: false },
         { text: "Component", value: "component", disabled: false },
       ],
       configJson: {
