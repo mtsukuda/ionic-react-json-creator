@@ -48,7 +48,7 @@
             list="list-icon"
           />
           <datalist id="list-icon">
-            <option v-for="icon in value.icons">{{ icon }}</option>
+            <option v-for="icon in ionIcons">{{ icon }}</option>
           </datalist>
         </div>
         <label for="inputMenuComponent">Component</label>
@@ -90,10 +90,11 @@
 
 <script>
 import tag from "../../mixin/tag";
+import ion from "../../mixin/ion";
 
 export default {
   name: "menu-config-modal",
-  mixins: [tag],
+  mixins: [tag, ion],
   props: {
     value: {},
   },
