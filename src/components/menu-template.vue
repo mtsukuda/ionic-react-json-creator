@@ -23,17 +23,17 @@
 <script>
 import MenuContainer from "./menu/menu-container";
 import MenuHeader from "./menu/menu-header";
+import MenuDownload from "./menu/menu-download";
 import JsonViewMenuDisplaySwitch from "./menu/json-view-menu-display-switch";
 import JsonViewMenuRawJson from "./menu/json-view-menu-raw-json";
 import tag from "../mixin/tag";
-import MenuDownload from "./menu/menu-download";
 export default {
   name: "menu-template",
   mixins: [tag],
   components: {
-    MenuDownload,
-    MenuHeader,
     MenuContainer,
+    MenuHeader,
+    MenuDownload,
     JsonViewMenuDisplaySwitch,
     JsonViewMenuRawJson,
   },
