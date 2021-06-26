@@ -7,7 +7,7 @@ export default {
   methods: {
     addConfig: function () {
       this.configList.push({
-        name: "MyCardComponent",
+        name: this.suggestionStr(true),
         import: [],
         lifeCycleMethods: [],
         fetchTemp: {
@@ -53,7 +53,7 @@ export default {
                   content: "string",
                 },
                 config: {
-                  path: "lambdaTwWEOMDy",
+                  path: `lambda${this.suggestionStr(true)}`,
                   mock: {
                     title: "カードタイトルだよぉ",
                     subtitle: "カードの「サブ」タイトルだよぉ",
