@@ -1,12 +1,17 @@
 export default {
   data() {
     return {
-      configList: [],
+      configList: {
+        temp: {
+          activeConfigName: "",
+        },
+        list: [],
+      },
     };
   },
   methods: {
-    addConfig: function () {
-      this.configList.push({
+    addConfig: function (configList) {
+      configList.push({
         name: this.suggestionStr(true),
         import: [],
         lifeCycleMethods: [],

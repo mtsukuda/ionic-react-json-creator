@@ -50,7 +50,7 @@ export default {
     for (let i = 0; i < this.configJson.tags.length; i++) {
       this.numberingTagUID(this.configJson.tags[i]);
     }
-    this.addConfig();
+    this.addConfig(this.configList.list);
   },
   data() {
     return {
