@@ -1,6 +1,116 @@
 export default {
   data() {
     return {
+      menuConfig: {
+        json: {
+          menuTemp: {
+            uid: "",
+            strTitle: "",
+            strUrl: "",
+            icon: "",
+            component: "",
+          },
+          header: {
+            strTitle: "Ionic Admin Panel",
+          },
+          menu: [
+            {
+              uid: "",
+              strTitle: "ダッシュボード",
+              strUrl: "Dashboard",
+              icon: "extensionPuzzle",
+              component: "Default",
+              redirect: "yes",
+            },
+            {
+              uid: "",
+              strTitle: "BASE アプリ",
+              strUrl: "Base",
+              icon: "storefront",
+              component: "Default",
+            },
+            {
+              uid: "",
+              strTitle: "その他",
+              strUrl: "Others",
+              icon: "layers",
+              component: "Default",
+            },
+            {
+              uid: "",
+              strTitle: "Sample",
+              strUrl: "/sample",
+              icon: "planet",
+              component: "SamplePage",
+            },
+            {
+              uid: "",
+              strTitle: "Sample2",
+              strUrl: "/sample2",
+              icon: "basketball",
+              component: "SamplePage2",
+            },
+          ],
+          signOut: {
+            strCaption: "Sign Out",
+          },
+          menuBottom: {
+            parameters: [
+              'const labels = ["ToDo", "大事なこと", "友達", "家族", "旅行"];',
+            ],
+            tags: [
+              {
+                tag: "IonList",
+                props: ['id="labels-list"'],
+                child: {
+                  tags: [
+                    {
+                      tag: "IonListHeader",
+                      noCR: "yes",
+                      content: "ラベル",
+                    },
+                    {
+                      tag: "{labels.map((label, index) => (",
+                      close: "))}",
+                      type: "raw",
+                      child: {
+                        tags: [
+                          {
+                            tag: "IonItem",
+                            props: ['lines="none"', "key={index}"],
+                            child: {
+                              tags: [
+                                {
+                                  tag: "IonIcon",
+                                  props: [
+                                    'slot="start"',
+                                    "icon={bookmarkOutline}",
+                                  ],
+                                  single: "yes",
+                                },
+                                {
+                                  tag: "IonLabel",
+                                  props: [],
+                                  content: "{label}",
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+          components: ["Default"],
+        },
+        viewConfig: {
+          debug: "",
+          menuUid: "",
+        },
+      },
       configList: {
         temp: {
           status: "list",
