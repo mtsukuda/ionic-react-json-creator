@@ -35,7 +35,7 @@
         ><b-icon icon="plus" aria-label="append"
       /></b-button>
     </div>
-    <menu-config-modal v-model="value" />
+    <menu-config-modal v-model="value" v-bind:config-list="configList" />
   </div>
 </template>
 
@@ -49,6 +49,7 @@ export default {
   mixins: [tag],
   props: {
     value: {},
+    configList: {},
   },
   methods: {
     existComponent: function (componentName) {

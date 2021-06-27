@@ -28,7 +28,11 @@
       v-bind:config-list="configList"
       v-if="selected === 'component' && configList.temp.status === 'component'"
     />
-    <menu-template v-if="selected === 'menu'" v-model="menuConfig" />
+    <menu-template
+      v-model="menuConfig"
+      v-bind:config-list="configList"
+      v-if="selected === 'menu'"
+    />
   </div>
 </template>
 

@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <menu-container v-model="value" />
+        <menu-container v-model="value" v-bind:config-list="configList" />
       </div>
       <div class="col-6">
         <json-view-menu-display-switch v-model="value" />
@@ -39,6 +39,7 @@ export default {
   },
   props: {
     value: {},
+    configList: {},
   },
   mounted() {
     for (let i = 0; i < this.value.json.menu.length; i++) {

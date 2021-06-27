@@ -65,6 +65,9 @@
             <option v-for="component in value.json.components">
               {{ component }}
             </option>
+            <option v-for="component in configList.list">
+              {{ component.name }}
+            </option>
           </datalist>
         </div>
       </div>
@@ -97,6 +100,7 @@ export default {
   mixins: [tag, ion],
   props: {
     value: {},
+    configList: {},
   },
   data() {
     return {};
