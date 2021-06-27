@@ -16,6 +16,16 @@ export default {
         }
       }
     },
+    urlCorrection: function (menuConfigJsonMenu) {
+      for (let i = 0; i < menuConfigJsonMenu.length; i++) {
+        if (menuConfigJsonMenu[i].strUrl[0] !== "/") {
+          menuConfigJsonMenu[i].strUrl = `/${menuConfigJsonMenu[i].strUrl}`;
+        }
+        menuConfigJsonMenu[i].strUrl = menuConfigJsonMenu[
+          i
+        ].strUrl = menuConfigJsonMenu[i].strUrl.replaceAll(" ", "-");
+      }
+    },
     deleteMenuTemp: function (menuConfigJson) {
       if (menuConfigJson.menuTemp !== undefined) {
         delete menuConfigJson.menuTemp;
@@ -28,6 +38,7 @@ export default {
     },
     formattedJson: function (menuConfigJson, showSwitch) {
       this.defaultComponent(menuConfigJson.menu);
+      this.urlCorrection(menuConfigJson.menu);
       if (!showSwitch.debug) this.deleteMenuTemp(menuConfigJson);
       if (!showSwitch.debug) this.deleteComponents(menuConfigJson);
       if (!showSwitch.menuUid) this.deleteMenuUid(menuConfigJson.menu);
