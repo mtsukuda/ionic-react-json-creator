@@ -53,7 +53,12 @@ export default {
   },
   methods: {
     existComponent: function (componentName) {
+      let result = false;
       if (componentName === "Default") return true;
+      this.configList.list.forEach((component) => {
+        if (component.name === componentName) result = true;
+      });
+      return result;
     },
     deleteTag: function (index) {
       this.value.json.menu.splice(index, 1);
