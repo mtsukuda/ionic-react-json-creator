@@ -42,7 +42,7 @@ export default {
   methods: {
     editComponent: function (component) {
       this.value.temp.status = "component";
-      this.value.temp.activeConfigName = component.name;
+      this.value.temp.activeConfigUID = component.uid;
     },
     addComponent: function () {
       this.addConfig(this.value.list);

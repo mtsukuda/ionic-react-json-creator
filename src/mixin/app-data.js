@@ -93,7 +93,7 @@ export default {
       configList: {
         temp: {
           status: "list",
-          activeConfigName: "",
+          activeConfigUID: "",
         },
         list: [],
       },
@@ -103,7 +103,7 @@ export default {
     activeConfig: function (configList) {
       let activeConfig = null;
       for (let i = 0; i < configList.list.length; i++) {
-        if (configList.list[i].name === configList.temp.activeConfigName) {
+        if (configList.list[i].uid === configList.temp.activeConfigUID) {
           activeConfig = configList.list[i];
           break;
         }
@@ -116,6 +116,7 @@ export default {
     },
     addConfig: function (configListList) {
       configListList.push({
+        uid: this.uID(),
         name: this.suggestionStr(true),
         import: [],
         lifeCycleMethods: [],
