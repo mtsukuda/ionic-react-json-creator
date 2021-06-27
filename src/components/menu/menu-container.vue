@@ -57,7 +57,7 @@ export default {
       let result = false;
       if (componentName === "Default") return true;
       this.configList.list.forEach((component) => {
-        if (component.name === componentName) result = true;
+        if (component.name + "Page" === componentName) result = true;
       });
       return result;
     },
