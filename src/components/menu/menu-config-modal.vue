@@ -66,7 +66,7 @@
               {{ component }}
             </option>
             <option v-for="component in configList.list">
-              {{ component.name }}
+              {{ component.name + "Page" }}
             </option>
           </datalist>
         </div>
