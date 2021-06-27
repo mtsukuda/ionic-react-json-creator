@@ -92,6 +92,59 @@ export default {
               component: "SamplePage2",
             },
           ],
+          signOut: {
+            strCaption: "Sign Out",
+          },
+          menuBottom: {
+            parameters: [
+              'const labels = ["ToDo", "大事なこと", "友達", "家族", "旅行"];',
+            ],
+            tags: [
+              {
+                tag: "IonList",
+                props: ['id="labels-list"'],
+                child: {
+                  tags: [
+                    {
+                      tag: "IonListHeader",
+                      noCR: "yes",
+                      content: "ラベル",
+                    },
+                    {
+                      tag: "{labels.map((label, index) => (",
+                      close: "))}",
+                      type: "raw",
+                      child: {
+                        tags: [
+                          {
+                            tag: "IonItem",
+                            props: ['lines="none"', "key={index}"],
+                            child: {
+                              tags: [
+                                {
+                                  tag: "IonIcon",
+                                  props: [
+                                    'slot="start"',
+                                    "icon={bookmarkOutline}",
+                                  ],
+                                  single: "yes",
+                                },
+                                {
+                                  tag: "IonLabel",
+                                  props: [],
+                                  content: "{label}",
+                                },
+                              ],
+                            },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
           components: ["Default"],
         },
         viewConfig: {
