@@ -3,7 +3,16 @@
     <div v-for="(menu, index) in value.json.menu">
       <div class="border rounded layout-container-div mb-1">
         <div class="p-2">
-          {{ menu.strTitle }}
+          {{ menu.strTitle
+          }}<span v-if="!existComponent(menu.component)" class="pl-2"
+            ><b-icon
+              icon="exclamation-circle-fill"
+              variant="danger"
+              v-if="!existComponent(menu.component)"
+            /><small class="pl-1 text-danger"
+              ><strong>{{ menu.component }}</strong> component not found.</small
+            ></span
+          >
         </div>
         <div class="ml-1">
           <button
@@ -42,6 +51,9 @@ export default {
     value: {},
   },
   methods: {
+    existComponent: function (componentName) {
+      if (componentName === "Default") return true;
+    },
     deleteTag: function (index) {
       this.value.json.menu.splice(index, 1);
     },
