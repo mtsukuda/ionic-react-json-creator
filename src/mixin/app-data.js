@@ -24,31 +24,10 @@ export default {
             },
             {
               uid: "",
-              strTitle: "BASE アプリ",
-              strUrl: "Base",
-              icon: "storefront",
-              component: "Default",
-            },
-            {
-              uid: "",
-              strTitle: "その他",
-              strUrl: "Others",
-              icon: "layers",
-              component: "Default",
-            },
-            {
-              uid: "",
               strTitle: "Sample",
               strUrl: "/sample",
               icon: "planet",
               component: "SamplePage",
-            },
-            {
-              uid: "",
-              strTitle: "Sample2",
-              strUrl: "/sample2",
-              icon: "basketball",
-              component: "SamplePage2",
             },
           ],
           signOut: {
