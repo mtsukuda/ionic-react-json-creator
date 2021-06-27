@@ -26,6 +26,12 @@ export default {
         ].strUrl = menuConfigJsonMenu[i].strUrl.replaceAll(" ", "-");
       }
     },
+    iconCamelCase: function (menuConfigJsonMenu) {
+      const _ = require("lodash");
+      for (let i = 0; i < menuConfigJsonMenu.length; i++) {
+        menuConfigJsonMenu[i].icon = _.camelCase(menuConfigJsonMenu[i].icon);
+      }
+    },
     deleteMenuTemp: function (menuConfigJson) {
       if (menuConfigJson.menuTemp !== undefined) {
         delete menuConfigJson.menuTemp;
@@ -39,6 +45,7 @@ export default {
     formattedJson: function (menuConfigJson, showSwitch) {
       this.defaultComponent(menuConfigJson.menu);
       this.urlCorrection(menuConfigJson.menu);
+      this.iconCamelCase(menuConfigJson.menu);
       if (!showSwitch.debug) this.deleteMenuTemp(menuConfigJson);
       if (!showSwitch.debug) this.deleteComponents(menuConfigJson);
       if (!showSwitch.menuUid) this.deleteMenuUid(menuConfigJson.menu);
