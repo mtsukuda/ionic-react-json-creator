@@ -41,12 +41,13 @@
 
 <script>
 import tag from "../../mixin/tag";
+import helper from "../../mixin/helper";
 import MenuConfigModal from "./menu-config-modal";
 
 export default {
   name: "menu-container",
+  mixins: [tag, helper],
   components: { MenuConfigModal },
-  mixins: [tag],
   props: {
     value: {},
     configList: {},
@@ -75,7 +76,7 @@ export default {
     },
     addMenu: function () {
       this.value.json.menu.push({
-        uid: this.tagUID(),
+        uid: this.uID(),
         strTitle: "Sample Menu",
         strUrl: "sampleMenu",
         icon: "extensionPuzzle",

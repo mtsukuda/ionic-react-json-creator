@@ -71,13 +71,14 @@
 </template>
 
 <script>
-import LayoutTagAttributeModal from "./layout-tag-attribute-modal";
 import ion from "../../mixin/ion";
 import tag from "../../mixin/tag";
+import helper from "../../mixin/helper";
+import LayoutTagAttributeModal from "./layout-tag-attribute-modal";
 const clone = require("clone");
 export default {
   name: "layout-container",
-  mixins: [ion, tag],
+  mixins: [ion, tag, helper],
   components: {
     LayoutTagAttributeModal,
   },
@@ -96,7 +97,7 @@ export default {
     },
     addChildTag: function (item, newTag) {
       let child = {
-        uid: this.tagUID(),
+        uid: this.uID(),
         tag: newTag.tag,
         props: [],
         rawProps: "",
@@ -107,7 +108,7 @@ export default {
     },
     addTag: function (newTag) {
       let item = {
-        uid: this.tagUID(),
+        uid: this.uID(),
         tag: newTag.tag,
         props: [],
         rawProps: "",

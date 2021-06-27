@@ -1,14 +1,7 @@
 export default {
   methods: {
-    tagUID: function () {
-      let strong = 1000;
-      return (
-        new Date().getTime().toString(16) +
-        Math.floor(strong * Math.random()).toString(16)
-      );
-    },
     numberingTagUID: function (tag) {
-      let tagUID = this.tagUID();
+      let tagUID = this.uID();
       if (tag.uid) tag.uid = tagUID;
       else tag["uid"] = tagUID;
       if (tag.child && tag.child.tags) {
