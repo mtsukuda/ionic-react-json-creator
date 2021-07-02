@@ -26,6 +26,14 @@
                 PROPERTY
               </button>
               <button
+                v-on:click=""
+                class="btn btn-outline-secondary property-btn btn-sm m-1"
+                v-b-tooltip.hover
+                title="Duplicate"
+              >
+                <b-icon icon="files" aria-label="Duplicate"></b-icon>
+              </button>
+              <button
                 v-on:click="deleteTag(index)"
                 class="btn btn-outline-danger property-btn btn-sm m-1"
               >
