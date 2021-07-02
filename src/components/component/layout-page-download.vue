@@ -148,7 +148,7 @@ export default {
   },
   methods: {
     existComponentName: function () {
-      return this.value.name.length <= 3;
+      return this.value.name.length <= 2;
     },
     jsonDownload: function () {
       let configPageJson = clone(this.configPageJson);
