@@ -31,7 +31,7 @@
                 v-on:click=""
                 class="btn btn-outline-secondary property-btn btn-sm m-1"
                 v-b-tooltip.hover
-                title="Duplicate"
+                title="Duplicate Tag(s)"
               >
                 <b-icon icon="files" aria-label="Duplicate"></b-icon>
               </button>
@@ -39,7 +39,7 @@
                 v-on:click="deleteTag(index)"
                 class="btn btn-outline-danger property-btn btn-sm m-1"
                 v-b-tooltip.hover
-                title="Delete"
+                title="Delete Tag(s)"
               >
                 <b-icon icon="trash" aria-label="Delete"></b-icon>
               </button>
