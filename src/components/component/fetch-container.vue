@@ -39,9 +39,9 @@
       <div class="m-1">
         <button
           v-on:click="showFetchCreateModal"
-          class="btn btn-outline-info property-btn btn-sm m-1"
+          class="btn btn-outline-secondary property-btn btn-sm m-1"
         >
-          NEW FETCH
+          + NEW FETCH
         </button>
         <fetch-create-modal v-model="value" />
         <fetch-get-modal v-model="value" />
