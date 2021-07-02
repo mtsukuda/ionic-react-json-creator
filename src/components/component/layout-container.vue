@@ -21,9 +21,11 @@
             <div v-if="!item.root" class="ml-1">
               <button
                 v-on:click="showModal(item.uid, item.tag)"
-                class="btn btn-outline-info property-btn btn-sm m-1"
+                class="btn btn-outline-secondary property-btn btn-sm m-1"
+                v-b-tooltip.hover
+                title="Property"
               >
-                PROPERTY
+                <b-icon icon="card-list" aria-label="CardList"></b-icon>
               </button>
               <button
                 v-on:click=""
