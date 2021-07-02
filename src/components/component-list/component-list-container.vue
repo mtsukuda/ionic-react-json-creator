@@ -1,6 +1,6 @@
 <template>
   <div class="container pl-1 pr-1">
-    <div v-for="component in value.list">
+    <div v-for="(component, index) in value.list">
       <div class="border rounded layout-container-div mb-1">
         <div class="p-2">
           Component Name: <strong>{{ component.name }}</strong>
@@ -13,7 +13,7 @@
             EDIT COMPONENT
           </button>
           <button
-            v-on:click=""
+            v-on:click="deleteComponent(index)"
             class="btn btn-outline-danger property-btn btn-sm m-1"
           >
             <b-icon icon="trash" aria-label="Delete"></b-icon>
@@ -43,6 +43,9 @@ export default {
     editComponent: function (component) {
       this.value.temp.status = "component";
       this.value.temp.activeConfigUID = component.uid;
+    },
+    deleteComponent: function (index) {
+      this.value.list.splice(index, 1);
     },
     addComponent: function () {
       this.addConfig(this.value.list);
