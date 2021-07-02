@@ -16,9 +16,11 @@
           <b-col cols="3" class="text-right p-0 pt-1">
             <b-button
               size="sm"
-              variant="outline-primary"
+              variant="outline-secondary"
               class="mr-1"
               v-on:click="showFetchEditModal(fetch.method, index)"
+              v-b-tooltip.hover
+              title="Edit Fetch"
             >
               <b-icon icon="pencil" aria-label="Edit" />
             </b-button>
@@ -26,6 +28,8 @@
               size="sm"
               variant="outline-danger"
               v-on:click="deleteFetch(fetch.name)"
+              v-b-tooltip.hover
+              title="Delete Fetch"
             >
               <b-icon icon="trash" aria-label="Delete" />
             </b-button>
