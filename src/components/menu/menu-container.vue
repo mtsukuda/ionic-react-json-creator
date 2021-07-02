@@ -22,7 +22,7 @@
             PROPERTY
           </button>
           <button
-            v-on:click="deleteTag(index)"
+            v-on:click="deleteMenu(index)"
             class="btn btn-outline-danger property-btn btn-sm m-1"
           >
             <b-icon icon="trash" aria-label="Delete"></b-icon>
@@ -61,7 +61,7 @@ export default {
       });
       return result;
     },
-    deleteTag: function (index) {
+    deleteMenu: function (index) {
       this.value.json.menu.splice(index, 1);
     },
     showConfigModal: function (menu) {
