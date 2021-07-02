@@ -36,6 +36,8 @@
               <button
                 v-on:click="deleteTag(index)"
                 class="btn btn-outline-danger property-btn btn-sm m-1"
+                v-b-tooltip.hover
+                title="Delete"
               >
                 <b-icon icon="trash" aria-label="Delete"></b-icon>
               </button>
