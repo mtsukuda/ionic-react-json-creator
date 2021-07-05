@@ -17,28 +17,10 @@
         />
       </div>
       <div v-else-if="value.tagTemp.editTag === 'IonCardSubtitle'">
-        <label for="inputIonCardSubTitle" class="small"
-          >サブタイトル<b-form-checkbox
-            id="use-fetch-code"
-            name="use-fetch-code"
-            value="yes"
-            unchecked-value=""
-            v-model="input.code"
-          >
-            Use Fetch Code
-          </b-form-checkbox></label
-        >
-        <div class="col-sm">
-          <input
-            class="form-control"
-            size="sm"
-            id="inputIonCardSubTitle"
-            type="text"
-            placeholder="サブタイトル"
-            v-model="input.content"
-            list="list-response"
-          />
-        </div>
+        <attribute-ion-card-subtitle
+          v-model="input"
+          v-bind:fetch-temp="value.fetchTemp"
+        />
       </div>
       <div v-else-if="value.tagTemp.editTag === 'IonCardContent'">
         <label for="inputIonCardContent"
@@ -105,6 +87,7 @@
 <script>
 import layoutTagAttributeModalProperty from "./layout-tag-attribute-modal-property";
 import AttributeIonCardTitle from "./layout-tag-attribute-modal/attribute-ion-card-title";
+import AttributeIonCardSubtitle from "./layout-tag-attribute-modal/attribute-ion-card-subtitle";
 import tag from "../../mixin/tag";
 export default {
   name: "layout-tag-attribute-modal",
@@ -112,6 +95,7 @@ export default {
   components: {
     layoutTagAttributeModalProperty,
     AttributeIonCardTitle,
+    AttributeIonCardSubtitle,
   },
   props: {
     value: {},
