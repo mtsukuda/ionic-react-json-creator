@@ -49,7 +49,17 @@ export default {
       targetTag["content"] = input.content;
       targetTag["readyProps"] = { ...input.readyProps };
       targetTag["rawProps"] = input.property;
-      targetTag["props"] = this.propertyList(input.property);
+      targetTag["props"] = this.readyPropertyList(targetTag.readyProps);
+      targetTag["props"] +=
+        (targetTag["props"] ? " " : "") + this.propertyList(input.property);
+    },
+    readyPropertyList: function (readyProps) {
+      let result = "";
+      Object.keys(readyProps).forEach((key) => {
+        if (readyProps[key] === "" || readyProps[key] === null) return;
+        result += (result ? " " : "") + `${key}=${readyProps[key]}`;
+      });
+      return result;
     },
     propertyList: function (rawProperty) {
       return rawProperty.split("\n");
