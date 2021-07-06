@@ -1,20 +1,14 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCard'">
-    <b-form-checkbox
-        id="use-fetch-code"
-        name="use-fetch-code"
-        value="true"
-        unchecked-value=""
-        v-model="value.readyProps.button"
-    >
-      button
-    </b-form-checkbox>
+    <ion-property-button v-model="value" />
   </div>
 </template>
 
 <script>
+import IonPropertyButton from "./ion-property/ion-property-button";
 export default {
   name: "attribute-ion-card",
+  components: {IonPropertyButton},
   props: {
     value: {},
     tagTemp: {},
