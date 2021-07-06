@@ -80,24 +80,24 @@
 
 <script>
 import layoutTagAttributeModalProperty from "./layout-tag-attribute-modal-property";
+import tag from "../../mixin/tag";
 import AttributeIonCard from "./layout-tag-attribute-modal/attribute-ion-card";
+import AttributeIonCardHeader from "./layout-tag-attribute-modal/attribute-ion-card-header";
 import AttributeIonCardTitle from "./layout-tag-attribute-modal/attribute-ion-card-title";
 import AttributeIonCardSubtitle from "./layout-tag-attribute-modal/attribute-ion-card-subtitle";
 import AttributeIonCardContent from "./layout-tag-attribute-modal/attribute-ion-card-content";
-import tag from "../../mixin/tag";
-import AttributeIonCardHeader from "./layout-tag-attribute-modal/attribute-ion-card-header";
 import AttributeIonButton from "./layout-tag-attribute-modal/attribute-ion-button";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
-    AttributeIonButton,
-    AttributeIonCardHeader,
     layoutTagAttributeModalProperty,
     AttributeIonCard,
+    AttributeIonCardHeader,
     AttributeIonCardTitle,
     AttributeIonCardSubtitle,
     AttributeIonCardContent,
+    AttributeIonButton,
   },
   props: {
     value: {},
