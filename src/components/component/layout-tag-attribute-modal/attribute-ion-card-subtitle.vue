@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="tagTemp.editTag === 'IonCardSubtitle'">
     <label for="inputIonCardSubTitle" class="small"
     >Sub Title<b-form-checkbox
         id="use-fetch-code"
@@ -33,6 +33,7 @@ export default {
   name: "attribute-ion-card-subtitle",
   props: {
     value: {},
+    tagTemp: {},
     fetchTemp: {}
   },
 }

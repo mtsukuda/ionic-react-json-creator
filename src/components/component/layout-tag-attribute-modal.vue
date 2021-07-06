@@ -10,19 +10,17 @@
       <h2>{{ value.tagTemp.editTag }}</h2>
     </div>
     <div class="modal-body">
-      <div v-if="value.tagTemp.editTag === 'IonCardTitle'">
-        <attribute-ion-card-title
-          v-model="input"
-          v-bind:fetch-temp="value.fetchTemp"
-        />
-      </div>
-      <div v-else-if="value.tagTemp.editTag === 'IonCardSubtitle'">
-        <attribute-ion-card-subtitle
-          v-model="input"
-          v-bind:fetch-temp="value.fetchTemp"
-        />
-      </div>
-      <div v-else-if="value.tagTemp.editTag === 'IonCardContent'">
+      <attribute-ion-card-title
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
+      <attribute-ion-card-subtitle
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
+      <div v-if="value.tagTemp.editTag === 'IonCardContent'">
         <label for="inputIonCardContent"
           >コンテンツ<b-form-checkbox
             id="use-fetch-code"
@@ -59,9 +57,9 @@
           />
         </div>
       </div>
-      <div v-else>
-        <p class="small">プロパティはありません</p>
-      </div>
+      <!--      <div v-else>-->
+      <!--        <p class="small">プロパティはありません</p>-->
+      <!--      </div>-->
       <layout-tag-attribute-modal-property v-model="input" />
     </div>
     <datalist id="list-response">
