@@ -6,7 +6,7 @@
       content-cols-sm
       content-cols-lg="8"
       description="The color to use from your application's color palette."
-      label="color"
+      label="Color"
       label-for="input-horizontal"
   >
     <b-form-select v-model="value.readyProps.color" :options="options" />

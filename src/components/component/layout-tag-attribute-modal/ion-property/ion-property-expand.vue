@@ -6,7 +6,7 @@
       content-cols-sm
       content-cols-lg="8"
       description=""
-      label="expand"
+      label="Expand"
       label-for="input-horizontal"
   >
     <b-form-select v-model="value.readyProps.expand" :options="options" />
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       options: [
-        {value: '', text: 'Please select expand.'},
+        {value: '', text: 'Please select expand option.'},
         {value: "'block'", text: 'block'},
         {value: "'full'", text: 'full'},
       ]

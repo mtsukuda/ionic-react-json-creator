@@ -2,6 +2,8 @@
   <div v-if="tagTemp.editTag === 'IonButton'">
     <ion-property-color v-model="value" />
     <ion-property-expand v-model="value" />
+    <ion-property-fill v-model="value" />
+    <ion-property-size v-model="value" />
     <label for="inputIonButton" class="small"
     >Button Title</label
     >
@@ -21,9 +23,11 @@
 <script>
 import IonPropertyColor from "./ion-property/ion-property-color";
 import IonPropertyExpand from "./ion-property/ion-property-expand";
+import IonPropertyFill from "./ion-property/ion-property-fill";
+import IonPropertySize from "./ion-property/ion-property-size";
 export default {
   name: "attribute-ion-button",
-  components: {IonPropertyExpand, IonPropertyColor},
+  components: {IonPropertySize, IonPropertyFill, IonPropertyExpand, IonPropertyColor},
   props: {
     value: {},
     tagTemp: {},

@@ -5,11 +5,11 @@
       label-cols-lg="2"
       content-cols-sm
       content-cols-lg="8"
-      description="If true, a button tag will be rendered and the card will be tappable."
-      label="Button"
+      description=""
+      label="Size"
       label-for="input-horizontal"
   >
-    <b-form-select v-model="value.readyProps.button" :options="options" />
+    <b-form-select v-model="value.readyProps.size" :options="options" />
   </b-form-group>
 
 </div>
@@ -17,16 +17,17 @@
 
 <script>
 export default {
-  name: "ion-property-button",
+  name: "ion-property-size",
   props: {
     value: {},
   },
   data() {
     return {
       options: [
-        {value: '', text: 'Please select true/false.'},
-        {value: true, text: 'true'},
-        {value: false, text: 'false'}
+        {value: '', text: 'Please select size option.'},
+        {value: "'small'", text: 'small'},
+        {value: "'default'", text: 'default'},
+        {value: "'large'", text: 'large'},
       ]
     }
   }
