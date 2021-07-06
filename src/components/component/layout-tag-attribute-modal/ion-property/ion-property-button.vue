@@ -9,7 +9,7 @@
       label="button"
       label-for="input-horizontal"
   >
-    <b-form-select v-model="value.readyProps.button" :options="[{ value: true, text: 'true' },{ value: false, text: 'false' },]"></b-form-select>
+    <b-form-select v-model="value.readyProps.button" :options="options" />
   </b-form-group>
 
 </div>
@@ -21,6 +21,15 @@ export default {
   props: {
     value: {},
   },
+  data() {
+    return {
+      options: [
+        {value: '', text: 'Please select true/false.'},
+        {value: true, text: 'true'},
+        {value: false, text: 'false'}
+      ]
+    }
+  }
 }
 </script>
 
