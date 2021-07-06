@@ -1,6 +1,6 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCardSubtitle'">
-    <ion-property-color v-model="value"/>
+    <ion-property-color v-model="value" />
     <ion-property-mode v-model="value" />
     <label for="inputIonCardSubTitle" class="small"
     >Sub Title<b-form-checkbox

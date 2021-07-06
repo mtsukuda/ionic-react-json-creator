@@ -1,5 +1,7 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCardTitle'">
+    <ion-property-color v-model="value" />
+    <ion-property-mode v-model="value" />
     <label for="inputIonCardTitle" class="small"
     >Card Title<b-form-checkbox
         id="use-fetch-code"
@@ -29,8 +31,11 @@
 </template>
 
 <script>
+import IonPropertyColor from "./ion-property/ion-property-color";
+import IonPropertyMode from "./ion-property/ion-property-mode";
 export default {
   name: "attribute-ion-card-title",
+  components: {IonPropertyMode, IonPropertyColor},
   props: {
     value: {},
     tagTemp: {},
