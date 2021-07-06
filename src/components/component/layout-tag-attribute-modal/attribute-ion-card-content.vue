@@ -1,5 +1,6 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCardContent'">
+    <ion-property-mode v-model="value" />
     <label for="inputIonCardContent"
     >コンテンツ<b-form-checkbox
         id="use-fetch-code"
@@ -29,8 +30,10 @@
 </template>
 
 <script>
+import IonPropertyMode from "./ion-property/ion-property-mode";
 export default {
   name: "attribute-ion-card-content",
+  components: {IonPropertyMode},
   props: {
     value: {},
     tagTemp: {},
