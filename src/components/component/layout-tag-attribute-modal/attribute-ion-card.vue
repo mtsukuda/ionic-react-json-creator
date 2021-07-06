@@ -1,6 +1,5 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCard'">
-    <ion-property-button v-model="value" />
     <ion-property-color v-model="value" />
   </div>
 </template>
