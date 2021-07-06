@@ -10,6 +10,11 @@
       <h2>{{ value.tagTemp.editTag }}</h2>
     </div>
     <div class="modal-body">
+      <attribute-ion-card
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
       <attribute-ion-card-title
         v-model="input"
         v-bind:tag-temp="value.tagTemp"
@@ -65,6 +70,7 @@
 
 <script>
 import layoutTagAttributeModalProperty from "./layout-tag-attribute-modal-property";
+import AttributeIonCard from "./layout-tag-attribute-modal/attribute-ion-card";
 import AttributeIonCardTitle from "./layout-tag-attribute-modal/attribute-ion-card-title";
 import AttributeIonCardSubtitle from "./layout-tag-attribute-modal/attribute-ion-card-subtitle";
 import AttributeIonCardContent from "./layout-tag-attribute-modal/attribute-ion-card-content";
@@ -74,6 +80,7 @@ export default {
   mixins: [tag],
   components: {
     layoutTagAttributeModalProperty,
+    AttributeIonCard,
     AttributeIonCardTitle,
     AttributeIonCardSubtitle,
     AttributeIonCardContent,
