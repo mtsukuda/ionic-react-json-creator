@@ -113,6 +113,7 @@ export default {
         tag: newTag.tag,
         props: [],
         rawProps: "",
+        readyProps: {},
       };
       let targetTag = this.targetNode(this.configJson.tags, item.uid);
       this.$set(targetTag, "child", { tags: [] });
@@ -124,6 +125,7 @@ export default {
         tag: newTag.tag,
         props: [],
         rawProps: "",
+        readyProps: {},
       };
       this.ionAttributeArrangement(item, newTag);
       this.value.tags.push(item);

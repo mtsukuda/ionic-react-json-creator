@@ -193,6 +193,7 @@ export default {
                   tag: "IonCard",
                   props: [],
                   rawProps: "",
+                  readyProps: {},
                   child: {
                     tags: [
                       {
@@ -200,6 +201,7 @@ export default {
                         tag: "IonCardHeader",
                         props: [],
                         rawProps: "",
+                        readyProps: {},
                         child: {
                           tags: [
                             {
@@ -210,6 +212,7 @@ export default {
                               noCR: "yes",
                               props: [],
                               rawProps: "",
+                              readyProps: {},
                             },
                             {
                               uid: "",
@@ -219,6 +222,7 @@ export default {
                               noCR: "yes",
                               props: [],
                               rawProps: "",
+                              readyProps: {},
                             },
                           ],
                         },
@@ -230,6 +234,7 @@ export default {
                         content: "this.state.resCardData.data.content",
                         props: [],
                         rawProps: "",
+                        readyProps: {},
                       },
                     ],
                   },
