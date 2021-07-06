@@ -49,20 +49,22 @@ export default {
       targetTag["content"] = input.content;
       targetTag["readyProps"] = { ...input.readyProps };
       targetTag["rawProps"] = input.property;
-      targetTag["props"] = this.readyPropertyList(targetTag.readyProps);
-      targetTag["props"] +=
-        (targetTag["props"] ? " " : "") + this.propertyList(input.property);
+      if (targetTag.props) targetTag.props.splice(0);
+      this.readyPropertyList(targetTag["props"], targetTag.readyProps);
+      this.propertyList(targetTag["props"], input.property);
     },
-    readyPropertyList: function (readyProps) {
-      let result = "";
+    readyPropertyList: function (props, readyProps) {
       Object.keys(readyProps).forEach((key) => {
         if (readyProps[key] === "" || readyProps[key] === null) return;
-        result += (result ? " " : "") + `${key}=${readyProps[key]}`;
+        props.push(`${key}=${readyProps[key]}`);
       });
-      return result;
     },
-    propertyList: function (rawProperty) {
-      return rawProperty.split("\n");
+    propertyList: function (props, rawProperty) {
+      let splitProperty = rawProperty.split("\n");
+      splitProperty.forEach((val) => {
+        if (val === "") return;
+        props.push(val);
+      });
     },
   },
 };
