@@ -15,6 +15,11 @@
         v-bind:tag-temp="value.tagTemp"
         v-bind:fetch-temp="value.fetchTemp"
       />
+      <attribute-ion-card-header
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
       <attribute-ion-card-title
         v-model="input"
         v-bind:tag-temp="value.tagTemp"
@@ -75,10 +80,12 @@ import AttributeIonCardTitle from "./layout-tag-attribute-modal/attribute-ion-ca
 import AttributeIonCardSubtitle from "./layout-tag-attribute-modal/attribute-ion-card-subtitle";
 import AttributeIonCardContent from "./layout-tag-attribute-modal/attribute-ion-card-content";
 import tag from "../../mixin/tag";
+import AttributeIonCardHeader from "./layout-tag-attribute-modal/attribute-ion-card-header";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
+    AttributeIonCardHeader,
     layoutTagAttributeModalProperty,
     AttributeIonCard,
     AttributeIonCardTitle,
