@@ -26,7 +26,14 @@ export default {
       options: [
         {value: '', text: 'Please select color.'},
         {value: 'primary', text: 'primary'},
-        {value: 'secondary', text: 'secondary'}
+        {value: 'secondary', text: 'secondary'},
+        {value: 'tertiary', text: 'tertiary'},
+        {value: 'success', text: 'success'},
+        {value: 'warning', text: 'warning'},
+        {value: 'danger', text: 'danger'},
+        {value: 'light', text: 'light'},
+        {value: 'medium', text: 'medium'},
+        {value: 'dark', text: 'dark'},
       ]
     }
   }
