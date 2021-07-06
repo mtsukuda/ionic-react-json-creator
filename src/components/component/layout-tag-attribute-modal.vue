@@ -113,6 +113,8 @@ export default {
         this.value.tagTemp.editTagUID
       );
       if (targetTag.content) this.input.content = targetTag.content;
+      if (targetTag.readyProps)
+        this.input.readyProps = { ...targetTag.readyProps };
       if (targetTag.rawProps) this.input.property = targetTag.rawProps;
       this.$modal.show(this.modalId);
     },

@@ -3,9 +3,9 @@
     <b-form-checkbox
         id="use-fetch-code"
         name="use-fetch-code"
-        value="yes"
+        value="true"
         unchecked-value=""
-        v-model="value.code"
+        v-model="value.readyProps.button"
     >
       button
     </b-form-checkbox>

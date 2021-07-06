@@ -47,6 +47,7 @@ export default {
       let targetTag = this.targetNode(tags, tagUID);
       targetTag["code"] = input.code;
       targetTag["content"] = input.content;
+      targetTag["readyProps"] = { ...input.readyProps };
       targetTag["rawProps"] = input.property;
       targetTag["props"] = this.propertyList(input.property);
     },
