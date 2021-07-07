@@ -1,4 +1,9 @@
 export default {
+  data() {
+    return {
+      unUseTargets: ["content", "noCR"],
+    };
+  },
   methods: {
     compressImport: function (tags, importList) {
       tags.forEach((tag) => {
@@ -125,6 +130,18 @@ export default {
         }
       });
     },
+    deleteUnUseItem: function (tags) {
+      tags.forEach((tag) => {
+        for (let i = 0; i < this.unUseTargets.length; i++) {
+          if (tag[this.unUseTargets[i]] === "") {
+            delete tag[this.unUseTargets[i]];
+          }
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteUnUseItem(tag.child.tags);
+        }
+      });
+    },
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
@@ -150,6 +167,7 @@ export default {
       if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
       if (!showSwitch.tagUid) this.deleteTagUid(configShowJson.tags);
       if (!showSwitch.debug) this.deleteCodeTag(configShowJson.tags);
+      if (!showSwitch.debug) this.deleteUnUseItem(configShowJson.tags);
     },
     finalJson: function (originJson, showSwitch) {
       let importList = [];
