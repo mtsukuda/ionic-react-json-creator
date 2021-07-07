@@ -1,6 +1,7 @@
 export default {
   data() {
     return {
+      debugTargets: ["uid"],
       unUseTargets: ["content", "noCR"],
     };
   },
@@ -127,6 +128,18 @@ export default {
         }
         if (tag.child && tag.child.tags) {
           this.deleteRawProps(tag.child.tags);
+        }
+      });
+    },
+    deleteDebugItem: function (tags) {
+      tags.forEach((tag) => {
+        for (let i = 0; i < this.debugTargets.length; i++) {
+          if (tag[this.debugTargets[i]] !== undefined) {
+            delete tag[this.debugTargets[i]];
+          }
+        }
+        if (tag.child && tag.child.tags) {
+          this.deleteDebugItem(tag.child.tags);
         }
       });
     },
