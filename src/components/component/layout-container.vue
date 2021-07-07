@@ -111,6 +111,9 @@ export default {
       let child = {
         uid: this.uID(),
         tag: newTag.tag,
+        code: "",
+        content: "",
+        noCR: "",
         props: [],
         rawProps: "",
         readyProps: {},
@@ -123,6 +126,9 @@ export default {
       let item = {
         uid: this.uID(),
         tag: newTag.tag,
+        code: "",
+        content: "",
+        noCR: "",
         props: [],
         rawProps: "",
         readyProps: {},
