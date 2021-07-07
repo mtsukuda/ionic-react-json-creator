@@ -12,7 +12,7 @@
           size="sm"
           id="inputIonLabel"
           type="text"
-          placeholder="Card Title"
+          placeholder="Label Name"
           v-model="value.content"
       />
     </div>

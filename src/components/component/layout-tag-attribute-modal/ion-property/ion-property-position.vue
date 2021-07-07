@@ -6,7 +6,7 @@
       content-cols-sm
       content-cols-lg="8"
       description="The position determines where and how the label behaves inside an item."
-      label="Color"
+      label="Position"
       label-for="input-horizontal"
   >
     <b-form-select v-model="value.readyProps.position" :options="options" />

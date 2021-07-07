@@ -6,7 +6,7 @@
       content-cols-sm
       content-cols-lg="8"
       description="The mode determines which platform styles to use."
-      label="Color"
+      label="Mode"
       label-for="input-horizontal"
   >
     <b-form-select v-model="value.readyProps.mode" :options="options" />
