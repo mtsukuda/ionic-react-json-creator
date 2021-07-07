@@ -1,7 +1,7 @@
 export default {
   data() {
     return {
-      debugTargets: ["uid"],
+      debugTargets: ["uid", "code", "rawProps", "readyProps"],
       unUseTargets: ["content", "noCR"],
     };
   },
@@ -101,36 +101,6 @@ export default {
     deleteTagTemp: function (value) {
       delete value.tagTemp;
     },
-    deleteTagUid: function (tags) {
-      tags.forEach((tag) => {
-        if (tag.uid !== undefined) {
-          delete tag.uid;
-        }
-        if (tag.child && tag.child.tags) {
-          this.deleteTagUid(tag.child.tags);
-        }
-      });
-    },
-    deleteCodeTag: function (tags) {
-      tags.forEach((tag) => {
-        if (tag.code !== undefined) {
-          delete tag.code;
-        }
-        if (tag.child && tag.child.tags) {
-          this.deleteCodeTag(tag.child.tags);
-        }
-      });
-    },
-    deleteRawProps: function (tags) {
-      tags.forEach((tag) => {
-        if (tag.rawProps !== undefined) {
-          delete tag.rawProps;
-        }
-        if (tag.child && tag.child.tags) {
-          this.deleteRawProps(tag.child.tags);
-        }
-      });
-    },
     deleteDebugItem: function (tags) {
       tags.forEach((tag) => {
         for (let i = 0; i < this.debugTargets.length; i++) {
@@ -169,18 +139,15 @@ export default {
     formattedJson: function (configShowJson, showSwitch) {
       delete configShowJson.update;
       this.contentToCode(configShowJson.tags);
-      if (!showSwitch.tags) delete configShowJson.tags;
-      if (!showSwitch.imports) delete configShowJson.import;
-      if (!showSwitch.fetch) delete configShowJson.fetch;
-      if (showSwitch.tags && !showSwitch.debug)
-        this.deleteRawProps(configShowJson.tags);
       if (showSwitch.fetch && !showSwitch.debug)
         this.deleteInfoLifeCycleMethods(configShowJson.fetch);
       if (!showSwitch.debug) this.deleteFetchTemp(configShowJson);
       if (!showSwitch.debug) this.deleteTagTemp(configShowJson);
-      if (!showSwitch.tagUid) this.deleteTagUid(configShowJson.tags);
-      if (!showSwitch.debug) this.deleteCodeTag(configShowJson.tags);
+      if (!showSwitch.debug) this.deleteDebugItem(configShowJson.tags);
       if (!showSwitch.debug) this.deleteUnUseItem(configShowJson.tags);
+      if (!showSwitch.tags) delete configShowJson.tags;
+      if (!showSwitch.imports) delete configShowJson.import;
+      if (!showSwitch.fetch) delete configShowJson.fetch;
     },
     finalJson: function (originJson, showSwitch) {
       let importList = [];
