@@ -45,6 +45,11 @@
         v-bind:tag-temp="value.tagTemp"
         v-bind:fetch-temp="value.fetchTemp"
       />
+      <attribute-ion-chip
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
       <div v-if="value.tagTemp.editTag === 'div'">
         <label for="inputDiv">コンテンツ</label>
         <div class="col-sm">
@@ -93,10 +98,12 @@ import AttributeIonCardSubtitle from "./layout-tag-attribute-modal/attribute-ion
 import AttributeIonCardContent from "./layout-tag-attribute-modal/attribute-ion-card-content";
 import AttributeIonButton from "./layout-tag-attribute-modal/attribute-ion-button";
 import AttributeIonLabel from "./layout-tag-attribute-modal/attribute-ion-label";
+import AttributeIonChip from "./layout-tag-attribute-modal/attribute-ion-chip";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
+    AttributeIonChip,
     AttributeIonLabel,
     AttributeIonCard,
     AttributeIonCardHeader,
