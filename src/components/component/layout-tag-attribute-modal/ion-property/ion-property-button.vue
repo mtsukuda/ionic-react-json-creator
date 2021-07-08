@@ -25,8 +25,8 @@ export default {
     return {
       options: [
         {value: '', text: 'Please select true/false.'},
-        {value: true, text: 'true'},
-        {value: false, text: 'false'}
+        {value: "{true}", text: 'true'},
+        {value: "{false}", text: 'false'}
       ]
     }
   }
