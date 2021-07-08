@@ -6,7 +6,7 @@
       content-cols-sm
       content-cols-lg="8"
       description="Specifies where to display the linked URL. Only applies when an href is provided. "
-      label="Vertical"
+      label="Target"
       label-for="input-target"
   >
     <b-form-select v-model="value.readyProps.target" :options="options" />
