@@ -5,7 +5,7 @@
       label-cols-lg="2"
       content-cols-sm
       content-cols-lg="8"
-      description="The color to use from your application's color palette."
+      description="The icon name to use for the close icon. This will appear when the fab button is pressed. Only applies if it is the main button inside of a fab containing a fab list."
       label="Close Icon"
       label-for="input-horizontal"
   >
