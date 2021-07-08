@@ -6,10 +6,10 @@
       content-cols-sm
       content-cols-lg="8"
       description="If true, the user cannot interact with the component."
-      label="Disable"
-      label-for="input-disable"
+      label="Disabled"
+      label-for="input-disabled"
   >
-    <b-form-select v-model="value.readyProps.disable" :options="options" />
+    <b-form-select v-model="value.readyProps.disabled" :options="options" />
   </b-form-group>
 
 </div>
@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "ion-property-disable",
+  name: "ion-property-disabled",
   props: {
     value: {},
   },
