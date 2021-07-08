@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description=""
       label="Expand"
-      label-for="input-horizontal"
+      label-for="input-expand"
   >
     <b-form-select v-model="value.readyProps.expand" :options="options" />
   </b-form-group>

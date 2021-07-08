@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="When using a router, it specifies the transition animation when navigating to another page using href."
       label="Router Animation"
-      label-for="input-vertical"
+      label-for="input-router-animation"
   >
     <b-form-select v-model="value.readyProps.routerAnimation" :options="options" />
   </b-form-group>

@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="When using a router, it specifies the transition direction when navigating to another page using href."
       label="Router Direction"
-      label-for="input-vertical"
+      label-for="input-router-direction"
   >
     <b-form-select v-model="value.readyProps.routerDirection" :options="options" />
   </b-form-group>

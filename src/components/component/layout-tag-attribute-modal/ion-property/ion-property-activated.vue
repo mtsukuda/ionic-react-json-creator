@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="If true, both the ion-fab-button and all ion-fab-list inside ion-fab will become active. That means ion-fab-button will become a close icon and ion-fab-list will become visible."
       label="Activated"
-      label-for="input-horizontal"
+      label-for="input-activated"
   >
     <b-form-select v-model="value.readyProps.activated" :options="options" />
   </b-form-group>

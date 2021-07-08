@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="If true, a button tag will be rendered and the card will be tappable."
       label="Button"
-      label-for="input-horizontal"
+      label-for="input-button"
   >
     <b-form-select v-model="value.readyProps.button" :options="options" />
   </b-form-group>

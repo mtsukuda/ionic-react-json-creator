@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description='If true, the fab will display on the edge of the header if vertical is "top", and on the edge of the footer if it is "bottom". Should be used with a fixed slot.'
       label="Edge"
-      label-for="input-horizontal"
+      label-for="input-edge"
   >
     <b-form-select v-model="value.readyProps.edge" :options="options" />
   </b-form-group>

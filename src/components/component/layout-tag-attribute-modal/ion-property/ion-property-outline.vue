@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="Display an outline style button."
       label="Outline"
-      label-for="input-horizontal"
+      label-for="input-outline"
   >
     <b-form-select v-model="value.readyProps.outline" :options="options" />
   </b-form-group>

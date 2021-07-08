@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description=""
       label="Fill"
-      label-for="input-horizontal"
+      label-for="input-fill"
   >
     <b-form-select v-model="value.readyProps.fill" :options="options" />
   </b-form-group>

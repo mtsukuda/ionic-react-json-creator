@@ -7,7 +7,7 @@
       content-cols-lg="8"
       description="If true, the user cannot interact with the component."
       label="Disable"
-      label-for="input-horizontal"
+      label-for="input-disable"
   >
     <b-form-select v-model="value.readyProps.disable" :options="options" />
   </b-form-group>
