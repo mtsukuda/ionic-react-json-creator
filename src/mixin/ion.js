@@ -22,6 +22,9 @@ export default {
         { tag: "IonButton", label: "IonButton", noCR: "yes" },
         { tag: "IonImg", label: "IonImg", noCR: "yes" },
         { tag: "IonChip", label: "IonChip" },
+        { tag: "IonFab", label: "IonFab" },
+        { tag: "IonFabButton", label: "IonFabButton" },
+        { tag: "IonFabList", label: "IonFabList" },
       ],
       ionIcons: [
         "add-circle-outline",
