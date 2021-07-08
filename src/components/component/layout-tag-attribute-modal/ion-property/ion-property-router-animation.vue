@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: "ion-property-vertical",
+  name: "ion-property-router-animation",
   props: {
     value: {},
   },

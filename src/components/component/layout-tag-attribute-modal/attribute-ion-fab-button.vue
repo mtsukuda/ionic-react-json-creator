@@ -3,33 +3,48 @@
     <ion-property-activated v-model="value" />
     <ion-property-close-icon v-model="value" />
     <ion-property-color v-model="value" />
-    <ion-property-disable v-model="value" />
-
-    <label for="inputIonCardSubTitle" class="small"
-    >Sub Title<b-form-checkbox
-        id="use-fetch-code"
-        name="use-fetch-code"
-        value="yes"
-        unchecked-value=""
-        v-model="value.code"
-    >
-      Use Fetch Code
-    </b-form-checkbox></label
-    >
+    <ion-property-disabled v-model="value" />
+    <label for="inputIonFabButtonDownload" class="small">Download</label>
     <div class="col-sm">
       <input
           class="form-control"
           size="sm"
-          id="inputIonCardSubTitle"
+          id="inputIonFabButtonDownload"
           type="text"
-          placeholder="Sub Title"
-          v-model="value.content"
-          list="list-response"
+          placeholder="Download URL"
+          v-model="value.download"
       />
     </div>
-    <datalist id="list-response">
-      <option v-for="list in fetchTemp.responseList">{{ list }}</option>
-    </datalist>
+    <label for="inputIonFabButtonHref" class="small">href</label>
+    <div class="col-sm">
+      <input
+          class="form-control"
+          size="sm"
+          id="inputIonFabButtonHref"
+          type="text"
+          placeholder="href"
+          v-model="value.href"
+      />
+    </div>
+    <ion-property-mode v-model="value" />
+    <label for="inputIonFabButtonRel" class="small">rel</label>
+    <div class="col-sm">
+      <input
+          class="form-control"
+          size="sm"
+          id="inputIonFabButtonRel"
+          type="text"
+          placeholder="link type"
+          v-model="value.rel"
+      />
+    </div>
+    <ion-property-router-animation v-model="value" />
+    <ion-property-router-direction v-model="value" />
+    <ion-property-show v-model="value" />
+    <ion-property-size v-model="value" />
+    <ion-property-target v-model="value" />
+    <ion-property-translucent v-model="value" />
+    <ion-property-type v-model="value" />
   </div>
 </template>
 
@@ -37,10 +52,26 @@
 import IonPropertyActivated from "./ion-property/ion-property-activated";
 import IonPropertyCloseIcon from "./ion-property/ion-property-close-icon";
 import IonPropertyColor from "./ion-property/ion-property-color";
-import IonPropertyDisable from "./ion-property/ion-property-disabled";
+import IonPropertyDisabled from "./ion-property/ion-property-disabled";
+import IonPropertyMode from "./ion-property/ion-property-mode";
+import IonPropertyRouterAnimation from "./ion-property/ion-property-router-animation";
+import IonPropertyRouterDirection from "./ion-property/ion-property-router-direction";
+import IonPropertyShow from "./ion-property/ion-property-show";
+import IonPropertySize from "./ion-property/ion-property-size";
+import IonPropertyTarget from "./ion-property/ion-property-target";
+import IonPropertyTranslucent from "./ion-property/ion-property-translucent";
+import IonPropertyType from "./ion-property/ion-property-type";
 export default {
   name: "attribute-ion-fab-button",
-  components: {IonPropertyDisable, IonPropertyColor, IonPropertyCloseIcon, IonPropertyActivated},
+  components: {
+    IonPropertyType,
+    IonPropertyTranslucent,
+    IonPropertyTarget,
+    IonPropertySize,
+    IonPropertyShow,
+    IonPropertyRouterDirection,
+    IonPropertyRouterAnimation,
+    IonPropertyMode, IonPropertyDisabled, IonPropertyColor, IonPropertyCloseIcon, IonPropertyActivated},
   props: {
     value: {},
     tagTemp: {},
