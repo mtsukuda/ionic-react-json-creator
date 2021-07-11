@@ -22,30 +22,17 @@
           id="input-url"
           placeholder="link-something"
         />
-        <label for="inputMenuIcon"
-          >Menu Icon
-          <div>
-            <small
-              ><a href="https://ionic.io/ionicons/v4" target="_blank"
-                >Ionic Icon Reference</a
-              ></small
-            >
-          </div></label
-        >
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputMenuIcon"
-            type="text"
-            placeholder="Menu Icon"
-            v-model="value.json.menuTemp.icon"
-            list="list-icon"
-            onfocus="this.select()"
-          />
-          <datalist id="list-icon">
-            <option v-for="icon in ionIcons">{{ icon }}</option>
-          </datalist>
-        </div>
+        <menu-config-property-general-input-datalist
+          v-model="value"
+          model-key="icon"
+          label="Menu Icon"
+          id="input-icon"
+          placeholder="Icon Name"
+          data-list-name="list-icon"
+          :data-list="ionIcons"
+          link-description="Ionic Icon Reference"
+          link-description-url="https://ionic.io/ionicons/v4"
+        />
         <label for="inputMenuComponent">Component</label>
         <div class="col-sm mb-2">
           <input
@@ -91,10 +78,14 @@
 import tag from "../../mixin/tag";
 import ion from "../../mixin/ion";
 import MenuConfigPropertyGeneralInput from "./menu-config/menu-config-property-general-input";
+import MenuConfigPropertyGeneralInputDatalist from "./menu-config/menu-config-property-general-input-datalist";
 
 export default {
   name: "menu-config-modal",
-  components: { MenuConfigPropertyGeneralInput },
+  components: {
+    MenuConfigPropertyGeneralInputDatalist,
+    MenuConfigPropertyGeneralInput,
+  },
   mixins: [tag, ion],
   props: {
     value: {},
