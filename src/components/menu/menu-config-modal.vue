@@ -8,26 +8,20 @@
   >
     <div class="modal-body">
       <div>
-        <label for="inputMenuCaption">Menu Title</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputMenuCaption"
-            type="text"
-            placeholder="Menu Title"
-            v-model="value.json.menuTemp.strTitle"
-          />
-        </div>
-        <label for="inputMenuURL">URL</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputMenuURL"
-            type="text"
-            placeholder="myPage"
-            v-model="value.json.menuTemp.strUrl"
-          />
-        </div>
+        <menu-config-property-general-input
+          v-model="value"
+          model-key="strTitle"
+          label="Menu Title"
+          id="input-menu"
+          placeholder="The Menu Title"
+        />
+        <menu-config-property-general-input
+          v-model="value"
+          model-key="strUrl"
+          label="URL"
+          id="input-url"
+          placeholder="link-something"
+        />
         <label for="inputMenuIcon"
           >Menu Icon
           <div>
@@ -46,6 +40,7 @@
             placeholder="Menu Icon"
             v-model="value.json.menuTemp.icon"
             list="list-icon"
+            onfocus="this.select()"
           />
           <datalist id="list-icon">
             <option v-for="icon in ionIcons">{{ icon }}</option>
@@ -60,6 +55,7 @@
             placeholder="Component Name"
             v-model="value.json.menuTemp.component"
             list="list-component"
+            onfocus="this.select()"
           />
           <datalist id="list-component">
             <option v-for="component in value.json.components">
@@ -94,9 +90,11 @@
 <script>
 import tag from "../../mixin/tag";
 import ion from "../../mixin/ion";
+import MenuConfigPropertyGeneralInput from "./menu-config/menu-config-property-general-input";
 
 export default {
   name: "menu-config-modal",
+  components: { MenuConfigPropertyGeneralInput },
   mixins: [tag, ion],
   props: {
     value: {},
