@@ -33,18 +33,27 @@
           link-description="Ionic Icon Reference"
           link-description-url="https://ionic.io/ionicons/v4"
         />
-        <label for="inputMenuComponent">Component</label>
-        <div class="col-sm mb-2">
-          <input
-            class="form-control input-sm"
-            id="inputMenuComponent"
-            type="text"
-            placeholder="Component Name"
-            v-model="value.json.menuTemp.component"
-            list="list-component"
-            onfocus="this.select()"
-          />
-          <datalist id="list-component">
+        <div>
+          <b-form-group
+            label-cols-sm="2"
+            label-cols-lg="2"
+            content-cols-sm="9"
+            content-cols-lg="9"
+            label="Component"
+            label-for="input-component"
+          >
+            <input
+              class="form-control"
+              size="sm"
+              id="input-component"
+              type="text"
+              placeholder="Component Name"
+              v-model="value.json.menuTemp.component"
+              list="list-components"
+              onfocus="this.select()"
+            />
+          </b-form-group>
+          <datalist id="list-components">
             <option v-for="component in value.json.components">
               {{ component }}
             </option>
