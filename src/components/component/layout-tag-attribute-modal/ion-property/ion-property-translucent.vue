@@ -1,15 +1,14 @@
 <template>
 <div>
   <b-form-group
-      label-cols-sm="2"
-      label-cols-lg="2"
-      content-cols-sm
-      content-cols-lg="8"
+      label-cols-sm="3"
+      label-cols-lg="3"
+      content-cols-sm="7"
+      content-cols-lg="7"
       description='If true, the fab button will be translucent. Only applies when the mode is "ios" and the device supports backdrop-filter.'
       label="Translucent"
-      label-for="input-translucent"
   >
-    <b-form-select v-model="value.readyProps.translucent" :options="options" />
+    <b-form-select v-model="value.readyProps.translucent" :options="options" size="sm" />
   </b-form-group>
 
 </div>

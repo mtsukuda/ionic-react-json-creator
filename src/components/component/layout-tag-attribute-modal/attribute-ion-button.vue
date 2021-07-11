@@ -4,17 +4,15 @@
     <ion-property-expand v-model="value" />
     <ion-property-fill v-model="value" />
     <ion-property-size v-model="value" />
-    <label for="inputIonButton" class="small"
-    >Button Title</label
-    >
+    <label for="inputIonButton" class="small">Button Title</label>
     <div class="col-sm">
       <input
-          class="form-control"
-          size="sm"
-          id="inputIonButton"
-          type="text"
-          placeholder="A button"
-          v-model="value.content"
+        class="form-control"
+        size="sm"
+        id="inputIonButton"
+        type="text"
+        placeholder="A button"
+        v-model="value.content"
       />
     </div>
   </div>
@@ -27,15 +25,18 @@ import IonPropertyFill from "./ion-property/ion-property-fill";
 import IonPropertySize from "./ion-property/ion-property-size";
 export default {
   name: "attribute-ion-button",
-  components: {IonPropertySize, IonPropertyFill, IonPropertyExpand, IonPropertyColor},
+  components: {
+    IonPropertySize,
+    IonPropertyFill,
+    IonPropertyExpand,
+    IonPropertyColor,
+  },
   props: {
     value: {},
     tagTemp: {},
-    fetchTemp: {}
+    fetchTemp: {},
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

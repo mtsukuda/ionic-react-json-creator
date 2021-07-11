@@ -10,15 +10,13 @@ import IonPropertyColor from "./ion-property/ion-property-color";
 import IonPropertyMode from "./ion-property/ion-property-mode";
 export default {
   name: "attribute-ion-card-header",
-  components: {IonPropertyColor, IonPropertyMode},
+  components: { IonPropertyColor, IonPropertyMode },
   props: {
     value: {},
     tagTemp: {},
-    fetchTemp: {}
+    fetchTemp: {},
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

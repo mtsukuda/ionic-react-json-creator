@@ -4,40 +4,28 @@
     <ion-property-close-icon v-model="value" />
     <ion-property-color v-model="value" />
     <ion-property-disabled v-model="value" />
-    <label for="inputIonFabButtonDownload" class="small">Download</label>
-    <div class="col-sm">
-      <input
-          class="form-control"
-          size="sm"
-          id="inputIonFabButtonDownload"
-          type="text"
-          placeholder="Download URL"
-          v-model="value.download"
-      />
-    </div>
-    <label for="inputIonFabButtonHref" class="small">href</label>
-    <div class="col-sm">
-      <input
-          class="form-control"
-          size="sm"
-          id="inputIonFabButtonHref"
-          type="text"
-          placeholder="href"
-          v-model="value.href"
-      />
-    </div>
+    <ion-property-general-input
+      v-model="value"
+      model-key="download"
+      label="Download"
+      id="input-download-url"
+      placeholder="http://something.com"
+    />
+    <ion-property-general-input
+      v-model="value"
+      model-key="href"
+      label="href"
+      id="input-download-href"
+      placeholder="href"
+    />
     <ion-property-mode v-model="value" />
-    <label for="inputIonFabButtonRel" class="small">rel</label>
-    <div class="col-sm">
-      <input
-          class="form-control"
-          size="sm"
-          id="inputIonFabButtonRel"
-          type="text"
-          placeholder="link type"
-          v-model="value.rel"
-      />
-    </div>
+    <ion-property-general-input
+      v-model="value"
+      model-key="rel"
+      label="rel"
+      id="input-download-rel"
+      placeholder="link type"
+    />
     <ion-property-router-animation v-model="value" />
     <ion-property-router-direction v-model="value" />
     <ion-property-show v-model="value" />
@@ -61,9 +49,11 @@ import IonPropertySize from "./ion-property/ion-property-size";
 import IonPropertyTarget from "./ion-property/ion-property-target";
 import IonPropertyTranslucent from "./ion-property/ion-property-translucent";
 import IonPropertyType from "./ion-property/ion-property-type";
+import IonPropertyGeneralInput from "./ion-property/ion-property-general-input";
 export default {
   name: "attribute-ion-fab-button",
   components: {
+    IonPropertyGeneralInput,
     IonPropertyType,
     IonPropertyTranslucent,
     IonPropertyTarget,
@@ -71,15 +61,18 @@ export default {
     IonPropertyShow,
     IonPropertyRouterDirection,
     IonPropertyRouterAnimation,
-    IonPropertyMode, IonPropertyDisabled, IonPropertyColor, IonPropertyCloseIcon, IonPropertyActivated},
+    IonPropertyMode,
+    IonPropertyDisabled,
+    IonPropertyColor,
+    IonPropertyCloseIcon,
+    IonPropertyActivated,
+  },
   props: {
     value: {},
     tagTemp: {},
-    fetchTemp: {}
+    fetchTemp: {},
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

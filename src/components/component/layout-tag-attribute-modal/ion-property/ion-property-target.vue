@@ -1,15 +1,14 @@
 <template>
 <div>
   <b-form-group
-      label-cols-sm="2"
-      label-cols-lg="2"
-      content-cols-sm
-      content-cols-lg="8"
+      label-cols-sm="3"
+      label-cols-lg="3"
+      content-cols-sm="7"
+      content-cols-lg="7"
       description="Specifies where to display the linked URL. Only applies when an href is provided. "
       label="Target"
-      label-for="input-target"
   >
-    <b-form-select v-model="value.readyProps.target" :options="options" />
+    <b-form-select v-model="value.readyProps.target" :options="options" size="sm" />
   </b-form-group>
 
 </div>

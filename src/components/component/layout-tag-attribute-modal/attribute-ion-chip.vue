@@ -14,15 +14,18 @@ import IonPropertyDisabled from "./ion-property/ion-property-disabled";
 import IonPropertyOutline from "./ion-property/ion-property-outline";
 export default {
   name: "attribute-ion-chip",
-  components: {IonPropertyOutline, IonPropertyDisabled, IonPropertyColor, IonPropertyMode},
+  components: {
+    IonPropertyOutline,
+    IonPropertyDisabled,
+    IonPropertyColor,
+    IonPropertyMode,
+  },
   props: {
     value: {},
     tagTemp: {},
-    fetchTemp: {}
+    fetchTemp: {},
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

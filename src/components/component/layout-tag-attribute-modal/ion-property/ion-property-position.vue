@@ -1,15 +1,14 @@
 <template>
 <div>
   <b-form-group
-      label-cols-sm="2"
-      label-cols-lg="2"
-      content-cols-sm
-      content-cols-lg="8"
+      label-cols-sm="3"
+      label-cols-lg="3"
+      content-cols-sm="7"
+      content-cols-lg="7"
       description="The position determines where and how the label behaves inside an item."
       label="Position"
-      label-for="input-position"
   >
-    <b-form-select v-model="value.readyProps.position" :options="options" />
+    <b-form-select v-model="value.readyProps.position" :options="options" size="sm" />
   </b-form-group>
 
 </div>

@@ -14,15 +14,18 @@ import IonPropertyHorizontal from "./ion-property/ion-property-horizontal";
 import IonPropertyVertical from "./ion-property/ion-property-vertical";
 export default {
   name: "attribute-ion-fab",
-  components: {IonPropertyVertical, IonPropertyHorizontal, IonPropertyEdge, IonPropertyActivated},
+  components: {
+    IonPropertyVertical,
+    IonPropertyHorizontal,
+    IonPropertyEdge,
+    IonPropertyActivated,
+  },
   props: {
     value: {},
     tagTemp: {},
-    fetchTemp: {}
+    fetchTemp: {},
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

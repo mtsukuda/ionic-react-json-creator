@@ -1,15 +1,14 @@
 <template>
 <div>
   <b-form-group
-      label-cols-sm="2"
-      label-cols-lg="2"
-      content-cols-sm
-      content-cols-lg="8"
+      label-cols-sm="3"
+      label-cols-lg="3"
+      content-cols-sm="7"
+      content-cols-lg="7"
       description="The color to use from your application's color palette."
       label="Color"
-      label-for="input-color"
   >
-    <b-form-select v-model="value.readyProps.color" :options="options" />
+    <b-form-select v-model="value.readyProps.color" :options="options" size="sm" />
   </b-form-group>
 
 </div>
