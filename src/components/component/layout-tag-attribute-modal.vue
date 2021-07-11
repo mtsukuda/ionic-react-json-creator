@@ -70,22 +70,11 @@
         v-bind:tag-temp="value.tagTemp"
         v-bind:fetch-temp="value.fetchTemp"
       />
-      <div v-if="value.tagTemp.editTag === 'div'">
-        <label for="inputDiv">コンテンツ</label>
-        <div class="col-sm">
-          <input
-            class="form-control"
-            size="sm"
-            id="inputDiv"
-            type="text"
-            placeholder="コンテンツ"
-            v-model="input.content"
-          />
-        </div>
-      </div>
-      <!--      <div v-else>-->
-      <!--        <p class="small">プロパティはありません</p>-->
-      <!--      </div>-->
+      <attribute-html-div
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
       <layout-tag-attribute-modal-property v-model="input" />
     </div>
     <datalist id="list-response">
@@ -123,10 +112,12 @@ import AttributeIonFab from "./layout-tag-attribute-modal/attribute-ion-fab";
 import AttributeIonFabButton from "./layout-tag-attribute-modal/attribute-ion-fab-button";
 import AttributeIonFabList from "./layout-tag-attribute-modal/attribute-ion-fab-list";
 import AttributeIonIcon from "./layout-tag-attribute-modal/attribute-ion-icon";
+import AttributeHtmlDiv from "./layout-tag-attribute-modal/attribute-html-div";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
+    AttributeHtmlDiv,
     AttributeIonIcon,
     AttributeIonFabList,
     AttributeIonFabButton,

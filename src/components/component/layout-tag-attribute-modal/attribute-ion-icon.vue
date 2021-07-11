@@ -9,7 +9,7 @@
       label="Icons"
     >
       <b-form-select
-        v-model="value.readyProps.icons"
+        v-model="value.readyProps.icon"
         :options="options"
         size="sm"
       />
