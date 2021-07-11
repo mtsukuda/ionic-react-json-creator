@@ -6,13 +6,20 @@
       content-cols-sm="7"
       content-cols-lg="7"
       description=""
-      label="Icons"
+      label="Icon"
     >
       <b-form-select
         v-model="value.readyProps.icon"
         :options="options"
         size="sm"
       />
+      <div>
+        <small
+          ><a href="https://ionic.io/ionicons/v4" target="_blank"
+            >Ionic Icon Reference</a
+          ></small
+        >
+      </div>
     </b-form-group>
   </div>
 </template>
@@ -32,7 +39,18 @@ export default {
     options() {
       let result = [];
       this.ionIcons.forEach((icon) => {
-        result.push({ value: `{${icon}}`, text: icon });
+        const _ = require("lodash");
+        let iconValue = _.camelCase(icon);
+        result.push({ value: `{${iconValue}}`, text: iconValue });
+        if (icon.indexOf("logo") === 0) return;
+        result.push({
+          value: `{${iconValue}Outline}`,
+          text: `${iconValue}Outline`,
+        });
+        result.push({
+          value: `{${iconValue}Sharp}`,
+          text: `${iconValue}Sharp`,
+        });
       });
       return result;
     },

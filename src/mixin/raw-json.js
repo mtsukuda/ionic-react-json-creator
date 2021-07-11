@@ -43,6 +43,21 @@ export default {
         });
       }
     },
+    iconImport: function (tags, importList) {
+      tags.forEach((tag) => {
+        if (this.isIonIcon(tag.tag)) {
+          tag.props.forEach((prop) => {
+            if (prop.indexOf("icon={") !== -1) {
+              let tempProp = prop.split("{")[1];
+              importList.push(this.ionIconImport(tempProp.slice(0, -1)));
+            }
+          });
+        }
+        if (tag.child && tag.child.tags) {
+          this.iconImport(tag.child.tags, importList);
+        }
+      });
+    },
     lifeCycleMethodCalls: function (fetch, lifeCycleMethods) {
       fetch.forEach((fetchSet) => {
         if (fetchSet.lifeCycleMethods) {
@@ -128,10 +143,21 @@ export default {
     isIon: function (tag) {
       return !tag.indexOf("Ion");
     },
+    isIonIcon: function (tag) {
+      return tag === "IonIcon";
+    },
     ionImport: function (tag) {
       return {
         name: tag,
         from: "@ionic/react",
+        type: "package",
+        props: [],
+      };
+    },
+    ionIconImport: function (icon) {
+      return {
+        name: icon,
+        from: "ionicons/icons",
         type: "package",
         props: [],
       };
@@ -152,6 +178,7 @@ export default {
     finalJson: function (originJson, showSwitch) {
       let importList = [];
       this.compressImport(originJson.tags, importList);
+      this.iconImport(originJson.tags, importList);
       originJson.import = importList;
       originJson.lifeCycleMethods.splice(0);
       this.lifeCycleMethodCalls(originJson.fetch, originJson.lifeCycleMethods);
