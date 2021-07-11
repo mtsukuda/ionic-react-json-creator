@@ -32,7 +32,7 @@ export default {
     options() {
       let result = [];
       this.ionIcons.forEach((icon) => {
-        result.push({ value: `'${icon}'`, text: icon });
+        result.push({ value: `{${icon}}`, text: icon });
       });
       return result;
     },
