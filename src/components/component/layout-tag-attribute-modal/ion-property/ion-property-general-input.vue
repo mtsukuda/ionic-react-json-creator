@@ -1,6 +1,6 @@
 <template>
-<div>
-  <b-form-group
+  <div>
+    <b-form-group
       label-cols-sm="3"
       label-cols-lg="3"
       content-cols-sm="7"
@@ -8,18 +8,17 @@
       :description="description"
       :label="label"
       :label-for="id"
-  >
-    <input
+    >
+      <input
         class="form-control"
         size="sm"
         :id="id"
         type="text"
         :placeholder="placeholder"
         v-model="value.readyProps[modelKey]"
-    />
-  </b-form-group>
-
-</div>
+      />
+    </b-form-group>
+  </div>
 </template>
 
 <script>
@@ -31,11 +30,9 @@ export default {
     label: "",
     id: "",
     description: "",
-    placeholder: ""
+    placeholder: "",
   },
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
