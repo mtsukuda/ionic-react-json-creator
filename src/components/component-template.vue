@@ -9,7 +9,7 @@
           block
           variant="outline-primary"
           v-on:click="backToComponentList"
-          ><b-icon icon="arrow-up"
+          ><b-icon icon="arrow90deg-up"
         /></b-button>
       </div>
       <div class="col-6 d-flex align-items-center">
