@@ -60,6 +60,11 @@
         v-bind:tag-temp="value.tagTemp"
         v-bind:fetch-temp="value.fetchTemp"
       />
+      <attribute-ion-fab-list
+        v-model="input"
+        v-bind:tag-temp="value.tagTemp"
+        v-bind:fetch-temp="value.fetchTemp"
+      />
       <div v-if="value.tagTemp.editTag === 'div'">
         <label for="inputDiv">コンテンツ</label>
         <div class="col-sm">
@@ -111,10 +116,12 @@ import AttributeIonLabel from "./layout-tag-attribute-modal/attribute-ion-label"
 import AttributeIonChip from "./layout-tag-attribute-modal/attribute-ion-chip";
 import AttributeIonFab from "./layout-tag-attribute-modal/attribute-ion-fab";
 import AttributeIonFabButton from "./layout-tag-attribute-modal/attribute-ion-fab-button";
+import AttributeIonFabList from "./layout-tag-attribute-modal/attribute-ion-fab-list";
 export default {
   name: "layout-tag-attribute-modal",
   mixins: [tag],
   components: {
+    AttributeIonFabList,
     AttributeIonFabButton,
     AttributeIonFab,
     AttributeIonChip,
