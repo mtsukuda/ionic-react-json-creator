@@ -1,39 +1,24 @@
 <template>
   <div v-if="tagTemp.editTag === 'IonCardContent'">
     <ion-property-mode v-model="value" />
-    <label for="inputIonCardContent"
-      >コンテンツ<b-form-checkbox
-        id="use-fetch-code"
-        name="use-fetch-code"
-        value="yes"
-        unchecked-value=""
-        v-model="value.code"
-      >
-        Use Fetch Code
-      </b-form-checkbox></label
-    >
-    <div class="col-sm">
-      <input
-        class="form-control"
-        size="sm"
-        id="inputIonCardContent"
-        type="text"
-        placeholder="コンテンツ：改行させたい場合は<br />で改行"
-        v-model="value.content"
-        list="list-response"
-      />
-    </div>
-    <datalist id="list-response">
-      <option v-for="list in fetchTemp.responseList">{{ list }}</option>
-    </datalist>
+    <ion-property-content
+      v-model="value"
+      id="input-content"
+      label="Content"
+      description="If you want to start a new line, use <br /> to start a new line."
+      placeholder="The Content."
+      dataListName="responseList"
+      :data-list="fetchTemp.responseList"
+    />
   </div>
 </template>
 
 <script>
 import IonPropertyMode from "./ion-property/ion-property-mode";
+import IonPropertyContent from "./ion-property/ion-property-content";
 export default {
   name: "attribute-ion-card-content",
-  components: { IonPropertyMode },
+  components: { IonPropertyContent, IonPropertyMode },
   props: {
     value: {},
     tagTemp: {},
